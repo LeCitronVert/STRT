@@ -10,6 +10,9 @@ public class Personnage {
     int health;
     int actions;
     int attack;
+
+
+
     ProgressBar healthbar;
 
     public Personnage(int sante, int actionsdispo, int atk, ProgressBar barredevie){
@@ -29,4 +32,7 @@ public class Personnage {
         defenseur.health = defenseur.health - attack;
         defenseur.updateHealthbar();
     }
+
+
+
 }
