@@ -24,8 +24,8 @@
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginLeft="60dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginLeft="64dp"
         android:max="100"
         android:progress="100"
         android:progressTint="#00FF00"
@@ -37,8 +37,8 @@
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
-        android:layout_marginLeft="76dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginLeft="64dp"
         android:max="100"
         android:progress="100"
         android:progressTint="#00FF00"
@@ -50,8 +50,8 @@
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
-        android:layout_marginLeft="76dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginLeft="64dp"
         android:max="100"
         android:progress="100"
         android:progressTint="#00FF00"
@@ -63,23 +63,74 @@
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginRight="64dp"
         android:max="100"
         android:progress="100"
         android:progressTint="#00FF00"
-        app:layout_constraintBottom_toTopOf="@+id/defenseur1"
+        app:layout_constraintBottom_toTopOf="@+id/skindef1"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/healthbar_6"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginRight="64dp"
+        android:max="100"
+        android:progress="100"
+        android:progressTint="#00FF00"
+        app:layout_constraintBottom_toTopOf="@+id/skindef2"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/healthbar_7"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginRight="64dp"
+        android:max="100"
+        android:progress="100"
+        android:progressTint="#00FF00"
+        app:layout_constraintBottom_toTopOf="@+id/skindef3"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/healthbar_8"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginRight="64dp"
+        android:max="100"
+        android:progress="100"
+        android:progressTint="#00FF00"
+        app:layout_constraintBottom_toTopOf="@+id/skindef4"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/confirm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="147dp"
-        android:layout_marginEnd="149dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
         android:layout_marginBottom="152dp"
-        android:text="ATTAQUE"
+        android:text="CONFIRMER"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.518"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginBottom="152dp"
+        android:onClick="resetAction"
+        android:text="ANNULER"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
@@ -87,15 +138,13 @@
         android:layout_width="380dp"
         android:layout_height="49dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/cancel"
         app:layout_constraintVertical_bias="0.026">
 
         <ImageButton
@@ -103,12 +152,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:adjustViewBounds="true"
             android:background="@null"
             android:onClick="setskill"
-            android:visibility="gone"
-            android:adjustViewBounds="true"
             android:scaleType="centerInside"
             android:tag="3"
+            android:visibility="gone"
             app:srcCompat="@mipmap/ic_launcher" />
 
         <ImageButton
@@ -116,12 +165,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:adjustViewBounds="true"
             android:background="@null"
             android:onClick="setskill"
-            android:visibility="gone"
-            android:adjustViewBounds="true"
             android:scaleType="centerInside"
             android:tag="0"
+            android:visibility="gone"
             app:srcCompat="@mipmap/ic_launcher" />
 
         <ImageButton
@@ -129,12 +178,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:adjustViewBounds="true"
             android:background="@null"
             android:onClick="setskill"
-            android:visibility="gone"
-            android:adjustViewBounds="true"
             android:scaleType="centerInside"
             android:tag="1"
+            android:visibility="gone"
             app:srcCompat="@mipmap/ic_launcher" />
 
         <ImageButton
@@ -142,20 +191,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:adjustViewBounds="true"
             android:background="@null"
             android:onClick="setskill"
-            android:visibility="gone"
-            android:adjustViewBounds="true"
             android:scaleType="centerInside"
             android:tag="2"
+            android:visibility="gone"
             app:srcCompat="@mipmap/ic_launcher" />
 
     </LinearLayout>
 
     <ImageButton
         android:id="@+id/attaquant1"
-        android:layout_width="86dp"
-        android:layout_height="98dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_marginStart="64dp"
         android:layout_marginLeft="64dp"
         android:layout_marginTop="32dp"
@@ -170,8 +219,8 @@
 
     <ImageButton
         android:id="@+id/attaquant2"
-        android:layout_width="44dp"
-        android:layout_height="95dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_marginStart="64dp"
         android:layout_marginLeft="64dp"
         android:layout_marginTop="16dp"
@@ -186,8 +235,8 @@
 
     <ImageButton
         android:id="@+id/attaquant3"
-        android:layout_width="85dp"
-        android:layout_height="100dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_marginStart="64dp"
         android:layout_marginLeft="64dp"
         android:layout_marginTop="16dp"
@@ -202,8 +251,8 @@
 
     <ImageButton
         android:id="@+id/attaquant4"
-        android:layout_width="85dp"
-        android:layout_height="100dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_marginStart="64dp"
         android:layout_marginLeft="64dp"
         android:layout_marginTop="16dp"
@@ -216,32 +265,49 @@
         app:layout_constraintTop_toBottomOf="@+id/attaquant3"
         app:srcCompat="@drawable/hunter" />
 
-    <ImageButton
-        android:id="@+id/defenseur1"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
+    <ImageView
+        android:id="@+id/skindef1"
+        android:layout_width="80sp"
+        android:layout_height="80sp"
         android:layout_marginTop="32dp"
-        android:background="@null"
-        android:adjustViewBounds="true"
-        android:scaleType="centerInside"
+        android:layout_marginEnd="64dp"
+        android:layout_marginRight="64dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/warrior" />
 
-    <ImageButton
-        android:id="@+id/defenseur2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageView
+        android:id="@+id/skindef2"
+        android:layout_width="80sp"
+        android:layout_height="80sp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
-        android:adjustViewBounds="true"
-        android:background="@null"
-        android:scaleType="centerInside"
+        android:layout_marginEnd="64dp"
+        android:layout_marginRight="64dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/defenseur1"
-        app:srcCompat="@drawable/brawler" />
+        app:layout_constraintTop_toBottomOf="@+id/skindef1"
+        app:srcCompat="@drawable/warrior" />
+
+    <ImageView
+        android:id="@+id/skindef3"
+        android:layout_width="80sp"
+        android:layout_height="80sp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginRight="64dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/skindef2"
+        app:srcCompat="@drawable/warrior" />
+
+    <ImageView
+        android:id="@+id/skindef4"
+        android:layout_width="80sp"
+        android:layout_height="80sp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginRight="64dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/skindef3"
+        app:srcCompat="@drawable/warrior" />
 
     <ImageView
         android:id="@+id/SelectAttaquant1"
@@ -257,7 +323,7 @@
         android:id="@+id/SelectAttaquant2"
         android:layout_width="34dp"
         android:layout_height="26dp"
-        android:layout_marginTop="37dp"
+        android:layout_marginTop="22dp"
         android:visibility="invisible"
         app:layout_constraintEnd_toStartOf="@+id/attaquant2"
         app:layout_constraintTop_toTopOf="@+id/attaquant2"
@@ -267,7 +333,7 @@
         android:id="@+id/SelectAttaquant3"
         android:layout_width="34dp"
         android:layout_height="26dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="22dp"
         android:visibility="invisible"
         app:layout_constraintEnd_toStartOf="@+id/attaquant3"
         app:layout_constraintTop_toTopOf="@+id/attaquant3"
@@ -277,11 +343,91 @@
         android:id="@+id/SelectAttaquant4"
         android:layout_width="34dp"
         android:layout_height="26dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="22dp"
         android:visibility="invisible"
         app:layout_constraintEnd_toStartOf="@+id/attaquant4"
         app:layout_constraintTop_toBottomOf="@+id/healthbar_4"
         app:srcCompat="@drawable/fleche_bleu" />
+
+    <ImageView
+        android:id="@+id/SelectCible1"
+        android:layout_width="34dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="48dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/attaquant1"
+        app:layout_constraintTop_toTopOf="@+id/attaquant1"
+        app:srcCompat="@drawable/fleche_bleu" />
+
+    <ImageView
+        android:id="@+id/SelectCible2"
+        android:layout_width="34dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="48dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/attaquant2"
+        app:layout_constraintTop_toTopOf="@+id/attaquant2"
+        app:srcCompat="@drawable/fleche_bleu" />
+
+    <ImageView
+        android:id="@+id/SelectCible3"
+        android:layout_width="34dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="48dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/attaquant3"
+        app:layout_constraintTop_toTopOf="@+id/attaquant3"
+        app:srcCompat="@drawable/fleche_bleu" />
+
+    <ImageView
+        android:id="@+id/SelectCible4"
+        android:layout_width="34dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="48dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/attaquant4"
+        app:layout_constraintTop_toTopOf="@+id/attaquant4"
+        app:srcCompat="@drawable/fleche_bleu" />
+
+    <ImageView
+        android:id="@+id/SelectCible5"
+        android:layout_width="34dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="48dp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="@+id/skindef1"
+        app:layout_constraintTop_toTopOf="@+id/skindef1"
+        app:srcCompat="@drawable/fleche_rouge" />
+
+    <ImageView
+        android:id="@+id/SelectCible6"
+        android:layout_width="34dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="48dp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="@+id/skindef2"
+        app:layout_constraintTop_toTopOf="@+id/skindef2"
+        app:srcCompat="@drawable/fleche_rouge" />
+
+    <ImageView
+        android:id="@+id/SelectCible7"
+        android:layout_width="34dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="48dp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="@+id/skindef3"
+        app:layout_constraintTop_toTopOf="@+id/skindef3"
+        app:srcCompat="@drawable/fleche_rouge" />
+
+    <ImageView
+        android:id="@+id/SelectCible8"
+        android:layout_width="34dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="48dp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="@+id/skindef4"
+        app:layout_constraintTop_toTopOf="@+id/skindef4"
+        app:srcCompat="@drawable/fleche_rouge" />
 
     <TextView
         android:id="@+id/title_skill"
@@ -305,5 +451,102 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title_skill"
         app:layout_constraintVertical_bias="0.571" />
+
+    <ImageButton
+        android:id="@+id/defenseur3"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:onClick="setCible"
+        android:scaleType="centerInside"
+        android:tag="7"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/skindef3"
+        app:layout_constraintStart_toEndOf="@+id/attaquant3"
+        app:layout_constraintStart_toStartOf="@+id/skindef3" />
+
+    <ImageButton
+        android:id="@+id/defenseur2"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:onClick="setCible"
+        android:scaleType="centerInside"
+        android:tag="6"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/skindef2"
+        app:layout_constraintStart_toStartOf="@+id/skindef2" />
+
+    <ImageButton
+        android:id="@+id/defenseur1"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:onClick="setCible"
+        android:scaleType="centerInside"
+        android:tag="5"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/skindef1"
+        app:layout_constraintStart_toStartOf="@+id/skindef1" />
+
+    <ImageButton
+        android:id="@+id/defenseur4"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:onClick="setCible"
+        android:scaleType="centerInside"
+        android:tag="8"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/skindef4"
+        app:layout_constraintStart_toStartOf="@+id/skindef4" />
+
+    <Button
+        android:id="@+id/cible1"
+        android:layout_width="80sp"
+        android:layout_height="80sp"
+        android:background="@null"
+        android:onClick="setCible"
+        android:tag="1"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="@+id/attaquant1"
+        app:layout_constraintTop_toTopOf="@+id/attaquant1" />
+
+    <Button
+        android:id="@+id/cible2"
+        android:layout_width="80sp"
+        android:layout_height="80sp"
+        android:background="@null"
+        android:onClick="setCible"
+        android:tag="2"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="@+id/attaquant2"
+        app:layout_constraintTop_toTopOf="@+id/attaquant2" />
+
+    <Button
+        android:id="@+id/cible3"
+        android:layout_width="80sp"
+        android:layout_height="80sp"
+        android:background="@null"
+        android:onClick="setCible"
+        android:tag="3"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="@+id/attaquant3"
+        app:layout_constraintTop_toTopOf="@+id/attaquant3" />
+
+    <Button
+        android:id="@+id/cible4"
+        android:layout_width="80sp"
+        android:layout_height="80sp"
+        android:background="@null"
+        android:onClick="setCible"
+        android:tag="4"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="@+id/attaquant4"
+        app:layout_constraintTop_toTopOf="@+id/attaquant4" />
 
 </android.support.constraint.ConstraintLayout>

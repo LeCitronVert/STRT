@@ -16,9 +16,10 @@ public class Skill {
     int value;
     String effect;
     String stat;
+    String cibletype;
 
 
-    public Skill(String nom, String description,int image, String typeskill, int valeur, String stats, String effetadditionnel){
+    public Skill(String nom, String description,int image, String typeskill, int valeur, String stats, String effetadditionnel, String cible){
         name = nom;
         desc = description;
         img = image;
@@ -26,6 +27,7 @@ public class Skill {
         value = valeur;
         effect = effetadditionnel;
         stat = stats;
+        cibletype = cible;
     }
 
     public void useSkill(Personnage attaquant, Personnage cible){
