@@ -20,6 +20,9 @@ public class MainActivity extends AppCompatActivity {
     private Personnage attaquant3;
     private Personnage attaquant4;
     private Personnage defenseur1;
+    Personnage attaquant;
+    Skill competence;
+    Personnage cible;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,9 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        Personnage attaquant;
-        Skill competence;
-        Personnage cible;
+
 
 
         //atk_healthbar.setMax(attaquant.health);
@@ -90,25 +91,33 @@ public class MainActivity extends AppCompatActivity {
         selector3.setVisibility(view.GONE);
         selector4.setVisibility(view.GONE);
         if(nombre == 1){
-            Personnage attaquant = attaquant1;
+            attaquant = attaquant1;
             selector1.setVisibility(view.VISIBLE);
             attaquant1.displayskill(actif1, actif2, actif3, actif4);
         }
         if(nombre == 2){
-            Personnage attaquant = attaquant2;
+            attaquant = attaquant2;
             selector2.setVisibility(view.VISIBLE);
             attaquant2.displayskill(actif1, actif2, actif3, actif4);
         }
         if(nombre == 3){
-            Personnage attaquant = attaquant3;
+            attaquant = attaquant3;
             selector3.setVisibility(view.VISIBLE);
             attaquant3.displayskill(actif1, actif2, actif3, actif4);
         }
         if(nombre == 4){
-            Personnage attaquant = attaquant4;
+            attaquant = attaquant4;
             selector4.setVisibility(view.VISIBLE);
             attaquant4.displayskill(actif1, actif2, actif3, actif4);
         }
+    }
+    public void setskill(View view){
+        int nombre = Integer.parseInt((String) view.getTag());
+        TextView description = findViewById(R.id.description_skill);
+        TextView titre = findViewById(R.id.title_skill);
+        titre.setText(attaquant.skills.get(nombre).name);
+        description.setText(attaquant.skills.get(nombre).desc);
+        competence = attaquant.skills.get(nombre);
     }
 
 
