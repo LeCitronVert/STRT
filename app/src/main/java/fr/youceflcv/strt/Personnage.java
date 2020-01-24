@@ -86,7 +86,10 @@ public class Personnage{
 
     public void displayskill(ImageView icon1, ImageView icon2, ImageView icon3, ImageView icon4){
         int count = this.skills.size();
-
+        icon1.setVisibility(View.GONE);
+        icon2.setVisibility(View.GONE);
+        icon3.setVisibility(View.GONE);
+        icon4.setVisibility(View.GONE);
         if (count > 0) {
             Skill skill1 = (Skill) this.skills.get(0);
             icon1.setImageResource(skill1.img);

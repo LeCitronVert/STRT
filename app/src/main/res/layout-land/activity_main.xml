@@ -7,12 +7,12 @@
     tools:context="fr.youceflcv.strt.MainActivity">
 
     <ProgressBar
-        android:id="@+id/healthbar_1"
+        android:id="@+id/healthbar_2"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginLeft="64dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="76dp"
+        android:layout_marginLeft="76dp"
         android:max="100"
         android:progress="100"
         android:progressTint="#00FF00"
@@ -20,42 +20,16 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ProgressBar
-        android:id="@+id/healthbar_2"
+        android:id="@+id/healthbar_1"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginLeft="60dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginLeft="76dp"
         android:max="100"
         android:progress="100"
         android:progressTint="#00FF00"
         app:layout_constraintBottom_toTopOf="@+id/attaquant2"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ProgressBar
-        android:id="@+id/healthbar_3"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
-        android:layout_marginLeft="76dp"
-        android:max="100"
-        android:progress="100"
-        android:progressTint="#00FF00"
-        app:layout_constraintBottom_toTopOf="@+id/attaquant3"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ProgressBar
-        android:id="@+id/healthbar_4"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
-        android:layout_marginLeft="76dp"
-        android:max="100"
-        android:progress="100"
-        android:progressTint="#00FF00"
-        app:layout_constraintBottom_toTopOf="@+id/attaquant4"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ProgressBar
@@ -75,17 +49,17 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="147dp"
         android:layout_marginEnd="149dp"
-        android:layout_marginBottom="152dp"
+        android:layout_marginBottom="80dp"
         android:text="ATTAQUE"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.518"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
         android:id="@+id/skillsbar"
-        android:layout_width="380dp"
-        android:layout_height="49dp"
+        android:layout_width="573dp"
+        android:layout_height="65dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
@@ -93,10 +67,9 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button"
-        app:layout_constraintVertical_bias="0.026">
+        app:layout_constraintVertical_bias="1.0">
 
         <ImageButton
             android:id="@+id/actif4"
@@ -169,38 +142,6 @@
         app:srcCompat="@drawable/brawler" />
 
     <ImageButton
-        android:id="@+id/attaquant3"
-        android:layout_width="85dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginLeft="64dp"
-        android:layout_marginTop="64dp"
-        android:adjustViewBounds="true"
-        android:background="@null"
-        android:onClick="setattaquant"
-        android:scaleType="centerInside"
-        android:tag="3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/attaquant2"
-        app:srcCompat="@drawable/hunter" />
-
-    <ImageButton
-        android:id="@+id/attaquant4"
-        android:layout_width="85dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginLeft="64dp"
-        android:layout_marginTop="44dp"
-        android:adjustViewBounds="true"
-        android:background="@null"
-        android:onClick="setattaquant"
-        android:scaleType="centerInside"
-        android:tag="4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/attaquant3"
-        app:srcCompat="@drawable/hunter" />
-
-    <ImageButton
         android:id="@+id/defenseur1"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
@@ -246,47 +187,5 @@
         app:layout_constraintEnd_toStartOf="@+id/attaquant2"
         app:layout_constraintTop_toTopOf="@+id/attaquant2"
         app:srcCompat="@drawable/fleche_bleu" />
-
-    <ImageView
-        android:id="@+id/SelectAttaquant3"
-        android:layout_width="34dp"
-        android:layout_height="26dp"
-        android:layout_marginTop="40dp"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toStartOf="@+id/attaquant3"
-        app:layout_constraintTop_toTopOf="@+id/attaquant3"
-        app:srcCompat="@drawable/fleche_bleu" />
-
-    <ImageView
-        android:id="@+id/SelectAttaquant4"
-        android:layout_width="34dp"
-        android:layout_height="26dp"
-        android:layout_marginTop="32dp"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toStartOf="@+id/attaquant4"
-        app:layout_constraintTop_toBottomOf="@+id/healthbar_4"
-        app:srcCompat="@drawable/fleche_bleu" />
-
-    <TextView
-        android:id="@+id/title_skill"
-        android:layout_width="213dp"
-        android:layout_height="30dp"
-        android:gravity="center"
-        android:text="titre"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/skillsbar" />
-
-    <TextView
-        android:id="@+id/description_skill"
-        android:layout_width="348dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="9dp"
-        android:gravity="center|center_vertical"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_skill" />
 
 </android.support.constraint.ConstraintLayout>
