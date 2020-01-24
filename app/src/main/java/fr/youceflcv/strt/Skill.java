@@ -11,16 +11,17 @@ import java.lang.reflect.Method;
 public class Skill {
     String name;
     String desc;
-    // Image img;
+    int img;
     String type;
     int value;
     String effect;
     String stat;
 
 
-    public Skill(String nom, String description, String typeskill, int valeur, String stats, String effetadditionnel){
+    public Skill(String nom, String description,int image, String typeskill, int valeur, String stats, String effetadditionnel){
         name = nom;
         desc = description;
+        img = image;
         type = typeskill;
         value = valeur;
         effect = effetadditionnel;
