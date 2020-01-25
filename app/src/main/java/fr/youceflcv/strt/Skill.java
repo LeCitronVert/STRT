@@ -1,6 +1,9 @@
 package fr.youceflcv.strt;
 
 import android.media.Image;
+import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 
 import java.lang.reflect.Method;
 
@@ -17,9 +20,10 @@ public class Skill {
     String effect;
     String stat;
     String cibletype;
+    int cost;
 
 
-    public Skill(String nom, String description,int image, String typeskill, int valeur, String stats, String effetadditionnel, String cible){
+    public Skill(String nom, String description,int image, String typeskill, int valeur, String stats, String effetadditionnel, String cible, int cout){
         name = nom;
         desc = description;
         img = image;
@@ -28,9 +32,12 @@ public class Skill {
         effect = effetadditionnel;
         stat = stats;
         cibletype = cible;
+        cost = cout;
     }
 
     public void useSkill(Personnage attaquant, Personnage cible){
+        attaquant.actions = attaquant.actions - this.cost;
+        Log.d("pouet","value = " +attaquant.actions);
         if(this.type == "attack"){
             cible.takeDamage(this.value) ;
         } else if(this.type == "heal"){

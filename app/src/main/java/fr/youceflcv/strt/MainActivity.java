@@ -79,9 +79,9 @@ public class MainActivity extends AppCompatActivity {
 
 
         // mael.basicattack(citron);
-        Skill glaire = new Skill("Crachat de glaire","Crache un glaire infligeant 5 de dégâts.",R.drawable.skill3,"attack",5, "", "none","ennemi");
-        Skill swun = new Skill("Swun", "Un soin peu efficace rendant 1 PV à son utilisateur.",R.drawable.skill2, "heal", 1, "", "none","allie");
-        Skill berserk = new Skill("Rage", "Sous la colère, augmente l'attaque de l'utilisateur",R.drawable.skill1, "buff", 9, "attack", "none","luimeme");
+        Skill glaire = new Skill("Crachat de glaire","Crache un glaire infligeant 5 de dégâts.",R.drawable.skill3,"attack",5, "", "none","ennemi",1);
+        Skill swun = new Skill("Swun", "Un soin peu efficace rendant 1 PV à son utilisateur.",R.drawable.skill2, "heal", 1, "", "none","allie",1);
+        Skill berserk = new Skill("Rage", "Sous la colère, augmente l'attaque de l'utilisateur",R.drawable.skill1, "buff", 9, "attack", "none","luimeme",1);
 
         attaquant1.skills.add(glaire);
         attaquant2.skills.add(berserk);
@@ -338,8 +338,19 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     public void Action(View view){
-        competence.useSkill(attaquant, cible);
-        resetAction(view);
+        if(competence.cost <= attaquant.actions) {
+            competence.useSkill(attaquant, cible);
+            updateActionBar();
+            resetAction(view);
+        }
+    }
+    public void updateActionBar(){
+        for(int i = attaquant.maxaction; i> attaquant.actions;i--){
+            String curraction = "action"+attaquantnbr+i;
+            int resID = getResources().getIdentifier(curraction, "id", getPackageName());
+            ImageView action = findViewById(resID);
+            action.setImageResource(R.drawable.action_vide);
+        }
     }
 }
 
