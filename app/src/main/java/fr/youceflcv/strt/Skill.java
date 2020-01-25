@@ -15,6 +15,7 @@ public class Skill {
     String name;
     String desc;
     int img;
+    String imgname;
     String type;
     int value;
     String effect;
@@ -23,10 +24,11 @@ public class Skill {
     int cost;
 
 
-    public Skill(String nom, String description,int image, String typeskill, int valeur, String stats, String effetadditionnel, String cible, int cout){
+    public Skill(String nom, String description,int image, String imagename, String typeskill, int valeur, String stats, String effetadditionnel, String cible, int cout){
         name = nom;
         desc = description;
         img = image;
+        imgname = imagename;
         type = typeskill;
         value = valeur;
         effect = effetadditionnel;
@@ -37,7 +39,6 @@ public class Skill {
 
     public void useSkill(Personnage attaquant, Personnage cible){
         attaquant.actions = attaquant.actions - this.cost;
-        Log.d("pouet","value = " +attaquant.actions);
         if(this.type == "attack"){
             cible.takeDamage(this.value) ;
         } else if(this.type == "heal"){

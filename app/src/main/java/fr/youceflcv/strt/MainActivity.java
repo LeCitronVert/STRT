@@ -1,5 +1,6 @@
 package fr.youceflcv.strt;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -79,9 +80,9 @@ public class MainActivity extends AppCompatActivity {
 
 
         // mael.basicattack(citron);
-        Skill glaire = new Skill("Crachat de glaire","Crache un glaire infligeant 5 de dégâts.",R.drawable.skill3,"attack",5, "", "none","ennemi",1);
-        Skill swun = new Skill("Swun", "Un soin peu efficace rendant 1 PV à son utilisateur.",R.drawable.skill2, "heal", 1, "", "none","allie",1);
-        Skill berserk = new Skill("Rage", "Sous la colère, augmente l'attaque de l'utilisateur",R.drawable.skill1, "buff", 9, "attack", "none","luimeme",1);
+        Skill glaire = new Skill("Crachat de glaire","Crache un glaire infligeant 5 de dégâts.",R.drawable.skill3,"skill3","attack",5, "", "none","ennemi",1);
+        Skill swun = new Skill("Swun", "Un soin peu efficace rendant 1 PV à son utilisateur.",R.drawable.skill2,"skill2", "heal", 1, "", "none","allie",1);
+        Skill berserk = new Skill("Rage", "Sous la colère, augmente l'attaque de l'utilisateur",R.drawable.skill1,"skill1", "buff", 9, "attack", "none","luimeme",1);
 
         attaquant1.skills.add(glaire);
         attaquant2.skills.add(berserk);
@@ -157,6 +158,8 @@ public class MainActivity extends AppCompatActivity {
         titre.setText(attaquant.skills.get(nombre).name);
         description.setText(attaquant.skills.get(nombre).desc);
         competence = attaquant.skills.get(nombre);
+        resetdesignskill();
+        designskill(nombre, competence);
         if(attaquant.skills.get(nombre).cibletype == "allie"){
             setAlly(view);
         }
@@ -351,6 +354,21 @@ public class MainActivity extends AppCompatActivity {
             ImageView action = findViewById(resID);
             action.setImageResource(R.drawable.action_vide);
         }
+    }
+    public void designskill(int nombre, Skill skill){
+        int realnumber = nombre+1;
+        String currskill = "actif"+realnumber;
+        int resID = getResources().getIdentifier(currskill, "id", getPackageName());
+        ImageButton select = findViewById(resID);
+        String variableValue = skill.imgname+"_clicked";
+        select.setImageResource(getResources().getIdentifier(variableValue, "drawable", getPackageName()));
+    }
+    public void resetdesignskill(){
+        ImageView actif1 = findViewById(R.id.actif1);
+        ImageView actif2 = findViewById(R.id.actif2);
+        ImageView actif3 = findViewById(R.id.actif3);
+        ImageView actif4 = findViewById(R.id.actif4);
+        attaquant.displayskill(actif1, actif2, actif3, actif4);
     }
 }
 

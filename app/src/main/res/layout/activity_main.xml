@@ -4,117 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/fond_battle"
     tools:context="fr.youceflcv.strt.MainActivity">
 
 
-    <ProgressBar
-        android:id="@+id/healthbar_1"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginLeft="64dp"
-        android:max="100"
-        android:progress="100"
-        android:progressTint="#00FF00"
-        app:layout_constraintBottom_toTopOf="@+id/attaquant1"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ProgressBar
-        android:id="@+id/healthbar_2"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginLeft="64dp"
-        android:max="100"
-        android:progress="100"
-        android:progressTint="#00FF00"
-        app:layout_constraintBottom_toTopOf="@+id/attaquant2"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ProgressBar
-        android:id="@+id/healthbar_3"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginLeft="64dp"
-        android:max="100"
-        android:progress="100"
-        android:progressTint="#00FF00"
-        app:layout_constraintBottom_toTopOf="@+id/attaquant3"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ProgressBar
-        android:id="@+id/healthbar_4"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginLeft="64dp"
-        android:max="100"
-        android:progress="100"
-        android:progressTint="#00FF00"
-        app:layout_constraintBottom_toTopOf="@+id/attaquant4"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ProgressBar
-        android:id="@+id/healthbar_5"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginEnd="64dp"
-        android:layout_marginRight="64dp"
-        android:max="100"
-        android:progress="100"
-        android:progressTint="#00FF00"
-        app:layout_constraintBottom_toTopOf="@+id/skindef1"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <ProgressBar
-        android:id="@+id/healthbar_6"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginEnd="64dp"
-        android:layout_marginRight="64dp"
-        android:max="100"
-        android:progress="100"
-        android:progressTint="#00FF00"
-        app:layout_constraintBottom_toTopOf="@+id/skindef2"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <ProgressBar
-        android:id="@+id/healthbar_7"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginEnd="64dp"
-        android:layout_marginRight="64dp"
-        android:max="100"
-        android:progress="100"
-        android:progressTint="#00FF00"
-        app:layout_constraintBottom_toTopOf="@+id/skindef3"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <ProgressBar
-        android:id="@+id/healthbar_8"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginEnd="64dp"
-        android:layout_marginRight="64dp"
-        android:max="100"
-        android:progress="100"
-        android:progressTint="#00FF00"
-        app:layout_constraintBottom_toTopOf="@+id/skindef4"
-        app:layout_constraintEnd_toEndOf="parent" />
-
     <Button
         android:id="@+id/confirm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="107dp"
+        android:layout_height="35dp"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
         android:layout_marginBottom="152dp"
@@ -125,8 +22,8 @@
 
     <Button
         android:id="@+id/cancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="99dp"
+        android:layout_height="35dp"
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
         android:layout_marginBottom="152dp"
@@ -207,9 +104,9 @@
         android:id="@+id/attaquant1"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginLeft="64dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="170dp"
         android:adjustViewBounds="true"
         android:background="@null"
         android:onClick="setattaquant"
@@ -223,9 +120,8 @@
         android:id="@+id/attaquant2"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginLeft="64dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginLeft="80dp"
         android:adjustViewBounds="true"
         android:background="@null"
         android:onClick="setattaquant"
@@ -241,10 +137,9 @@
         android:layout_height="80dp"
         android:layout_marginStart="64dp"
         android:layout_marginLeft="64dp"
-        android:layout_marginTop="16dp"
-        android:adjustViewBounds="true"
         android:background="@null"
         android:onClick="setattaquant"
+        android:adjustViewBounds="true"
         android:scaleType="centerInside"
         android:tag="3"
         app:layout_constraintStart_toStartOf="parent"
@@ -255,9 +150,8 @@
         android:id="@+id/attaquant4"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginLeft="64dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginLeft="80dp"
         android:adjustViewBounds="true"
         android:background="@null"
         android:onClick="setattaquant"
@@ -271,9 +165,9 @@
         android:id="@+id/skindef1"
         android:layout_width="80sp"
         android:layout_height="80sp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="64dp"
-        android:layout_marginRight="64dp"
+        android:layout_marginTop="170dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginRight="100dp"
         android:scaleX="-1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -283,9 +177,8 @@
         android:id="@+id/skindef2"
         android:layout_width="80sp"
         android:layout_height="80sp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="64dp"
-        android:layout_marginRight="64dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginRight="80dp"
         android:scaleX="-1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/skindef1"
@@ -295,7 +188,6 @@
         android:id="@+id/skindef3"
         android:layout_width="80sp"
         android:layout_height="80sp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="64dp"
         android:layout_marginRight="64dp"
         android:scaleX="-1"
@@ -307,9 +199,8 @@
         android:id="@+id/skindef4"
         android:layout_width="80sp"
         android:layout_height="80sp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="64dp"
-        android:layout_marginRight="64dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginRight="80dp"
         android:scaleX="-1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/skindef3"
@@ -435,28 +326,125 @@
         app:layout_constraintTop_toTopOf="@+id/skindef4"
         app:srcCompat="@drawable/fleche_rouge" />
 
+    <ProgressBar
+        android:id="@+id/healthbar_3"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:max="100"
+        android:progress="100"
+        android:progressTint="#00FF00"
+        app:layout_constraintBottom_toTopOf="@+id/attaquant3"
+        app:layout_constraintStart_toStartOf="@+id/attaquant3" />
+
+    <ProgressBar
+        android:id="@+id/healthbar_6"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:max="100"
+        android:progress="100"
+        android:progressTint="#00FF00"
+        app:layout_constraintBottom_toTopOf="@+id/skindef2"
+        app:layout_constraintEnd_toEndOf="@+id/skindef2" />
+
+    <ProgressBar
+        android:id="@+id/healthbar_4"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:max="100"
+        android:progress="100"
+        android:progressTint="#00FF00"
+        app:layout_constraintBottom_toTopOf="@+id/attaquant4"
+        app:layout_constraintStart_toStartOf="@+id/attaquant4" />
+
+    <ProgressBar
+        android:id="@+id/healthbar_2"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:max="100"
+        android:progress="100"
+        android:progressTint="#00FF00"
+        app:layout_constraintBottom_toTopOf="@+id/attaquant2"
+        app:layout_constraintStart_toStartOf="@+id/attaquant2" />
+
+    <ProgressBar
+        android:id="@+id/healthbar_5"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:max="100"
+        android:progress="100"
+        android:progressTint="#00FF00"
+        app:layout_constraintBottom_toTopOf="@+id/skindef1"
+        app:layout_constraintEnd_toEndOf="@+id/skindef1" />
+
+    <ProgressBar
+        android:id="@+id/healthbar_1"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:max="100"
+        android:progress="100"
+        android:progressTint="#00FF00"
+        app:layout_constraintBottom_toTopOf="@+id/attaquant1"
+        app:layout_constraintStart_toStartOf="@+id/attaquant1" />
+
+    <ProgressBar
+        android:id="@+id/healthbar_8"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:max="100"
+        android:progress="100"
+        android:progressTint="#00FF00"
+        app:layout_constraintBottom_toTopOf="@+id/skindef4"
+        app:layout_constraintEnd_toEndOf="@+id/skindef4" />
+
+    <ProgressBar
+        android:id="@+id/healthbar_7"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:max="100"
+        android:progress="100"
+        android:progressTint="#00FF00"
+        app:layout_constraintBottom_toTopOf="@+id/skindef3"
+        app:layout_constraintEnd_toEndOf="@+id/skindef3" />
+
+    <ImageView
+        android:id="@+id/fond_text_skill"
+        android:layout_width="388dp"
+        android:layout_height="102dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/hub_bottom_middle" />
+
     <TextView
         android:id="@+id/title_skill"
         android:layout_width="213dp"
         android:layout_height="30dp"
+        android:layout_marginTop="16dp"
         android:gravity="center"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/skillsbar" />
+        app:layout_constraintTop_toTopOf="@+id/fond_text_skill" />
 
     <TextView
         android:id="@+id/description_skill"
         android:layout_width="348dp"
         android:layout_height="39dp"
-        android:layout_marginTop="9dp"
+        android:layout_marginBottom="16dp"
         android:gravity="center|center_vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/fond_text_skill"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_skill"
-        app:layout_constraintVertical_bias="0.571" />
+        app:layout_constraintHorizontal_bias="0.523"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
         android:id="@+id/defenseur3"
