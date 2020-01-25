@@ -3,11 +3,13 @@ package fr.youceflcv.strt;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -23,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private Personnage defenseur4;
     private int action_state;
     Personnage attaquant;
+    private int attaquantnbr;
     Skill competence;
     Personnage cible;
     @Override
@@ -38,14 +41,29 @@ public class MainActivity extends AppCompatActivity {
         ProgressBar def_heahlthbar2 = findViewById(R.id.healthbar_6);
         ProgressBar def_heahlthbar3 = findViewById(R.id.healthbar_7);
         ProgressBar def_heahlthbar4 = findViewById(R.id.healthbar_8);
-        attaquant1 = new Personnage(10,2,3, atk_healthbar1);
-        attaquant2 = new Personnage(10,2,3, atk_healthbar2);
-        attaquant3 = new Personnage(10,2,3, atk_healthbar3);
-        attaquant4 = new Personnage(10,2,3, atk_healthbar4);
+        attaquant1 = new Personnage(10,5,3, atk_healthbar1);
+        attaquant2 = new Personnage(10,1,3, atk_healthbar2);
+        attaquant3 = new Personnage(10,3,3, atk_healthbar3);
+        attaquant4 = new Personnage(10,4,3, atk_healthbar4);
         defenseur1 = new Personnage(10,1,1, def_heahlthbar1);
         defenseur2 = new Personnage(10,1,1, def_heahlthbar2);
         defenseur3 = new Personnage(10,1,1, def_heahlthbar3);
         defenseur4 = new Personnage(10,1,1, def_heahlthbar4);
+        Personnage listattaquant[] = new Personnage[4];
+        listattaquant[0] = attaquant1;
+        listattaquant[1] = attaquant2;
+        listattaquant[2] = attaquant3;
+        listattaquant[3] = attaquant4;
+        for(int r = 0 ; r<=3;r++){
+            int realr = r+1;
+            for(int i = 1; i<=listattaquant[r].maxaction;i++){
+                String curraction = "action"+realr+i;
+                int resID = getResources().getIdentifier(curraction, "id", getPackageName());
+                ImageView action = findViewById(resID);
+                action.setVisibility(View.VISIBLE);
+            }
+        }
+
         ViewGroup skillbar = findViewById(R.id.skillsbar);
 
 
@@ -63,11 +81,12 @@ public class MainActivity extends AppCompatActivity {
         // mael.basicattack(citron);
         Skill glaire = new Skill("Crachat de glaire","Crache un glaire infligeant 5 de dégâts.",R.drawable.skill3,"attack",5, "", "none","ennemi");
         Skill swun = new Skill("Swun", "Un soin peu efficace rendant 1 PV à son utilisateur.",R.drawable.skill2, "heal", 1, "", "none","allie");
-        Skill berserk = new Skill("Rage", "Sous la colère, augmente l'attaque de l'utilisateur",R.drawable.skill1, "buff", -9, "attack", "none","ennemi");
+        Skill berserk = new Skill("Rage", "Sous la colère, augmente l'attaque de l'utilisateur",R.drawable.skill1, "buff", 9, "attack", "none","luimeme");
 
         attaquant1.skills.add(glaire);
         attaquant2.skills.add(berserk);
         attaquant2.skills.add(swun);
+        attaquant2.skills.add(glaire);
         attaquant3.skills.add(glaire);
         defenseur1.skills.add(swun);
 
@@ -104,6 +123,7 @@ public class MainActivity extends AppCompatActivity {
         TextView titre = findViewById(R.id.title_skill);
         titre.setText("");
         description.setText("");
+        attaquantnbr = nombre;
         if(nombre == 1){
             attaquant = attaquant1;
             selector1.setVisibility(view.VISIBLE);
@@ -144,6 +164,26 @@ public class MainActivity extends AppCompatActivity {
             setEnnemi(view);
         }
         action_state = 2;
+        if(attaquant.skills.get(nombre).cibletype == "luimeme"){
+            cible = attaquant;
+            action_state = 3;
+            if(attaquantnbr == 1){
+                ImageView selector = findViewById(R.id.SelectCible1);
+                selector.setVisibility(view.VISIBLE);
+            }
+            if(attaquantnbr == 2){
+                ImageView selector = findViewById(R.id.SelectCible2);
+                selector.setVisibility(view.VISIBLE);
+            }
+            if(attaquantnbr == 3){
+                ImageView selector = findViewById(R.id.SelectCible3);
+                selector.setVisibility(view.VISIBLE);
+            }
+            if(attaquantnbr == 4){
+                ImageView selector = findViewById(R.id.SelectCible4);
+                selector.setVisibility(view.VISIBLE);
+            }
+        }
         activefinal(view);
     }
     public void setCible(View view){
@@ -296,6 +336,10 @@ public class MainActivity extends AppCompatActivity {
         else{
             finalisation.setVisibility(view.GONE);
         }
+    }
+    public void Action(View view){
+        competence.useSkill(attaquant, cible);
+        resetAction(view);
     }
 }
 

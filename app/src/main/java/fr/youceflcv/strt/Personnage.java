@@ -22,6 +22,7 @@ import java.util.List;
 
 public class Personnage{
     int health;
+    int maxaction;
     int actions;
     int attack;
     int maxhealth;
@@ -30,10 +31,11 @@ public class Personnage{
 
     ProgressBar healthbar;
 
-    public Personnage(int sante, int actionsdispo, int atk, ProgressBar barredevie){
+    public Personnage(int sante, int actionmaximum, int atk, ProgressBar barredevie){
         health = sante;
         maxhealth = sante;
-        actions = actionsdispo;
+        maxaction = actionmaximum;
+        actions = actionmaximum;
         attack = atk;
         healthbar = barredevie;
         barredevie.setMax(health);

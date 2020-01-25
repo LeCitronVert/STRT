@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context="fr.youceflcv.strt.MainActivity">
 
+
     <ProgressBar
         android:id="@+id/healthbar_1"
         style="?android:attr/progressBarStyleHorizontal"
@@ -117,6 +118,7 @@
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
         android:layout_marginBottom="152dp"
+        android:onClick="Action"
         android:text="CONFIRMER"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -272,6 +274,7 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="64dp"
         android:layout_marginRight="64dp"
+        android:scaleX="-1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/warrior" />
@@ -283,6 +286,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="64dp"
         android:layout_marginRight="64dp"
+        android:scaleX="-1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/skindef1"
         app:srcCompat="@drawable/warrior" />
@@ -294,6 +298,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="64dp"
         android:layout_marginRight="64dp"
+        android:scaleX="-1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/skindef2"
         app:srcCompat="@drawable/warrior" />
@@ -305,6 +310,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="64dp"
         android:layout_marginRight="64dp"
+        android:scaleX="-1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/skindef3"
         app:srcCompat="@drawable/warrior" />
@@ -357,7 +363,7 @@
         android:visibility="invisible"
         app:layout_constraintEnd_toStartOf="@+id/attaquant1"
         app:layout_constraintTop_toTopOf="@+id/attaquant1"
-        app:srcCompat="@drawable/fleche_bleu" />
+        app:srcCompat="@drawable/fleche_verte" />
 
     <ImageView
         android:id="@+id/SelectCible2"
@@ -367,7 +373,7 @@
         android:visibility="invisible"
         app:layout_constraintEnd_toStartOf="@+id/attaquant2"
         app:layout_constraintTop_toTopOf="@+id/attaquant2"
-        app:srcCompat="@drawable/fleche_bleu" />
+        app:srcCompat="@drawable/fleche_verte" />
 
     <ImageView
         android:id="@+id/SelectCible3"
@@ -377,7 +383,7 @@
         android:visibility="invisible"
         app:layout_constraintEnd_toStartOf="@+id/attaquant3"
         app:layout_constraintTop_toTopOf="@+id/attaquant3"
-        app:srcCompat="@drawable/fleche_bleu" />
+        app:srcCompat="@drawable/fleche_verte" />
 
     <ImageView
         android:id="@+id/SelectCible4"
@@ -387,7 +393,7 @@
         android:visibility="invisible"
         app:layout_constraintEnd_toStartOf="@+id/attaquant4"
         app:layout_constraintTop_toTopOf="@+id/attaquant4"
-        app:srcCompat="@drawable/fleche_bleu" />
+        app:srcCompat="@drawable/fleche_verte" />
 
     <ImageView
         android:id="@+id/SelectCible5"
@@ -548,5 +554,201 @@
         android:visibility="gone"
         app:layout_constraintStart_toStartOf="@+id/attaquant4"
         app:layout_constraintTop_toTopOf="@+id/attaquant4" />
+
+    <LinearLayout
+        android:id="@+id/ActionsLayout1"
+        android:layout_width="60dp"
+        android:layout_height="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="@+id/attaquant1"
+        app:layout_constraintTop_toBottomOf="@+id/healthbar_1">
+
+        <ImageView
+            android:id="@+id/action11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:srcCompat="@drawable/action_pleine" />
+
+        <ImageView
+            android:id="@+id/action12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:srcCompat="@drawable/action_pleine" />
+
+        <ImageView
+            android:id="@+id/action13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:srcCompat="@drawable/action_pleine" />
+
+        <ImageView
+            android:id="@+id/action14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:srcCompat="@drawable/action_pleine" />
+
+        <ImageView
+            android:id="@+id/action15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:srcCompat="@drawable/action_pleine" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ActionsLayout2"
+        android:layout_width="60dp"
+        android:layout_height="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="@+id/attaquant2"
+        app:layout_constraintTop_toTopOf="@+id/attaquant2">
+
+        <ImageView
+            android:id="@+id/action21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:srcCompat="@drawable/action_pleine" />
+
+        <ImageView
+            android:id="@+id/action22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:srcCompat="@drawable/action_pleine" />
+
+        <ImageView
+            android:id="@+id/action23"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:srcCompat="@drawable/action_pleine" />
+
+        <ImageView
+            android:id="@+id/action24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:srcCompat="@drawable/action_pleine" />
+
+        <ImageView
+            android:id="@+id/action25"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:srcCompat="@drawable/action_pleine" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ActionsLayout3"
+        android:layout_width="60dp"
+        android:layout_height="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="@+id/attaquant3"
+        app:layout_constraintTop_toTopOf="@+id/attaquant3">
+
+        <ImageView
+            android:id="@+id/action31"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:srcCompat="@drawable/action_pleine" />
+
+        <ImageView
+            android:id="@+id/action32"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:srcCompat="@drawable/action_pleine" />
+
+        <ImageView
+            android:id="@+id/action33"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:srcCompat="@drawable/action_pleine" />
+
+        <ImageView
+            android:id="@+id/action34"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:srcCompat="@drawable/action_pleine" />
+
+        <ImageView
+            android:id="@+id/action35"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:srcCompat="@drawable/action_pleine" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ActionsLayout4"
+        android:layout_width="60dp"
+        android:layout_height="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="@+id/attaquant4"
+        app:layout_constraintTop_toTopOf="@+id/attaquant4">
+
+        <ImageView
+            android:id="@+id/action41"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:srcCompat="@drawable/action_pleine" />
+
+        <ImageView
+            android:id="@+id/action42"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:srcCompat="@drawable/action_pleine" />
+
+        <ImageView
+            android:id="@+id/action43"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:srcCompat="@drawable/action_pleine" />
+
+        <ImageView
+            android:id="@+id/action44"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:srcCompat="@drawable/action_pleine" />
+
+        <ImageView
+            android:id="@+id/action45"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:srcCompat="@drawable/action_pleine" />
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

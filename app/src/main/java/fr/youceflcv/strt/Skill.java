@@ -32,7 +32,7 @@ public class Skill {
 
     public void useSkill(Personnage attaquant, Personnage cible){
         if(this.type == "attack"){
-            cible.takeDamage(this.value);
+            cible.takeDamage(this.value) ;
         } else if(this.type == "heal"){
             cible.heal(this.value);
         } else if(this.type == "buff"){
