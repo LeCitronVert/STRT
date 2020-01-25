@@ -16,15 +16,19 @@ public class Skill {
     String desc;
     int img;
     String imgname;
+    boolean actif;
     String type;
     int value;
     String effect;
     String stat;
     String cibletype;
+    int tier;
+    int level;
+    int dure;
     int cost;
 
 
-    public Skill(String nom, String description,int image, String imagename, String typeskill, int valeur, String stats, String effetadditionnel, String cible, int cout){
+    public Skill(String nom, String description,int image, String imagename, boolean activable, String typeskill, int valeur, String stats, String effetadditionnel, String cible, int cout, int palier, int niveau, int duree){
         name = nom;
         desc = description;
         img = image;
@@ -35,6 +39,10 @@ public class Skill {
         stat = stats;
         cibletype = cible;
         cost = cout;
+        tier = palier;
+        level = niveau;
+        dure = duree;
+        actif = activable;
     }
 
     public void useSkill(Personnage attaquant, Personnage cible){

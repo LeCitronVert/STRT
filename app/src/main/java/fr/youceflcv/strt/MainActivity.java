@@ -42,14 +42,21 @@ public class MainActivity extends AppCompatActivity {
         ProgressBar def_heahlthbar2 = findViewById(R.id.healthbar_6);
         ProgressBar def_heahlthbar3 = findViewById(R.id.healthbar_7);
         ProgressBar def_heahlthbar4 = findViewById(R.id.healthbar_8);
-        attaquant1 = new Personnage(10,5,3, atk_healthbar1);
-        attaquant2 = new Personnage(10,1,3, atk_healthbar2);
-        attaquant3 = new Personnage(10,3,3, atk_healthbar3);
-        attaquant4 = new Personnage(10,4,3, atk_healthbar4);
-        defenseur1 = new Personnage(10,1,1, def_heahlthbar1);
-        defenseur2 = new Personnage(10,1,1, def_heahlthbar2);
-        defenseur3 = new Personnage(10,1,1, def_heahlthbar3);
-        defenseur4 = new Personnage(10,1,1, def_heahlthbar4);
+        Skill glaire = new Skill("Crachat de glaire","Crache un glaire infligeant 5 de dégâts.",R.drawable.skill3,"skill3",true,"attack",5, "", "none","ennemi",1,1,1,0);
+        Skill swun = new Skill("Swun", "Un soin peu efficace rendant 1 PV à son utilisateur.",R.drawable.skill2,"skill2",false, "heal", 1, "", "none","allie",1,1,1,999);
+        Skill berserk = new Skill("Rage", "Sous la colère, augmente l'attaque de l'utilisateur",R.drawable.skill1,"skill1",false, "buff", 9, "attack", "none","luimeme",1,1,1,1);
+        Triptyque warrior = new Triptyque("guerrier","un guerrier",R.drawable.skill1,5,2,3,4,2,1,4);
+        warrior.skills.add(glaire);
+        warrior.skills.add(berserk);
+        warrior.skills.add(swun);
+        attaquant1 = new Personnage("paul",warrior,warrior,warrior,atk_healthbar1);
+        attaquant2 = new Personnage("paul",warrior,warrior,warrior, atk_healthbar2);
+        attaquant3 = new Personnage("paul",warrior,warrior,warrior, atk_healthbar3);
+        attaquant4 = new Personnage("paul",warrior,warrior,warrior, atk_healthbar4);
+        defenseur1 = new Personnage("paul",warrior,warrior,warrior, def_heahlthbar1);
+        defenseur2 = new Personnage("paul",warrior,warrior,warrior, def_heahlthbar2);
+        defenseur3 = new Personnage("paul",warrior,warrior,warrior, def_heahlthbar3);
+        defenseur4 = new Personnage("paul",warrior,warrior,warrior, def_heahlthbar4);
         Personnage listattaquant[] = new Personnage[4];
         listattaquant[0] = attaquant1;
         listattaquant[1] = attaquant2;
@@ -66,30 +73,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         ViewGroup skillbar = findViewById(R.id.skillsbar);
-
-
-
-
-
-
-        //atk_healthbar.setMax(attaquant.health);
-        //def_heahlthbar.setMax(defenseur.health);
-
-        // def_heahlthbar.setProgress(25);
-
-
-
-        // mael.basicattack(citron);
-        Skill glaire = new Skill("Crachat de glaire","Crache un glaire infligeant 5 de dégâts.",R.drawable.skill3,"skill3","attack",5, "", "none","ennemi",1);
-        Skill swun = new Skill("Swun", "Un soin peu efficace rendant 1 PV à son utilisateur.",R.drawable.skill2,"skill2", "heal", 1, "", "none","allie",1);
-        Skill berserk = new Skill("Rage", "Sous la colère, augmente l'attaque de l'utilisateur",R.drawable.skill1,"skill1", "buff", 9, "attack", "none","luimeme",1);
-
-        attaquant1.skills.add(glaire);
-        attaquant2.skills.add(berserk);
-        attaquant2.skills.add(swun);
-        attaquant2.skills.add(glaire);
-        attaquant3.skills.add(glaire);
-        defenseur1.skills.add(swun);
 
 
         // citron.skill1.useSkill(citron, citron);
@@ -155,19 +138,19 @@ public class MainActivity extends AppCompatActivity {
         resetEnnemi(view);
         TextView description = findViewById(R.id.description_skill);
         TextView titre = findViewById(R.id.title_skill);
-        titre.setText(attaquant.skills.get(nombre).name);
-        description.setText(attaquant.skills.get(nombre).desc);
-        competence = attaquant.skills.get(nombre);
+        titre.setText(attaquant.actifskill[nombre].name);
+        description.setText(attaquant.actifskill[nombre].desc);
+        competence = attaquant.actifskill[nombre];
         resetdesignskill();
         designskill(nombre, competence);
-        if(attaquant.skills.get(nombre).cibletype == "allie"){
+        if(attaquant.actifskill[nombre].cibletype == "allie"){
             setAlly(view);
         }
-        if(attaquant.skills.get(nombre).cibletype == "ennemi"){
+        if(attaquant.actifskill[nombre].cibletype == "ennemi"){
             setEnnemi(view);
         }
         action_state = 2;
-        if(attaquant.skills.get(nombre).cibletype == "luimeme"){
+        if(attaquant.actifskill[nombre].cibletype == "luimeme"){
             cible = attaquant;
             action_state = 3;
             if(attaquantnbr == 1){
