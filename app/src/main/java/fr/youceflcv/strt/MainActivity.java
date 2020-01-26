@@ -1,5 +1,6 @@
 package fr.youceflcv.strt;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -25,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
     public Personnage defenseur3;
     public Personnage defenseur4;
     public int action_state;
+    public int turnnumber;
+    public String turntype;
     Personnage attaquant;
     public int attaquantnbr;
     Skill competence;
@@ -34,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         action_state = 0;
+        turnnumber = 1;
+        turntype= "allie";
         ProgressBar atk_healthbar1 = findViewById(R.id.healthbar_1);
         ProgressBar atk_healthbar2 = findViewById(R.id.healthbar_2);
         ProgressBar atk_healthbar3 = findViewById(R.id.healthbar_3);
@@ -344,6 +349,37 @@ public class MainActivity extends AppCompatActivity {
                 character.setVisibility(View.GONE);
             }
         }
+        if(defenseur1.health <= 0 && defenseur2.health <= 0 &&defenseur3.health <= 0 &&defenseur4.health <= 0){
+            victory();
+        }
+        if(attaquant1.health <= 0 && attaquant2.health <= 0 &&attaquant3.health <= 0 &&attaquant4.health <= 0){
+            defeat();
+        }
+    }
+    public void endTurn(View view){
+        //effets passifs comme les poisons ou les saignements
+        if(defenseur1.health <= 0 && defenseur2.health <= 0 &&defenseur3.health <= 0 &&defenseur4.health <= 0){
+            victory();
+        }
+        if(attaquant1.health <= 0 && attaquant2.health <= 0 &&attaquant3.health <= 0 &&attaquant4.health <= 0){
+            defeat();
+        }
+        attaquant1.actions = attaquant1.maxaction;
+        attaquant2.actions = attaquant2.maxaction;
+        attaquant3.actions = attaquant3.maxaction;
+        attaquant4.actions = attaquant4.maxaction;
+        defenseur1.actions = defenseur1.maxaction;
+        defenseur2.actions = defenseur2.maxaction;
+        defenseur3.actions = defenseur3.maxaction;
+        defenseur4.actions = defenseur4.maxaction;
+        updateAllActionBar();
+    }
+    public void victory(){
+        Intent gameActivity = new Intent(MainActivity.this, Victory.class);
+        startActivity(gameActivity);
+    }
+    public void defeat(){
+
     }
     public void updateActionBar(){
         for(int i = attaquant.maxaction; i> attaquant.actions;i--){
@@ -352,11 +388,27 @@ public class MainActivity extends AppCompatActivity {
             ImageView action = findViewById(resID);
             action.setImageResource(R.drawable.action_vide);
         }
-        for(int i = 0;i<=attaquant.actions;i++){
+        for(int i = 1;i<=attaquant.actions;i++){
             String curraction = "action"+attaquantnbr+i;
             int resID = getResources().getIdentifier(curraction, "id", getPackageName());
             ImageView action = findViewById(resID);
             action.setImageResource(R.drawable.action_pleine);
+        }
+    }
+    public void updateAllActionBar(){
+        for(int r= 1;r<=4;r++){
+            for(int i = attaquant.maxaction; i> attaquant.actions;i--){
+                String curraction = "action"+r+i;
+                int resID = getResources().getIdentifier(curraction, "id", getPackageName());
+                ImageView action = findViewById(resID);
+                action.setImageResource(R.drawable.action_vide);
+            }
+            for(int i = 1;i<=attaquant.actions;i++){
+                String curraction = "action"+r+i;
+                int resID = getResources().getIdentifier(curraction, "id", getPackageName());
+                ImageView action = findViewById(resID);
+                action.setImageResource(R.drawable.action_pleine);
+            }
         }
     }
     public void designskill(int nombre, Skill skill){
