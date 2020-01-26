@@ -32,6 +32,8 @@ public class Personnage{
     int speed;
     int critical;
     int maxhealth;
+    boolean ennemy;
+    int position;
     Triptyque weapon;
     Triptyque power;
     Triptyque classes;
@@ -41,7 +43,7 @@ public class Personnage{
 
     ProgressBar healthbar;
 
-    public Personnage(String nom,Triptyque arme,Triptyque pouvoir, Triptyque classe, ProgressBar barredevie){
+    public Personnage(String nom,Triptyque arme,Triptyque pouvoir, Triptyque classe, ProgressBar barredevie,boolean ennemi,int ou){
         name = nom;
         health = arme.health + pouvoir.health + classe.health;
         maxhealth = arme.health + pouvoir.health + classe.health;
@@ -53,6 +55,8 @@ public class Personnage{
         precision = arme.precision + pouvoir.precision + classe.precision;
         speed = arme.speed + pouvoir.speed + classe.speed;
         critical = arme.critical + pouvoir.critical + pouvoir.critical;
+        ennemy = ennemi;
+        position = ou;
         weapon = arme;
         power = pouvoir;
         classes = classe;

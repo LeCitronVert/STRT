@@ -16,17 +16,17 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Personnage attaquant1;
-    private Personnage attaquant2;
-    private Personnage attaquant3;
-    private Personnage attaquant4;
-    private Personnage defenseur1;
-    private Personnage defenseur2;
-    private Personnage defenseur3;
-    private Personnage defenseur4;
-    private int action_state;
+    public Personnage attaquant1;
+    public Personnage attaquant2;
+    public Personnage attaquant3;
+    public Personnage attaquant4;
+    public Personnage defenseur1;
+    public Personnage defenseur2;
+    public Personnage defenseur3;
+    public Personnage defenseur4;
+    public int action_state;
     Personnage attaquant;
-    private int attaquantnbr;
+    public int attaquantnbr;
     Skill competence;
     Personnage cible;
     @Override
@@ -42,21 +42,21 @@ public class MainActivity extends AppCompatActivity {
         ProgressBar def_heahlthbar2 = findViewById(R.id.healthbar_6);
         ProgressBar def_heahlthbar3 = findViewById(R.id.healthbar_7);
         ProgressBar def_heahlthbar4 = findViewById(R.id.healthbar_8);
-        Skill glaire = new Skill("Crachat de glaire","Crache un glaire infligeant 5 de dégâts.",R.drawable.skill3,"skill3",true,"attack",5, "", "none","ennemi",1,1,1,0);
+        Skill glaire = new Skill("Crachat de glaire","Crache un glaire infligeant 5 de dégâts.",R.drawable.skill3,"skill3",true,"attack",5, "", "none","ennemi",1,1,1,999);
         Skill swun = new Skill("Swun", "Un soin peu efficace rendant 1 PV à son utilisateur.",R.drawable.skill2,"skill2",false, "heal", 1, "", "none","allie",1,1,1,999);
         Skill berserk = new Skill("Rage", "Sous la colère, augmente l'attaque de l'utilisateur",R.drawable.skill1,"skill1",false, "buff", 9, "attack", "none","luimeme",1,1,1,1);
         Triptyque warrior = new Triptyque("guerrier","un guerrier",R.drawable.skill1,5,2,3,4,2,1,4);
         warrior.skills.add(glaire);
         warrior.skills.add(berserk);
         warrior.skills.add(swun);
-        attaquant1 = new Personnage("paul",warrior,warrior,warrior,atk_healthbar1);
-        attaquant2 = new Personnage("paul",warrior,warrior,warrior, atk_healthbar2);
-        attaquant3 = new Personnage("paul",warrior,warrior,warrior, atk_healthbar3);
-        attaquant4 = new Personnage("paul",warrior,warrior,warrior, atk_healthbar4);
-        defenseur1 = new Personnage("paul",warrior,warrior,warrior, def_heahlthbar1);
-        defenseur2 = new Personnage("paul",warrior,warrior,warrior, def_heahlthbar2);
-        defenseur3 = new Personnage("paul",warrior,warrior,warrior, def_heahlthbar3);
-        defenseur4 = new Personnage("paul",warrior,warrior,warrior, def_heahlthbar4);
+        attaquant1 = new Personnage("paul",warrior,warrior,warrior,atk_healthbar1,false,1);
+        attaquant2 = new Personnage("paul",warrior,warrior,warrior, atk_healthbar2,false,2);
+        attaquant3 = new Personnage("paul",warrior,warrior,warrior, atk_healthbar3,false,3);
+        attaquant4 = new Personnage("paul",warrior,warrior,warrior, atk_healthbar4,false,4);
+        defenseur1 = new Personnage("paul",warrior,warrior,warrior, def_heahlthbar1,true,1);
+        defenseur2 = new Personnage("paul",warrior,warrior,warrior, def_heahlthbar2,true,2);
+        defenseur3 = new Personnage("paul",warrior,warrior,warrior, def_heahlthbar3,true,3);
+        defenseur4 = new Personnage("paul",warrior,warrior,warrior, def_heahlthbar4,true,4);
         Personnage listattaquant[] = new Personnage[4];
         listattaquant[0] = attaquant1;
         listattaquant[1] = attaquant2;
@@ -295,6 +295,7 @@ public class MainActivity extends AppCompatActivity {
     public void resetAction(View view){
         resetcible(view);
         resetAlly(view);
+        resetEnnemi(view);
         resetattaquant(view);
         TextView description = findViewById(R.id.description_skill);
         TextView titre = findViewById(R.id.title_skill);
@@ -329,6 +330,20 @@ public class MainActivity extends AppCompatActivity {
             updateActionBar();
             resetAction(view);
         }
+        if (cible.health <= 0){
+            if (cible.ennemy == true){
+                String curr_character = "skindef"+cible.position;
+                int resID = getResources().getIdentifier(curr_character, "id", getPackageName());
+                ImageView character = findViewById(resID);
+                character.setVisibility(View.GONE);
+            }
+            else{
+                String curr_character = "attaquant"+cible.position;
+                int resID = getResources().getIdentifier(curr_character, "id", getPackageName());
+                ImageView character = findViewById(resID);
+                character.setVisibility(View.GONE);
+            }
+        }
     }
     public void updateActionBar(){
         for(int i = attaquant.maxaction; i> attaquant.actions;i--){
@@ -336,6 +351,12 @@ public class MainActivity extends AppCompatActivity {
             int resID = getResources().getIdentifier(curraction, "id", getPackageName());
             ImageView action = findViewById(resID);
             action.setImageResource(R.drawable.action_vide);
+        }
+        for(int i = 0;i<=attaquant.actions;i++){
+            String curraction = "action"+attaquantnbr+i;
+            int resID = getResources().getIdentifier(curraction, "id", getPackageName());
+            ImageView action = findViewById(resID);
+            action.setImageResource(R.drawable.action_pleine);
         }
     }
     public void designskill(int nombre, Skill skill){
