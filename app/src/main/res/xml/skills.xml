@@ -1,0 +1,157 @@
+<set>
+    <skill>
+        <name>Garde de la dame</name>
+        <description>Ajoute 5 d’armure pendant un tour et permet de contre attaquer pendant un tour.</description>
+        <triptyque>épée longue</triptyque>
+        <icon>@drawable/garde_de_la_dame</icon>
+        <iconname>garde_de_la_dame</iconname>
+        <actif>true</actif>
+        <type>buff</type>
+        <temporary>false</temporary>
+        <effet></effet>
+        <stat>defense</stat>
+        <valeur>5</valeur>
+        <cibletype>luimeme</cibletype>
+        <tier>1</tier>
+        <level>1</level>
+        <duree>1</duree>
+        <cost>2</cost>
+    </skill>
+    <skill>
+        <name>Feinte</name>
+        <description>Attaque de base, fait autant de dêgâts que d'attaque</description>
+        <triptyque>épée longue</triptyque>
+        <icon>@drawable/feinte</icon>
+        <iconname>feinte</iconname>
+        <actif>true</actif>
+        <type>attack</type>
+        <temporary>false</temporary>
+        <effet> </effet>
+        <stat>attaque</stat>
+        <valeur>1</valeur>
+        <cibletype>ennemi</cibletype>
+        <tier>1</tier>
+        <level>1</level>
+        <duree>0</duree>
+        <cost>1</cost>
+    </skill>
+    <skill>
+        <name>Renforcement</name>
+        <description>augmente la défense du personnage.</description>
+        <triptyque>épée longue</triptyque>
+        <icon>@drawable/renforcement</icon>
+        <actif>false</actif>
+        <type>buff</type>
+        <temporary>false</temporary>
+        <effet> </effet>
+        <stat>defense</stat>
+        <valeur>4</valeur>
+        <cibletype>luimeme</cibletype>
+        <tier>1</tier>
+        <level>1</level>
+        <duree>999</duree>
+        <cost>0</cost>
+    </skill>
+    <skill>
+        <name>Maitrise de la lame</name>
+        <description>Augmente l'attaque du personnage.</description>
+        <triptyque>épée longue</triptyque>
+        <icon>@drawable/maitrise_de_la_lame</icon>
+        <actif>false</actif>
+        <type>buff</type>
+        <temporary>false</temporary>
+        <effet> </effet>
+        <stat>attack</stat>
+        <valeur>5</valeur>
+        <cibletype>luimeme</cibletype>
+        <tier>2</tier>
+        <level>1</level>
+        <duree>999</duree>
+        <cost>0</cost>
+    </skill>
+    <skill>
+        <name>Renforcement LVL2</name>
+        <description>augmente la défense du personnage</description>
+        <triptyque>épée longue</triptyque>
+        <icon>@drawable/renforcement</icon>
+        <actif>false</actif>
+        <type>buff</type>
+        <temporary>false</temporary>
+        <effet> </effet>
+        <stat>defense</stat>
+        <valeur>7</valeur>
+        <cibletype>luimeme</cibletype>
+        <tier>2</tier>
+        <level>2</level>
+        <duree>999</duree>
+        <cost>0</cost>
+    </skill>
+    <skill>
+        <name>Garde de la dame LVL2</name>
+        <description>Ajoute 5 d’armure pendant deux tour et permet de contre attaquer pendant deux tours.</description>
+        <triptyque>épée longue</triptyque>
+        <icon>@drawable/garde_de_la_dame</icon>
+        <actif>true</actif>
+        <type>buff</type>
+        <temporary>false</temporary>
+        <effet> </effet>
+        <stat>defense</stat>
+        <valeur>5</valeur>
+        <cibletype>luimeme</cibletype>
+        <tier>3</tier>
+        <level>2</level>
+        <duree>2</duree>
+        <cost>2</cost>
+    </skill>
+    <skill>
+        <name>Coup ascendant</name>
+        <description>Attaque infligeant 1/4 de l'attaque en saignement pendant 2 tours</description>
+        <triptyque>épée longue</triptyque>
+        <icon>@drawable/coup_ascendant</icon>
+        <actif>true</actif>
+        <type>attack</type>
+        <effet></effet>
+        <temporary>false</temporary>
+        <stat>attack</stat>
+        <valeur>1</valeur>
+        <cibletype>ennemi</cibletype>
+        <tier>3</tier>
+        <level>1</level>
+        <duree>2</duree>
+        <cost>2</cost>
+    </skill>
+    <skill>
+        <name>Coup ascendant LVL2</name>
+        <description>Attaque infligeant 1/2 de l'attaque en saignement pendant 2 tours</description>
+        <triptyque>épée longue</triptyque>
+        <icon>@drawable/coup_ascendant</icon>
+        <actif>true</actif>
+        <type>attack</type>
+        <temporary>false</temporary>
+        <effet></effet>
+        <stat>attack</stat>
+        <valeur>1</valeur>
+        <cibletype>ennemi</cibletype>
+        <tier>4</tier>
+        <level>2</level>
+        <duree>2</duree>
+        <cost>2</cost>
+    </skill>
+    <skill>
+        <name>Excalibur</name>
+        <description>augmente grandement les critiques du personnage.</description>
+        <triptyque>épée longue</triptyque>
+        <icon>@drawable/excalibur</icon>
+        <actif>true</actif>
+        <type>attack</type>
+        <temporary>false</temporary>
+        <effet></effet>
+        <stat>critical</stat>
+        <valeur>4</valeur>
+        <cibletype>luimeme</cibletype>
+        <tier>4</tier>
+        <level>1</level>
+        <duree>999</duree>
+        <cost>0</cost>
+    </skill>
+</set>

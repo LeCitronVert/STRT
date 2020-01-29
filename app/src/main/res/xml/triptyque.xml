@@ -1,0 +1,15 @@
+<set>
+    <triptyque>
+        <name>épée longue</name>
+        <description> Arme se tenant à deux mains, très polyvalente.</description>
+        <icon>@drawable/epee_longue</icon>
+        <type>weapon</type>
+        <health>136</health>
+        <attack>17</attack>
+        <defense>8</defense>
+        <speed>10</speed>
+        <precision>65</precision>
+        <esquive>55</esquive>
+        <critic>3</critic>
+    </triptyque>
+</set>

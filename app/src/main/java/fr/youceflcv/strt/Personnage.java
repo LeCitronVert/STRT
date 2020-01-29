@@ -3,6 +3,7 @@ package fr.youceflcv.strt;
 import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.sax.Element;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
@@ -45,15 +46,15 @@ public class Personnage{
 
     public Personnage(String nom,Triptyque arme,Triptyque pouvoir, Triptyque classe, ProgressBar barredevie,boolean ennemi,int ou){
         name = nom;
-        health = arme.health + pouvoir.health + classe.health;
         maxhealth = arme.health + pouvoir.health + classe.health;
-        maxaction = arme.speed + pouvoir.speed + classe.speed;
-        actions = arme.speed + pouvoir.speed + classe.speed;
+        health = maxhealth;
+        speed = arme.speed + pouvoir.speed + classe.speed;
+        maxaction = (Integer)this.speed/10;
+        actions = maxaction;
         attack = arme.attack + pouvoir.attack + classe.attack;
         defense = arme.defense + pouvoir.defense + classe.defense;
         esquive = arme.esquive + pouvoir.esquive + classe.esquive;
         precision = arme.precision + pouvoir.precision + classe.precision;
-        speed = arme.speed + pouvoir.speed + classe.speed;
         critical = arme.critical + pouvoir.critical + pouvoir.critical;
         ennemy = ennemi;
         position = ou;
@@ -61,12 +62,24 @@ public class Personnage{
         power = pouvoir;
         classes = classe;
         healthbar = barredevie;
-        barredevie.setMax(health);
+        barredevie.setMax(maxhealth);
+        barredevie.setProgress(health);
         for(Skill curr_skill: this.weapon.skills){
             if(curr_skill.tier == 1){
                 this.skills.add(curr_skill);
                 if(curr_skill.actif == true){
-                    this.actifskill[0] = curr_skill;
+                    if(this.actifskill[0] == null){
+                        this.actifskill[0] = curr_skill;
+                    } else if(this.actifskill[1] == null){
+                        this.actifskill[1] = curr_skill;
+                    } else if(this.actifskill[2] == null){
+                        this.actifskill[2] = curr_skill;
+                    } else if(this.actifskill[3] == null){
+                        this.actifskill[3] = curr_skill;
+                    }
+                }
+                else{
+                    this.buff(curr_skill);
                 }
             }
         }
@@ -74,7 +87,18 @@ public class Personnage{
             if(curr_skill.tier == 1){
                 this.skills.add(curr_skill);
                 if(curr_skill.actif == true){
-                    this.actifskill[1] = curr_skill;
+                    if(this.actifskill[0] == null){
+                        this.actifskill[0] = curr_skill;
+                    } else if(this.actifskill[1] == null){
+                        this.actifskill[1] = curr_skill;
+                    } else if(this.actifskill[2] == null){
+                        this.actifskill[2] = curr_skill;
+                    } else if(this.actifskill[3] == null){
+                        this.actifskill[3] = curr_skill;
+                    }
+                }
+                else{
+                    this.buff(curr_skill);
                 }
             }
         }
@@ -82,7 +106,18 @@ public class Personnage{
             if(curr_skill.tier == 1){
                 this.skills.add(curr_skill);
                 if(curr_skill.actif == true){
-                    this.actifskill[2] = curr_skill;
+                    if(this.actifskill[0] == null){
+                        this.actifskill[0] = curr_skill;
+                    } else if(this.actifskill[1] == null){
+                        this.actifskill[1] = curr_skill;
+                    } else if(this.actifskill[2] == null){
+                        this.actifskill[2] = curr_skill;
+                    } else if(this.actifskill[3] == null){
+                        this.actifskill[3] = curr_skill;
+                    }
+                }
+                else{
+                    this.buff(curr_skill);
                 }
             }
         }
@@ -121,15 +156,52 @@ public class Personnage{
         this.overheal();
     }
 
-    public void buff(int value, String stat){
-        if(stat == "actions"){
-            this.actions = this.actions + value;
-        } else if(stat == "attack"){
-            this.attack = this.attack + value;
-            this.capatk();
-        } else if(stat == "maxhealth"){
-            this.maxhealth = this.maxhealth + value;
-            this.overheal();
+    public void buff(Skill parent_skill){
+        if(parent_skill.dure != 999 && parent_skill.temporary == false){
+            Skill tempo_skill = new Skill (parent_skill.name+"buff","","",1,"",false,true,parent_skill.type,parent_skill.value,parent_skill.stat,parent_skill.effect,parent_skill.cibletype,0,0,0,parent_skill.dure);
+            this.skills.add(tempo_skill);
+            if(tempo_skill.stat.equals("actions")){
+                this.actions = this.actions + tempo_skill.value;
+            } else if(tempo_skill.stat.equals("attack")){
+                this.attack = this.attack + tempo_skill.value;
+                this.capatk();
+            } else if(tempo_skill.stat.equals("defense")){
+                Log.d("test defense", String.valueOf(this.defense));
+                this.defense = this.defense + tempo_skill.value;
+                Log.d("test defense after", String.valueOf(this.defense));
+            } else if(tempo_skill.stat.equals("esquive")){
+                this.esquive = this.esquive + tempo_skill.value;
+            } else if(tempo_skill.stat.equals("precision")){
+                this.precision = this.precision + tempo_skill.value;
+            } else if(tempo_skill.stat.equals("speed")){
+                this.speed = this.speed + tempo_skill.value;
+            } else if(tempo_skill.stat.equals("critical")){
+                this.critical = this.critical + tempo_skill.value;
+            } else if(tempo_skill.stat.equals("maxhealth")){
+                this.maxhealth = this.maxhealth + tempo_skill.value;
+                this.overheal();
+            }
+        }
+        else{
+            if(parent_skill.stat.equals("actions")){
+                this.actions = this.actions + parent_skill.value;
+            } else if(parent_skill.stat.equals("attack")){
+                this.attack = this.attack + parent_skill.value;
+                this.capatk();
+            } else if(parent_skill.stat.equals("defense")){
+                this.defense = this.defense + parent_skill.value;
+            } else if(parent_skill.stat.equals("esquive")){
+                this.esquive = this.esquive + parent_skill.value;
+            } else if(parent_skill.stat.equals("precision")){
+                this.precision = this.precision + parent_skill.value;
+            } else if(parent_skill.stat.equals("speed")){
+                this.speed = this.speed + parent_skill.value;
+            } else if(parent_skill.stat.equals("critical")){
+                this.critical = this.critical + parent_skill.value;
+            } else if(parent_skill.stat.equals("maxhealth")){
+                this.maxhealth = this.maxhealth + parent_skill.value;
+                this.overheal();
+            }
         }
     }
 

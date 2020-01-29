@@ -1,21 +1,25 @@
 package fr.youceflcv.strt;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Vector;
+
 public class MainActivity extends AppCompatActivity {
+
+    private List<Skill> listskills;
+    private List<Triptyque> listtriptycs;
 
     public Personnage attaquant1;
     public Personnage attaquant2;
@@ -34,8 +38,27 @@ public class MainActivity extends AppCompatActivity {
     Personnage cible;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_fight);
+        Intent intent = getIntent();
+        if (intent != null){
+            listskills = (List<Skill>) getIntent().getSerializableExtra("skills");
+            listtriptycs = (List<Triptyque>) getIntent().getSerializableExtra("triptycs");
+            for(Skill skill : listskills) {
+                skill.img = (getResources().getIdentifier(skill.imgname, "drawable", getPackageName()));
+                Log.d("img", skill.imgname + String.valueOf(skill.img));
+                for (Triptyque triptyque : listtriptycs) {
+                    if(skill.triptyque.equals(triptyque.name)){
+                        triptyque.skills.add(skill);
+                        Log.d("liste de skill",skill.name);
+                        Log.d("liste de skill", String.valueOf(skill.tier));
+                        Log.d("liste de skill", String.valueOf(skill.actif));
+                    }
+                    Log.d("nom triptyque", triptyque.name);
+                }
+            }
+        }
         action_state = 0;
         turnnumber = 1;
         turntype= "allie";
@@ -47,13 +70,7 @@ public class MainActivity extends AppCompatActivity {
         ProgressBar def_heahlthbar2 = findViewById(R.id.healthbar_6);
         ProgressBar def_heahlthbar3 = findViewById(R.id.healthbar_7);
         ProgressBar def_heahlthbar4 = findViewById(R.id.healthbar_8);
-        Skill glaire = new Skill("Crachat de glaire","Crache un glaire infligeant 5 de dégâts.",R.drawable.skill3,"skill3",true,"attack",5, "", "none","ennemi",1,1,1,999);
-        Skill swun = new Skill("Swun", "Un soin peu efficace rendant 1 PV à son utilisateur.",R.drawable.skill2,"skill2",false, "heal", 1, "", "none","allie",1,1,1,999);
-        Skill berserk = new Skill("Rage", "Sous la colère, augmente l'attaque de l'utilisateur",R.drawable.skill1,"skill1",false, "buff", 9, "attack", "none","luimeme",1,1,1,1);
-        Triptyque warrior = new Triptyque("guerrier","un guerrier",R.drawable.skill1,5,2,3,4,2,1,4);
-        warrior.skills.add(glaire);
-        warrior.skills.add(berserk);
-        warrior.skills.add(swun);
+        Triptyque warrior = listtriptycs.get(0);
         attaquant1 = new Personnage("paul",warrior,warrior,warrior,atk_healthbar1,false,1);
         attaquant2 = new Personnage("paul",warrior,warrior,warrior, atk_healthbar2,false,2);
         attaquant3 = new Personnage("paul",warrior,warrior,warrior, atk_healthbar3,false,3);
@@ -62,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
         defenseur2 = new Personnage("paul",warrior,warrior,warrior, def_heahlthbar2,true,2);
         defenseur3 = new Personnage("paul",warrior,warrior,warrior, def_heahlthbar3,true,3);
         defenseur4 = new Personnage("paul",warrior,warrior,warrior, def_heahlthbar4,true,4);
+        Log.d("skill du personnage", attaquant1.actifskill[0].name+attaquant1.actifskill[0].imgname);
         Personnage listattaquant[] = new Personnage[4];
         listattaquant[0] = attaquant1;
         listattaquant[1] = attaquant2;
@@ -146,16 +164,18 @@ public class MainActivity extends AppCompatActivity {
         titre.setText(attaquant.actifskill[nombre].name);
         description.setText(attaquant.actifskill[nombre].desc);
         competence = attaquant.actifskill[nombre];
+        Log.d("cible",attaquant.actifskill[nombre].cibletype);
         resetdesignskill();
         designskill(nombre, competence);
-        if(attaquant.actifskill[nombre].cibletype == "allie"){
+        if(attaquant.actifskill[nombre].cibletype.equals("allie")){
             setAlly(view);
         }
-        if(attaquant.actifskill[nombre].cibletype == "ennemi"){
+        if(attaquant.actifskill[nombre].cibletype.equals("ennemi")){
+            Log.d("test ennemi", "pouet");
             setEnnemi(view);
         }
         action_state = 2;
-        if(attaquant.actifskill[nombre].cibletype == "luimeme"){
+        if(attaquant.actifskill[nombre].cibletype.equals("luimeme")){
             cible = attaquant;
             action_state = 3;
             if(attaquantnbr == 1){
@@ -189,7 +209,7 @@ public class MainActivity extends AppCompatActivity {
         ImageView selector7 = findViewById(R.id.SelectCible7);
         ImageView selector8 = findViewById(R.id.SelectCible8);
         if (action_state == 2 || action_state == 3){
-            if(competence.cibletype == "allie"){
+            if(competence.cibletype.equals("allie")){
                 if (nombre == 1){
                     selector1.setVisibility(view.VISIBLE);
                     cible = attaquant1;
@@ -207,7 +227,7 @@ public class MainActivity extends AppCompatActivity {
                     cible = attaquant4;
                 }
             }
-            if(competence.cibletype == "ennemi"){
+            if(competence.cibletype.equals("ennemi")){
                 if (nombre == 5){
                     selector5.setVisibility(view.VISIBLE);
                     cible = defenseur1;
@@ -373,6 +393,99 @@ public class MainActivity extends AppCompatActivity {
         defenseur3.actions = defenseur3.maxaction;
         defenseur4.actions = defenseur4.maxaction;
         updateAllActionBar();
+        if(turntype.equals("allie")){
+            for(Skill skill : defenseur1.skills){
+                if(skill.temporary == true){
+                    skill.dure = skill.dure - 1;
+                    if(skill.dure <= 0){
+                        skill.value = -(skill.value);
+                        defenseur1.buff(skill);
+                        defenseur1.skills.remove(skill);
+                    }
+                }
+            }
+            for(Skill skill : defenseur2.skills){
+                if(skill.temporary == true){
+                    skill.dure = skill.dure - 1;
+                    if(skill.dure <= 0){
+                        skill.value = -(skill.value);
+                        defenseur2.buff(skill);
+                        defenseur2.skills.remove(skill);
+                    }
+                }
+            }
+            for(Skill skill : defenseur3.skills){
+                if(skill.temporary == true){
+                    skill.dure = skill.dure - 1;
+                    if(skill.dure <= 0){
+                        skill.value = -(skill.value);
+                        defenseur3.buff(skill);
+                        defenseur3.skills.remove(skill);
+                    }
+                }
+            }
+            for(Skill skill : defenseur4.skills){
+                if(skill.temporary == true){
+                    skill.dure = skill.dure - 1;
+                    if(skill.dure <= 0){
+                        skill.value = -(skill.value);
+                        defenseur3.buff(skill);
+                        defenseur4.skills.remove(skill);
+                    }
+                }
+            }
+        }
+        if(turntype.equals("ennemi")){
+            for(Skill skill : attaquant1.skills){
+                if(skill.temporary == true){
+                    skill.dure = skill.dure - 1;
+                    if(skill.dure <= 0){
+                        skill.value = -(skill.value);
+                        attaquant1.buff(skill);
+                        attaquant1.skills.remove(skill);
+                    }
+                }
+            }
+            for(Skill skill : attaquant2.skills){
+                if(skill.temporary == true){
+                    skill.dure = skill.dure - 1;
+                    if(skill.dure <= 0){
+                        skill.value = -(skill.value);
+                        attaquant2.buff(skill);
+                        attaquant2.skills.remove(skill);
+                    }
+                }
+            }
+            for(Skill skill : attaquant3.skills){
+                if(skill.temporary == true){
+                    skill.dure = skill.dure - 1;
+                    if(skill.dure <= 0){
+                        skill.value = -(skill.value);
+                        attaquant3.buff(skill);
+                        attaquant3.skills.remove(skill);
+                    }
+                }
+            }
+            for(Skill skill : attaquant4.skills){
+                if(skill.temporary == true){
+                    skill.dure = skill.dure - 1;
+                    if(skill.dure <= 0){
+                        skill.value = -(skill.value);
+                        attaquant4.buff(skill);
+                        attaquant4.skills.remove(skill);
+                    }
+                }
+            }
+        }
+        Log.d("tour nombre", String.valueOf(turnnumber));
+        if(turntype.equals("allie")){
+            turntype = "ennemi";
+            turnnumber++;
+        }
+        else{
+            turntype = "allie";
+        }
+        Log.d("type tour",turntype);
     }
     public void victory(){
         Intent gameActivity = new Intent(MainActivity.this, Victory.class);
