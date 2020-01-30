@@ -87,7 +87,13 @@ public class Skill implements Parcelable, Serializable {
         attaquant.actions = attaquant.actions - this.cost;
         if(this.type.equals("attack")){
             Log.d("test attaque","oui");
-            cible.takeDamage(attaquant.attack*this.value) ;
+            int dps = attaquant.attack*this.value;
+            int critic=1;
+            critic=(int)( Math.random()*100);
+            if(critic <= attaquant.critical){
+                dps = dps*2;
+            }
+            cible.takeDamage(dps);
         } else if(this.type.equals("heal")){
             cible.heal(this.value);
         } else if(this.type.equals("buff")){

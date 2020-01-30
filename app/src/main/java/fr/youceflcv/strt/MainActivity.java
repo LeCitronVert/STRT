@@ -70,15 +70,16 @@ public class MainActivity extends AppCompatActivity {
         ProgressBar def_heahlthbar2 = findViewById(R.id.healthbar_6);
         ProgressBar def_heahlthbar3 = findViewById(R.id.healthbar_7);
         ProgressBar def_heahlthbar4 = findViewById(R.id.healthbar_8);
-        Triptyque warrior = listtriptycs.get(0);
-        attaquant1 = new Personnage("paul",warrior,warrior,warrior,atk_healthbar1,false,1);
-        attaquant2 = new Personnage("paul",warrior,warrior,warrior, atk_healthbar2,false,2);
-        attaquant3 = new Personnage("paul",warrior,warrior,warrior, atk_healthbar3,false,3);
-        attaquant4 = new Personnage("paul",warrior,warrior,warrior, atk_healthbar4,false,4);
-        defenseur1 = new Personnage("paul",warrior,warrior,warrior, def_heahlthbar1,true,1);
-        defenseur2 = new Personnage("paul",warrior,warrior,warrior, def_heahlthbar2,true,2);
-        defenseur3 = new Personnage("paul",warrior,warrior,warrior, def_heahlthbar3,true,3);
-        defenseur4 = new Personnage("paul",warrior,warrior,warrior, def_heahlthbar4,true,4);
+        Triptyque epee_longue = listtriptycs.get(0);
+        Triptyque guerrier = listtriptycs.get(1);
+        attaquant1 = new Personnage("paul",epee_longue,guerrier,guerrier,atk_healthbar1,false,1);
+        attaquant2 = new Personnage("paul",epee_longue,guerrier,guerrier, atk_healthbar2,false,2);
+        attaquant3 = new Personnage("paul",epee_longue,guerrier,guerrier, atk_healthbar3,false,3);
+        attaquant4 = new Personnage("paul",epee_longue,guerrier,guerrier, atk_healthbar4,false,4);
+        defenseur1 = new Personnage("paul",epee_longue,guerrier,guerrier, def_heahlthbar1,true,1);
+        defenseur2 = new Personnage("paul",epee_longue,guerrier,guerrier, def_heahlthbar2,true,2);
+        defenseur3 = new Personnage("paul",epee_longue,guerrier,guerrier, def_heahlthbar3,true,3);
+        defenseur4 = new Personnage("paul",epee_longue,guerrier,guerrier, def_heahlthbar4,true,4);
         Log.d("skill du personnage", attaquant1.actifskill[0].name+attaquant1.actifskill[0].imgname);
         Personnage listattaquant[] = new Personnage[4];
         listattaquant[0] = attaquant1;
@@ -384,16 +385,12 @@ public class MainActivity extends AppCompatActivity {
         if(attaquant1.health <= 0 && attaquant2.health <= 0 &&attaquant3.health <= 0 &&attaquant4.health <= 0){
             defeat();
         }
-        attaquant1.actions = attaquant1.maxaction;
-        attaquant2.actions = attaquant2.maxaction;
-        attaquant3.actions = attaquant3.maxaction;
-        attaquant4.actions = attaquant4.maxaction;
-        defenseur1.actions = defenseur1.maxaction;
-        defenseur2.actions = defenseur2.maxaction;
-        defenseur3.actions = defenseur3.maxaction;
-        defenseur4.actions = defenseur4.maxaction;
         updateAllActionBar();
         if(turntype.equals("allie")){
+            defenseur1.actions = defenseur1.maxaction;
+            defenseur2.actions = defenseur2.maxaction;
+            defenseur3.actions = defenseur3.maxaction;
+            defenseur4.actions = defenseur4.maxaction;
             for(Skill skill : defenseur1.skills){
                 if(skill.temporary == true){
                     skill.dure = skill.dure - 1;
@@ -436,6 +433,10 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         if(turntype.equals("ennemi")){
+            attaquant1.actions = attaquant1.maxaction;
+            attaquant2.actions = attaquant2.maxaction;
+            attaquant3.actions = attaquant3.maxaction;
+            attaquant4.actions = attaquant4.maxaction;
             for(Skill skill : attaquant1.skills){
                 if(skill.temporary == true){
                     skill.dure = skill.dure - 1;

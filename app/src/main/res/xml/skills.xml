@@ -16,7 +16,7 @@
         <level>1</level>
         <duree>1</duree>
         <cost>2</cost>
-    </skill>
+    </skill> //0 épée longue
     <skill>
         <name>Feinte</name>
         <description>Attaque de base, fait autant de dêgâts que d'attaque</description>
@@ -34,12 +34,13 @@
         <level>1</level>
         <duree>0</duree>
         <cost>1</cost>
-    </skill>
+    </skill> //1 épée longue
     <skill>
         <name>Renforcement</name>
         <description>augmente la défense du personnage.</description>
         <triptyque>épée longue</triptyque>
         <icon>@drawable/renforcement</icon>
+        <iconname>renforcement</iconname>
         <actif>false</actif>
         <type>buff</type>
         <temporary>false</temporary>
@@ -51,12 +52,13 @@
         <level>1</level>
         <duree>999</duree>
         <cost>0</cost>
-    </skill>
+    </skill> //2 épée longue
     <skill>
         <name>Maitrise de la lame</name>
         <description>Augmente l'attaque du personnage.</description>
         <triptyque>épée longue</triptyque>
         <icon>@drawable/maitrise_de_la_lame</icon>
+        <iconname>maitrise_de_la_lame</iconname>
         <actif>false</actif>
         <type>buff</type>
         <temporary>false</temporary>
@@ -68,12 +70,13 @@
         <level>1</level>
         <duree>999</duree>
         <cost>0</cost>
-    </skill>
+    </skill> //3 épée longue
     <skill>
         <name>Renforcement LVL2</name>
         <description>augmente la défense du personnage</description>
         <triptyque>épée longue</triptyque>
         <icon>@drawable/renforcement</icon>
+        <iconname>renforcement</iconname>
         <actif>false</actif>
         <type>buff</type>
         <temporary>false</temporary>
@@ -85,12 +88,13 @@
         <level>2</level>
         <duree>999</duree>
         <cost>0</cost>
-    </skill>
+    </skill> //4 épée longue
     <skill>
         <name>Garde de la dame LVL2</name>
         <description>Ajoute 5 d’armure pendant deux tour et permet de contre attaquer pendant deux tours.</description>
         <triptyque>épée longue</triptyque>
         <icon>@drawable/garde_de_la_dame</icon>
+        <iconname>garde_de_la_dame</iconname>
         <actif>true</actif>
         <type>buff</type>
         <temporary>false</temporary>
@@ -102,12 +106,13 @@
         <level>2</level>
         <duree>2</duree>
         <cost>2</cost>
-    </skill>
+    </skill> //5 épée longue
     <skill>
         <name>Coup ascendant</name>
         <description>Attaque infligeant 1/4 de l'attaque en saignement pendant 2 tours</description>
         <triptyque>épée longue</triptyque>
         <icon>@drawable/coup_ascendant</icon>
+        <iconname>coup_ascendant</iconname>
         <actif>true</actif>
         <type>attack</type>
         <effet></effet>
@@ -119,12 +124,13 @@
         <level>1</level>
         <duree>2</duree>
         <cost>2</cost>
-    </skill>
+    </skill> //6 épée longue
     <skill>
         <name>Coup ascendant LVL2</name>
         <description>Attaque infligeant 1/2 de l'attaque en saignement pendant 2 tours</description>
         <triptyque>épée longue</triptyque>
         <icon>@drawable/coup_ascendant</icon>
+        <iconname>coup_ascendant</iconname>
         <actif>true</actif>
         <type>attack</type>
         <temporary>false</temporary>
@@ -136,12 +142,13 @@
         <level>2</level>
         <duree>2</duree>
         <cost>2</cost>
-    </skill>
+    </skill> //7 épée longue
     <skill>
         <name>Excalibur</name>
         <description>augmente grandement les critiques du personnage.</description>
         <triptyque>épée longue</triptyque>
         <icon>@drawable/excalibur</icon>
+        <iconname>excalibur</iconname>
         <actif>true</actif>
         <type>attack</type>
         <temporary>false</temporary>
@@ -153,5 +160,167 @@
         <level>1</level>
         <duree>999</duree>
         <cost>0</cost>
-    </skill>
+    </skill> //8 épée longue
+    <skill>
+        <name>Coup de bouclier</name>
+        <description>Stun l\'adversaire pendant un tour(enlève deux points d'action)</description>
+        <triptyque>guerrier</triptyque>
+        <icon>@drawable/coup_de_bouclier</icon>
+        <iconname>coup_de_bouclier</iconname>
+        <actif>true</actif>
+        <type>buff</type>
+        <temporary>false</temporary>
+        <effet></effet>
+        <stat>maxaction</stat>
+        <valeur>-2</valeur>
+        <cibletype>ennemi</cibletype>
+        <tier>1</tier>
+        <level>1</level>
+        <duree>1</duree>
+        <cost>3</cost>
+    </skill> //9 guerrier
+    <skill>
+        <name>Mastodonte</name>
+        <description>Augmente grandement les points de vie</description>
+        <triptyque>guerrier</triptyque>
+        <icon>@drawable/mastodonte</icon>
+        <iconname>mastodonte</iconname>
+        <actif>false</actif>
+        <type>buff</type>
+        <temporary>false</temporary>
+        <effet></effet>
+        <stat>maxhealth</stat>
+        <valeur>100</valeur>
+        <cibletype>luimeme</cibletype>
+        <tier>1</tier>
+        <level>1</level>
+        <duree>999</duree>
+        <cost>0</cost>
+    </skill> //10 guerrier
+    <skill>
+        <name>Levé de bouclier</name>
+        <description>Ajoute 8 points à la défense pendant deux tours.</description>
+        <triptyque>guerrier</triptyque>
+        <icon>@drawable/leve_de_bouclier</icon>
+        <iconname>level_de_bouclier</iconname>
+        <actif>true</actif>
+        <type>buff</type>
+        <temporary>false</temporary>
+        <effet></effet>
+        <stat>defense</stat>
+        <valeur>8</valeur>
+        <cibletype>luimeme</cibletype>
+        <tier>2</tier>
+        <level>1</level>
+        <duree>2</duree>
+        <cost>2</cost>
+    </skill> //11 guerrier
+    <skill>
+        <name>Rempart</name>
+        <description>Ajoute 7 points à la défense</description>
+        <triptyque>guerrier</triptyque>
+        <icon>@drawable/rempart</icon>
+        <iconname>rempart</iconname>
+        <actif>false</actif>
+        <type>buff</type>
+        <temporary>false</temporary>
+        <effet></effet>
+        <stat>defense</stat>
+        <valeur>7</valeur>
+        <cibletype>luimeme</cibletype>
+        <tier>2</tier>
+        <level>1</level>
+        <duree>999</duree>
+        <cost>0</cost>
+    </skill> //12 guerrier
+    <skill>
+        <name>Coup de bouclier LVL2</name>
+        <description>Stun l'adversaire pendant deux tour(enlève deux points d'action)</description>
+        <triptyque>guerrier</triptyque>
+        <icon>@drawable/coup_de_bouclier</icon>
+        <iconname>coup_de_bouclier</iconname>
+        <actif>true</actif>
+        <type>buff</type>
+        <temporary>false</temporary>
+        <effet></effet>
+        <stat>maxaction</stat>
+        <valeur>-2</valeur>
+        <cibletype>ennemi</cibletype>
+        <tier>2</tier>
+        <level>2</level>
+        <duree>2</duree>
+        <cost>3</cost>
+    </skill> //13 guerrier
+    <skill>
+        <name>Maitrise du pavois</name>
+        <description>Augmente de 3 points les chances de critiques</description>
+        <triptyque>guerrier</triptyque>
+        <icon>@drawable/maitrise_du_pavois</icon>
+        <iconname>maitrise_du_pavois</iconname>
+        <actif>false</actif>
+        <type>buff</type>
+        <temporary>false</temporary>
+        <effet></effet>
+        <stat>critical</stat>
+        <valeur>3</valeur>
+        <cibletype>luimeme</cibletype>
+        <tier>3</tier>
+        <level>1</level>
+        <duree>999</duree>
+        <cost>0</cost>
+    </skill> //14 guerrier
+    <skill>
+        <name>Levé de bouclier LVL2</name>
+        <description>Ajoute 12 points à la défense pendant trois tours.</description>
+        <triptyque>guerrier</triptyque>
+        <icon>@drawable/leve_de_bouclier</icon>
+        <iconname></iconname>
+        <actif>true</actif>
+        <type>buff</type>
+        <temporary>false</temporary>
+        <effet></effet>
+        <stat>defense</stat>
+        <valeur>8</valeur>
+        <cibletype>luimeme</cibletype>
+        <tier>3</tier>
+        <level>2</level>
+        <duree>3</duree>
+        <cost>2</cost>
+    </skill> //15 guerrier
+    <skill>
+        <name>Coup de bouclier LVL3</name>
+        <description>Stun l'adversaire pendant deux tour(enlève deux points d'action)</description>
+        <triptyque>guerrier</triptyque>
+        <icon>@drawable/coup_de_bouclier</icon>
+        <iconname>coup_de_bouclier</iconname>
+        <actif>true</actif>
+        <type>buff</type>
+        <temporary>false</temporary>
+        <effet></effet>
+        <stat>maxaction</stat>
+        <valeur>-2</valeur>
+        <cibletype>ennemi</cibletype>
+        <tier>4</tier>
+        <level>3</level>
+        <duree>2</duree>
+        <cost>2</cost>
+    </skill> //16 guerrier
+    <skill>
+        <name>Mastodonte LVL2</name>
+        <description>Augmente grandement les points de vie</description>
+        <triptyque>guerrier</triptyque>
+        <icon>@drawable/mastodonte</icon>
+        <iconname>mastodonte</iconname>
+        <actif>false</actif>
+        <type>buff</type>
+        <temporary>false</temporary>
+        <effet></effet>
+        <stat>maxhealth</stat>
+        <valeur>150</valeur>
+        <cibletype>luimeme</cibletype>
+        <tier>4</tier>
+        <level>2</level>
+        <duree>999</duree>
+        <cost>0</cost>
+    </skill> //17 guerrier
 </set>
