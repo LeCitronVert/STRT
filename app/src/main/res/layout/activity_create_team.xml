@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".create_team">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Triptyque"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/NomPerso1"
+        android:layout_width="71dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <EditText
+        android:id="@+id/nomPerso2"
+        android:layout_width="71dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        app:layout_constraintStart_toEndOf="@+id/NomPerso1"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <EditText
+        android:id="@+id/nomPerso3"
+        android:layout_width="71dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        app:layout_constraintStart_toEndOf="@+id/nomPerso2"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <EditText
+        android:id="@+id/nomPerso4"
+        android:layout_width="71dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        app:layout_constraintStart_toEndOf="@+id/nomPerso3"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="102dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="205dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="316dp" />
+
+    <ImageView
+        android:id="@+id/visuPerso1"
+        android:layout_width="103dp"
+        android:layout_height="108dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/NomPerso1"
+        app:srcCompat="@drawable/warrior" />
+
+    <ImageView
+        android:id="@+id/visuPerso2"
+        android:layout_width="103dp"
+        android:layout_height="108dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/nomPerso2"
+        app:srcCompat="@drawable/warrior" />
+
+    <ImageView
+        android:id="@+id/visuPerso3"
+        android:layout_width="103dp"
+        android:layout_height="108dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/nomPerso3"
+        app:srcCompat="@drawable/warrior" />
+
+    <ImageView
+        android:id="@+id/visuPerso4"
+        android:layout_width="103dp"
+        android:layout_height="108dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toEndOf="@+id/visuPerso3"
+        app:layout_constraintTop_toBottomOf="@+id/nomPerso4"
+        app:srcCompat="@drawable/warrior" />
+</android.support.constraint.ConstraintLayout>
