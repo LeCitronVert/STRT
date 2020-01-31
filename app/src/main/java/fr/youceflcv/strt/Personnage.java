@@ -41,6 +41,14 @@ public class Personnage{
         barredevie.setMax(health);
     }
 
+    public Personnage(Personnage copy){
+        this.health = copy.maxhealth;
+        this.maxhealth = copy.maxhealth;
+        this.maxaction = copy.maxaction;
+        this.actions = copy.maxaction;
+        this.attack = copy.attack;
+    }
+
     public void updateHealthbar(){
         healthbar.setProgress(health);
     }
@@ -116,4 +124,25 @@ public class Personnage{
             icon4.setVisibility(View.VISIBLE);
         }
     }
+
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+
+    public void understandSkills(){ // Cette fonction permet à l'IA de comprendre quel archétype de perso elle joue
+
+    }
+
+    public void AIattack(){ // Cette fonction permet à l'IA d'attaquer selon le meilleur choix estimé
+        for(int i = 1; i> this.skills.size();i++){
+
+        }
+    }
+
+    public void estimateEffect(Personnage cible, Skill test){ // Cette fonction permet d'estimer l'effect qu'aura un skill sur un personnage donné
+        int effect;
+        Personnage AIcopy = new Personnage(cible);
+    }
+
+
 }
