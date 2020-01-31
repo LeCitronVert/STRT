@@ -5,6 +5,8 @@
       <module fileurl="file://$PROJECT_DIR$/AndroidStudioProjects-STRT.iml" filepath="$PROJECT_DIR$/AndroidStudioProjects-STRT.iml" />
       <module fileurl="file://$PROJECT_DIR$/STRT.iml" filepath="$PROJECT_DIR$/STRT.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/STRT-app.iml" filepath="$PROJECT_DIR$/app/STRT-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/StudioProjects-STRT.iml" filepath="$PROJECT_DIR$/StudioProjects-STRT.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/StudioProjects-STRT-app.iml" filepath="$PROJECT_DIR$/app/StudioProjects-STRT-app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

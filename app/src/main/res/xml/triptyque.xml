@@ -1,0 +1,28 @@
+<set>
+    <triptyque>
+        <name>épée longue</name>
+        <description> Arme se tenant à deux mains, très polyvalente.</description>
+        <icon>@drawable/epee_longue</icon>
+        <type>weapon</type>
+        <health>136</health>
+        <attack>17</attack>
+        <defense>8</defense>
+        <speed>10</speed>
+        <precision>65</precision>
+        <esquive>55</esquive>
+        <critic>3</critic>
+    </triptyque>
+    <triptyque>
+        <name>guerrier</name>
+        <description> Une classe de tank qui réduit beaucoup les dégâts.</description>
+        <icon>@drawable/epee_longue</icon>
+        <type>classes</type>
+        <health>104</health>
+        <attack>13</attack>
+        <defense>12</defense>
+        <speed>5</speed>
+        <precision>60</precision>
+        <esquive>60</esquive>
+        <critic>1</critic>
+    </triptyque>
+</set>
