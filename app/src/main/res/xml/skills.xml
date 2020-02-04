@@ -48,7 +48,7 @@
         <stat>defense</stat>
         <valeur>4</valeur>
         <cibletype>luimeme</cibletype>
-        <tier>1</tier>
+        <tier>2</tier>
         <level>1</level>
         <duree>999</duree>
         <cost>0</cost>
@@ -84,7 +84,7 @@
         <stat>defense</stat>
         <valeur>7</valeur>
         <cibletype>luimeme</cibletype>
-        <tier>2</tier>
+        <tier>3</tier>
         <level>2</level>
         <duree>999</duree>
         <cost>0</cost>
@@ -163,7 +163,7 @@
     </skill> //8 épée longue
     <skill>
         <name>Coup de bouclier</name>
-        <description>Stun l\'adversaire pendant un tour(enlève deux points d'action)</description>
+        <description>Stun un adversaire pendant un tour(enlève deux points d'action)</description>
         <triptyque>guerrier</triptyque>
         <icon>@drawable/coup_de_bouclier</icon>
         <iconname>coup_de_bouclier</iconname>
@@ -235,7 +235,7 @@
     </skill> //12 guerrier
     <skill>
         <name>Coup de bouclier LVL2</name>
-        <description>Stun l'adversaire pendant deux tour(enlève deux points d'action)</description>
+        <description>Stun un adversaire pendant deux tour(enlève deux points d'action)</description>
         <triptyque>guerrier</triptyque>
         <icon>@drawable/coup_de_bouclier</icon>
         <iconname>coup_de_bouclier</iconname>
@@ -289,7 +289,7 @@
     </skill> //15 guerrier
     <skill>
         <name>Coup de bouclier LVL3</name>
-        <description>Stun l'adversaire pendant deux tour(enlève deux points d'action)</description>
+        <description>Stun un adversaire pendant deux tour(enlève deux points d'action)</description>
         <triptyque>guerrier</triptyque>
         <icon>@drawable/coup_de_bouclier</icon>
         <iconname>coup_de_bouclier</iconname>

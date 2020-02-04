@@ -12,6 +12,7 @@ public class Triptyque implements Parcelable, Serializable {
     String desc;
     String type;
     int img;
+    int imgvisu;
     int health;
     int attack;
     int defense;
@@ -40,6 +41,7 @@ public class Triptyque implements Parcelable, Serializable {
         desc = in.readString();
         type = in.readString();
         img = in.readInt();
+        imgvisu = in.readInt();
         health = in.readInt();
         attack = in.readInt();
         defense = in.readInt();
@@ -72,6 +74,7 @@ public class Triptyque implements Parcelable, Serializable {
         parcel.writeString(desc);
         parcel.writeString(type);
         parcel.writeInt(img);
+        parcel.writeInt(imgvisu);
         parcel.writeInt(health);
         parcel.writeInt(attack);
         parcel.writeInt(defense);

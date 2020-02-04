@@ -16,6 +16,7 @@
         <name>guerrier</name>
         <description> Une classe de tank qui réduit beaucoup les dégâts.</description>
         <icon>@drawable/guerrier</icon>
+        <imgvisu>@drawable/warrior</imgvisu>
         <type>classes</type>
         <health>104</health>
         <attack>13</attack>

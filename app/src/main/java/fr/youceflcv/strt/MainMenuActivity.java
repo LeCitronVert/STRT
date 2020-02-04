@@ -135,6 +135,8 @@ public class MainMenuActivity extends AppCompatActivity {
                         current_triptyque.desc = text;
                     } else if (".set.triptyque.icon".equals(path)){
                         current_triptyque.img = (getResources().getIdentifier(text, "drawable", getPackageName()));
+                    } else if (".set.triptyque.imgvisu".equals(path)){
+                        current_triptyque.imgvisu = (getResources().getIdentifier(text, "drawable", getPackageName()));
                     } else if (".set.triptyque.type".equals(path)){
                         current_triptyque.type = text;
                     } else if (".set.triptyque.health".equals(path)){
@@ -178,6 +180,12 @@ public class MainMenuActivity extends AppCompatActivity {
                 Log.d("sa liste de skills", triptyc.skills.get(i).name);
             }
         }
+    }
+    public void launchteam(View view){
+        Intent gameActivity = new Intent(MainMenuActivity.this, create_team.class);
+        gameActivity.putExtra("skills",list);
+        gameActivity.putExtra("triptycs",list2);
+        startActivity(gameActivity);
     }
     public void launchfight(View view){
         Intent gameActivity = new Intent(MainMenuActivity.this, MainActivity.class);
