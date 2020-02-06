@@ -143,9 +143,7 @@ public class Personnage{
         classes = cible.classes;
         skills = cible.skills;
     }
-
-
-
+  
     public void updateHealthbar(){
         healthbar.setProgress(health);
     }
@@ -258,6 +256,7 @@ public class Personnage{
         }
     }
 
+
     public void understandSkills(){ // Cette fonction permet à l'IA de comprendre quel archétype de perso elle joue
 
     }
@@ -306,6 +305,5 @@ public class Personnage{
             //Log.d("Attaques IA",this.name);
         }
     }
-
 
 }
