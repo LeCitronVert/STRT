@@ -380,7 +380,6 @@ public class MainActivity extends AppCompatActivity {
         if(attaquant1.health <= 0 && attaquant2.health <= 0 &&attaquant3.health <= 0 &&attaquant4.health <= 0){
             defeat();
         }
-        updateAllActionBar();
         if(turntype.equals("allie")){
             defenseur1.actions = defenseur1.maxaction;
             defenseur2.actions = defenseur2.maxaction;
@@ -426,6 +425,32 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
             }
+
+            // IA ennemie
+            Log.d("Début du tour IA ennemi", "Attaques ennemies");
+
+
+
+
+            Personnage listattaquant[] = new Personnage[4];
+            listattaquant[0] = attaquant1;
+            listattaquant[1] = attaquant2;
+            listattaquant[2] = attaquant3;
+            listattaquant[3] = attaquant4;
+
+            Personnage listdefenseur[] = new Personnage[4];
+            listdefenseur[0] = defenseur1;
+            listdefenseur[1] = defenseur2;
+            listdefenseur[2] = defenseur3;
+            listdefenseur[3] = defenseur4;
+
+            defenseur1.AIRandom(listattaquant, listdefenseur);
+            defenseur2.AIRandom(listattaquant, listdefenseur);
+
+
+            turntype = "ennemi";
+            turnnumber++;
+            endTurn(view);
         }
         if(turntype.equals("ennemi")){
             attaquant1.actions = attaquant1.maxaction;
@@ -472,16 +497,10 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
             }
-        }
-        Log.d("tour nombre", String.valueOf(turnnumber));
-        if(turntype.equals("allie")){
-            turntype = "ennemi";
-            turnnumber++;
-        }
-        else{
             turntype = "allie";
         }
-        Log.d("type tour",turntype);
+        Log.d("tour nombre", String.valueOf(turnnumber));
+        updateAllActionBar();
     }
     public void victory(){
         Intent gameActivity = new Intent(MainActivity.this, Victory.class);

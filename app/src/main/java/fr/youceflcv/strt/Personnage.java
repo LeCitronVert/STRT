@@ -16,6 +16,7 @@ import org.w3c.dom.Text;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by youcef.kadarabah on 08/01/20.
@@ -122,6 +123,28 @@ public class Personnage{
             }
         }
     }
+
+    public Personnage(Personnage cible){ // Ce constructeur permet de créer une copie d'un personnage, ce qui sert à l'IA pour créer une "fausse" copie d'un personnage pour calculer les dégâts infligés au vrai
+        name = cible.name;
+        maxhealth = cible.maxhealth;
+        health = cible.maxhealth;
+        speed = cible.speed;
+        maxaction = cible.maxaction;
+        actions = cible.maxaction;
+        attack = cible.attack;
+        defense = cible.defense;
+        esquive = cible.esquive;
+        precision = cible.precision;
+        critical = cible.critical;
+        ennemy = cible.ennemy;
+        position = cible.position;
+        weapon = cible.weapon;
+        power = cible.power;
+        classes = cible.classes;
+        skills = cible.skills;
+    }
+
+
 
     public void updateHealthbar(){
         healthbar.setProgress(health);
@@ -234,4 +257,55 @@ public class Personnage{
             icon4.setVisibility(View.VISIBLE);
         }
     }
+
+    public void understandSkills(){ // Cette fonction permet à l'IA de comprendre quel archétype de perso elle joue
+
+    }
+
+    public void AIattack(){ // Cette fonction permet à l'IA d'attaquer selon le meilleur choix estimé
+        for(int i = 1; i> this.skills.size();i++){
+
+        }
+    }
+
+    public void estimateEffect(Personnage cible, Skill test){ // Cette fonction permet d'estimer l'effect qu'aura un skill sur un personnage donné
+        int effect;
+        Personnage AIcopy = new Personnage(cible);
+    }
+
+    public void AIRandom(Personnage[] attaquants, Personnage[] defenseurs){
+        int alea;
+        alea = new Random().nextInt(this.actifskill.length);
+        Skill skill = this.actifskill[alea];
+        if(skill.type.equals("attack")){
+            //Log.d("Attaques IA","L'IA a lancé un skill offensif.");
+            alea = new Random().nextInt(attaquants.length);
+            Personnage cible = attaquants[alea];
+
+            int dps = (int) this.attack*skill.value;
+            int critic=1;
+            critic=(int)( Math.random()*100);
+            if(critic <= this.critical){
+                dps = dps*2;
+            }
+            cible.takeDamage(dps);
+            //Log.d("Attaques IA","L'IA a attaqué un ennemi.");
+            //Log.d("Attaques IA",cible.name);
+        } else if(skill.type.equals("heal")){
+            //Log.d("Attaques IA","L'IA a lancé un skill de support.");
+            alea = new Random().nextInt(defenseurs.length);
+            Personnage cible = defenseurs[alea];
+
+            cible.heal(skill.value);
+            //Log.d("Attaques IA","L'IA a soigné un allié.");
+            //Log.d("Attaques IA",cible.name);
+        } else if(skill.type.equals("buff")){
+            //Log.d("Attaques IA","L'IA a lancé un buff.");
+            this.buff(skill);
+            //Log.d("Attaques IA","L'IA s'est buffé.");
+            //Log.d("Attaques IA",this.name);
+        }
+    }
+
+
 }
