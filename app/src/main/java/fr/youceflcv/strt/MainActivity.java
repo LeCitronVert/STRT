@@ -47,15 +47,10 @@ public class MainActivity extends AppCompatActivity {
             listtriptycs = (List<Triptyque>) getIntent().getSerializableExtra("triptycs");
             for(Skill skill : listskills) {
                 skill.img = (getResources().getIdentifier(skill.imgname, "drawable", getPackageName()));
-                Log.d("img", skill.imgname + String.valueOf(skill.img));
                 for (Triptyque triptyque : listtriptycs) {
                     if(skill.triptyque.equals(triptyque.name)){
                         triptyque.skills.add(skill);
-                        Log.d("liste de skill",skill.name);
-                        Log.d("liste de skill", String.valueOf(skill.tier));
-                        Log.d("liste de skill", String.valueOf(skill.actif));
                     }
-                    Log.d("nom triptyque", triptyque.name);
                 }
             }
         }
