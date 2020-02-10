@@ -1,6 +1,7 @@
 package fr.youceflcv.strt;
 
 import android.content.Intent;
+import android.content.PeriodicSync;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
 
     private List<Skill> listskills;
     private List<Triptyque> listtriptycs;
+    private List<Personnage> team1;
+    private List<Personnage> team2;
 
     public Personnage attaquant1;
     public Personnage attaquant2;
@@ -45,14 +48,8 @@ public class MainActivity extends AppCompatActivity {
         if (intent != null){
             listskills = (List<Skill>) getIntent().getSerializableExtra("skills");
             listtriptycs = (List<Triptyque>) getIntent().getSerializableExtra("triptycs");
-            for(Skill skill : listskills) {
-                skill.img = (getResources().getIdentifier(skill.imgname, "drawable", getPackageName()));
-                for (Triptyque triptyque : listtriptycs) {
-                    if(skill.triptyque.equals(triptyque.name)){
-                        triptyque.skills.add(skill);
-                    }
-                }
-            }
+            team1 = (List<Personnage>) getIntent().getSerializableExtra("team1");
+            team2 = (List<Personnage>) getIntent().getSerializableExtra("team2");
         }
         action_state = 0;
         turnnumber = 1;
@@ -65,16 +62,22 @@ public class MainActivity extends AppCompatActivity {
         ProgressBar def_heahlthbar2 = findViewById(R.id.healthbar_6);
         ProgressBar def_heahlthbar3 = findViewById(R.id.healthbar_7);
         ProgressBar def_heahlthbar4 = findViewById(R.id.healthbar_8);
-        Triptyque epee_longue = listtriptycs.get(0);
-        Triptyque guerrier = listtriptycs.get(1);
-        attaquant1 = new Personnage("paul",epee_longue,guerrier,guerrier,atk_healthbar1,false,1);
-        attaquant2 = new Personnage("paul",epee_longue,guerrier,guerrier, atk_healthbar2,false,2);
-        attaquant3 = new Personnage("paul",epee_longue,guerrier,guerrier, atk_healthbar3,false,3);
-        attaquant4 = new Personnage("paul",epee_longue,guerrier,guerrier, atk_healthbar4,false,4);
-        defenseur1 = new Personnage("paul",epee_longue,guerrier,guerrier, def_heahlthbar1,true,1);
-        defenseur2 = new Personnage("paul",epee_longue,guerrier,guerrier, def_heahlthbar2,true,2);
-        defenseur3 = new Personnage("paul",epee_longue,guerrier,guerrier, def_heahlthbar3,true,3);
-        defenseur4 = new Personnage("paul",epee_longue,guerrier,guerrier, def_heahlthbar4,true,4);
+        attaquant1 = team1.get(0);
+        attaquant1.setHealthbar(atk_healthbar1);
+        attaquant2 = team1.get(1);
+        attaquant2.setHealthbar(atk_healthbar2);
+        attaquant3 = team1.get(2);
+        attaquant3.setHealthbar(atk_healthbar3);
+        attaquant4 = team1.get(3);
+        attaquant4.setHealthbar(atk_healthbar4);
+        defenseur1 = team2.get(0);
+        defenseur1.setHealthbar(def_heahlthbar1);
+        defenseur2 = team2.get(1);
+        defenseur2.setHealthbar(def_heahlthbar2);
+        defenseur3 = team2.get(2);
+        defenseur3.setHealthbar(def_heahlthbar3);
+        defenseur4 = team2.get(3);
+        defenseur4.setHealthbar(def_heahlthbar4);
         Log.d("skill du personnage", attaquant1.actifskill[0].name+attaquant1.actifskill[0].imgname);
         Personnage listattaquant[] = new Personnage[4];
         listattaquant[0] = attaquant1;
@@ -358,7 +361,7 @@ public class MainActivity extends AppCompatActivity {
                 ImageView character = findViewById(resID);
                 character.setVisibility(View.GONE);
             }
-            else{
+            if (cible.ennemy == false){
                 String curr_character = "attaquant"+cible.position;
                 int resID = getResources().getIdentifier(curr_character, "id", getPackageName());
                 ImageView character = findViewById(resID);

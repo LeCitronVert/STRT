@@ -16,7 +16,7 @@
         <level>1</level>
         <duree>1</duree>
         <cost>2</cost>
-    </skill> //0 épée longue
+    </skill> //00 épée longue
     <skill>
         <name>Feinte</name>
         <description>Attaque de base, fait autant de dêgâts que d'attaque</description>
@@ -34,7 +34,7 @@
         <level>1</level>
         <duree>0</duree>
         <cost>1</cost>
-    </skill> //1 épée longue
+    </skill> //01 épée longue
     <skill>
         <name>Renforcement</name>
         <description>augmente la défense du personnage.</description>
@@ -52,7 +52,7 @@
         <level>1</level>
         <duree>999</duree>
         <cost>0</cost>
-    </skill> //2 épée longue
+    </skill> //02 épée longue
     <skill>
         <name>Maitrise de la lame</name>
         <description>Augmente l'attaque du personnage.</description>
@@ -70,7 +70,7 @@
         <level>1</level>
         <duree>999</duree>
         <cost>0</cost>
-    </skill> //3 épée longue
+    </skill> //03 épée longue
     <skill>
         <name>Renforcement LVL2</name>
         <description>augmente la défense du personnage</description>
@@ -88,7 +88,7 @@
         <level>2</level>
         <duree>999</duree>
         <cost>0</cost>
-    </skill> //4 épée longue
+    </skill> //04 épée longue
     <skill>
         <name>Garde de la dame LVL2</name>
         <description>Ajoute 5 d’armure pendant deux tour et permet de contre attaquer pendant deux tours.</description>
@@ -106,7 +106,7 @@
         <level>2</level>
         <duree>2</duree>
         <cost>2</cost>
-    </skill> //5 épée longue
+    </skill> //05 épée longue
     <skill>
         <name>Coup ascendant</name>
         <description>Attaque infligeant 1/4 de l'attaque en saignement pendant 2 tours</description>
@@ -124,7 +124,7 @@
         <level>1</level>
         <duree>2</duree>
         <cost>2</cost>
-    </skill> //6 épée longue
+    </skill> //06 épée longue
     <skill>
         <name>Coup ascendant LVL2</name>
         <description>Attaque infligeant 1/2 de l'attaque en saignement pendant 2 tours</description>
@@ -142,7 +142,7 @@
         <level>2</level>
         <duree>2</duree>
         <cost>2</cost>
-    </skill> //7 épée longue
+    </skill> //07 épée longue
     <skill>
         <name>Excalibur</name>
         <description>augmente grandement les critiques du personnage.</description>
@@ -160,10 +160,10 @@
         <level>1</level>
         <duree>999</duree>
         <cost>0</cost>
-    </skill> //8 épée longue
+    </skill> //08 épée longue
     <skill>
         <name>Coup de bouclier</name>
-        <description>Stun un adversaire pendant un tour(enlève deux points d'action)</description>
+        <description>Stun un adversaire pendant un tour(enlève deux points de action)</description>
         <triptyque>guerrier</triptyque>
         <icon>@drawable/coup_de_bouclier</icon>
         <iconname>coup_de_bouclier</iconname>
@@ -178,7 +178,7 @@
         <level>1</level>
         <duree>1</duree>
         <cost>3</cost>
-    </skill> //9 guerrier
+    </skill> //09 guerrier
     <skill>
         <name>Mastodonte</name>
         <description>Augmente grandement les points de vie</description>
@@ -235,7 +235,7 @@
     </skill> //12 guerrier
     <skill>
         <name>Coup de bouclier LVL2</name>
-        <description>Stun un adversaire pendant deux tour(enlève deux points d'action)</description>
+        <description>Stun un adversaire pendant deux tour(enlève deux points de action)</description>
         <triptyque>guerrier</triptyque>
         <icon>@drawable/coup_de_bouclier</icon>
         <iconname>coup_de_bouclier</iconname>
@@ -289,7 +289,7 @@
     </skill> //15 guerrier
     <skill>
         <name>Coup de bouclier LVL3</name>
-        <description>Stun un adversaire pendant deux tour(enlève deux points d'action)</description>
+        <description>Stun un adversaire pendant deux tour(enlève deux points de action)</description>
         <triptyque>guerrier</triptyque>
         <icon>@drawable/coup_de_bouclier</icon>
         <iconname>coup_de_bouclier</iconname>

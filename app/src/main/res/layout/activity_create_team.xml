@@ -299,19 +299,6 @@
         app:layout_constraintTop_toBottomOf="@+id/speedimage" />
 
     <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="24dp"
-        android:text="Active Skills"
-        android:textColor="#FFF"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/skills15" />
-
-    <TextView
         android:id="@+id/life1"
         android:layout_width="19sp"
         android:layout_height="wrap_content"
@@ -1026,7 +1013,9 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="24dp"
         android:background="@null"
+        android:onClick="afficheskill"
         android:scaleType="fitCenter"
+        android:tag="11"
         app:layout_constraintEnd_toStartOf="@+id/skills12"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -1041,7 +1030,9 @@
         android:layout_marginLeft="8dp"
         android:layout_marginTop="24dp"
         android:background="@null"
+        android:onClick="afficheskill"
         android:scaleType="fitCenter"
+        android:tag="12"
         app:layout_constraintEnd_toStartOf="@+id/skills21"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/skills11"
@@ -1056,7 +1047,9 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="8dp"
         android:background="@null"
+        android:onClick="afficheskill"
         android:scaleType="fitCenter"
+        android:tag="13"
         app:layout_constraintEnd_toStartOf="@+id/skills14"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -1071,7 +1064,9 @@
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:background="@null"
+        android:onClick="afficheskill"
         android:scaleType="fitCenter"
+        android:tag="14"
         app:layout_constraintEnd_toStartOf="@+id/skills23"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/skills13"
@@ -1086,7 +1081,9 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="8dp"
         android:background="@null"
+        android:onClick="afficheskill"
         android:scaleType="fitCenter"
+        android:tag="15"
         app:layout_constraintEnd_toStartOf="@+id/skills16"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -1101,7 +1098,9 @@
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:background="@null"
+        android:onClick="afficheskill"
         android:scaleType="fitCenter"
+        android:tag="16"
         app:layout_constraintEnd_toStartOf="@+id/skills25"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/skills15"
@@ -1116,7 +1115,9 @@
         android:layout_marginLeft="32dp"
         android:layout_marginTop="24dp"
         android:background="@null"
+        android:onClick="afficheskill"
         android:scaleType="fitCenter"
+        android:tag="21"
         app:layout_constraintEnd_toStartOf="@+id/skills22"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/skills12"
@@ -1131,7 +1132,9 @@
         android:layout_marginLeft="8dp"
         android:layout_marginTop="24dp"
         android:background="@null"
+        android:onClick="afficheskill"
         android:scaleType="fitCenter"
+        android:tag="22"
         app:layout_constraintEnd_toStartOf="@+id/skills31"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/skills21"
@@ -1146,7 +1149,9 @@
         android:layout_marginLeft="32dp"
         android:layout_marginTop="8dp"
         android:background="@null"
+        android:onClick="afficheskill"
         android:scaleType="fitCenter"
+        android:tag="23"
         app:layout_constraintEnd_toStartOf="@+id/skills24"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/skills14"
@@ -1161,7 +1166,9 @@
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:background="@null"
+        android:onClick="afficheskill"
         android:scaleType="fitCenter"
+        android:tag="24"
         app:layout_constraintEnd_toStartOf="@+id/skills33"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/skills23"
@@ -1176,7 +1183,9 @@
         android:layout_marginLeft="32dp"
         android:layout_marginTop="8dp"
         android:background="@null"
+        android:onClick="afficheskill"
         android:scaleType="fitCenter"
+        android:tag="25"
         app:layout_constraintEnd_toStartOf="@+id/skills26"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/skills16"
@@ -1191,7 +1200,9 @@
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:background="@null"
+        android:onClick="afficheskill"
         android:scaleType="fitCenter"
+        android:tag="26"
         app:layout_constraintEnd_toStartOf="@+id/skills35"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/skills25"
@@ -1206,7 +1217,9 @@
         android:layout_marginLeft="32dp"
         android:layout_marginTop="24dp"
         android:background="@null"
+        android:onClick="afficheskill"
         android:scaleType="fitCenter"
+        android:tag="31"
         app:layout_constraintEnd_toStartOf="@+id/skills32"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/skills22"
@@ -1221,7 +1234,9 @@
         android:layout_marginLeft="8dp"
         android:layout_marginTop="24dp"
         android:background="@null"
+        android:onClick="afficheskill"
         android:scaleType="fitCenter"
+        android:tag="32"
         app:layout_constraintEnd_toStartOf="@+id/skills41"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/skills31"
@@ -1236,7 +1251,9 @@
         android:layout_marginLeft="32dp"
         android:layout_marginTop="8dp"
         android:background="@null"
+        android:onClick="afficheskill"
         android:scaleType="fitCenter"
+        android:tag="33"
         app:layout_constraintEnd_toStartOf="@+id/skills34"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/skills24"
@@ -1251,7 +1268,9 @@
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:background="@null"
+        android:onClick="afficheskill"
         android:scaleType="fitCenter"
+        android:tag="34"
         app:layout_constraintEnd_toStartOf="@+id/skills43"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/skills33"
@@ -1266,7 +1285,9 @@
         android:layout_marginLeft="32dp"
         android:layout_marginTop="8dp"
         android:background="@null"
+        android:onClick="afficheskill"
         android:scaleType="fitCenter"
+        android:tag="35"
         app:layout_constraintEnd_toStartOf="@+id/skills36"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/skills26"
@@ -1281,7 +1302,9 @@
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:background="@null"
+        android:onClick="afficheskill"
         android:scaleType="fitCenter"
+        android:tag="36"
         app:layout_constraintEnd_toStartOf="@+id/skills45"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/skills35"
@@ -1296,7 +1319,9 @@
         android:layout_marginLeft="32dp"
         android:layout_marginTop="24dp"
         android:background="@null"
+        android:onClick="afficheskill"
         android:scaleType="fitCenter"
+        android:tag="41"
         app:layout_constraintEnd_toStartOf="@+id/skills42"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/skills32"
@@ -1313,7 +1338,9 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:background="@null"
+        android:onClick="afficheskill"
         android:scaleType="fitCenter"
+        android:tag="42"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/skills41"
@@ -1328,7 +1355,9 @@
         android:layout_marginLeft="32dp"
         android:layout_marginTop="8dp"
         android:background="@null"
+        android:onClick="afficheskill"
         android:scaleType="fitCenter"
+        android:tag="43"
         app:layout_constraintEnd_toStartOf="@+id/skills44"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/skills34"
@@ -1345,6 +1374,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:background="@null"
+        android:onClick="afficheskill"
         android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -1360,7 +1390,9 @@
         android:layout_marginLeft="32dp"
         android:layout_marginTop="8dp"
         android:background="@null"
+        android:onClick="afficheskill"
         android:scaleType="fitCenter"
+        android:tag="45"
         app:layout_constraintEnd_toStartOf="@+id/skills46"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/skills36"
@@ -1377,7 +1409,9 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:background="@null"
+        android:onClick="afficheskill"
         android:scaleType="fitCenter"
+        android:tag="46"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/skills45"
@@ -1395,5 +1429,953 @@
         android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/tournois_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="launchfight"
+        android:text="Lancer le tournois !"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/skills25" />
+
+    <LinearLayout
+        android:id="@+id/layout11"
+        android:layout_width="80dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="#fff"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/skills11"
+        app:layout_constraintStart_toStartOf="@+id/skills11"
+        tools:visibility="gone">
+
+        <TextView
+            android:id="@+id/nameskill11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/typeskill11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="9sp" />
+
+        <TextView
+            android:id="@+id/description11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="8sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout12"
+        android:layout_width="80dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="#fff"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/skills11"
+        app:layout_constraintStart_toStartOf="@+id/skills12"
+        tools:visibility="gone">
+
+        <TextView
+            android:id="@+id/nameskill12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/typeskill12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="9sp" />
+
+        <TextView
+            android:id="@+id/description12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="8sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout13"
+        android:layout_width="80dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="#fff"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/skills13"
+        app:layout_constraintStart_toStartOf="@+id/skills13"
+        tools:visibility="gone">
+
+        <TextView
+            android:id="@+id/nameskill13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/typeskill13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="9sp" />
+
+        <TextView
+            android:id="@+id/description13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="8sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout14"
+        android:layout_width="80dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="#fff"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/skills13"
+        app:layout_constraintStart_toStartOf="@+id/skills14"
+        tools:visibility="gone">
+
+        <TextView
+            android:id="@+id/nameskill14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/typeskill14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="9sp" />
+
+        <TextView
+            android:id="@+id/description14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="8sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout15"
+        android:layout_width="80dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="#fff"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/skills15"
+        app:layout_constraintStart_toStartOf="@+id/skills15"
+        tools:visibility="gone">
+
+        <TextView
+            android:id="@+id/nameskill15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/typeskill15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="9sp" />
+
+        <TextView
+            android:id="@+id/description15"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="8sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout16"
+        android:layout_width="80dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="#fff"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/skills15"
+        app:layout_constraintStart_toEndOf="@+id/skills16"
+        app:layout_constraintStart_toStartOf="@+id/skills16"
+        tools:visibility="gone">
+
+        <TextView
+            android:id="@+id/nameskill16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/typeskill16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="9sp" />
+
+        <TextView
+            android:id="@+id/description16"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="8sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout21"
+        android:layout_width="80dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="#fff"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/skills11"
+        app:layout_constraintStart_toStartOf="@+id/skills21"
+        tools:visibility="gone">
+
+        <TextView
+            android:id="@+id/nameskill21"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/typeskill21"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="9sp" />
+
+        <TextView
+            android:id="@+id/description21"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="8sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout22"
+        android:layout_width="80dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="#fff"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/skills11"
+        app:layout_constraintStart_toStartOf="@+id/skills22"
+        tools:visibility="gone">
+
+        <TextView
+            android:id="@+id/nameskill22"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/typeskill22"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="9sp" />
+
+        <TextView
+            android:id="@+id/description22"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="8sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout23"
+        android:layout_width="80dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="#fff"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/skills23"
+        app:layout_constraintStart_toStartOf="@+id/skills23"
+        tools:visibility="gone">
+
+        <TextView
+            android:id="@+id/nameskill23"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/typeskill23"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="9sp" />
+
+        <TextView
+            android:id="@+id/description23"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="8sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout24"
+        android:layout_width="80dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="#fff"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/skills23"
+        app:layout_constraintStart_toStartOf="@+id/skills24"
+        tools:visibility="gone">
+
+        <TextView
+            android:id="@+id/nameskill24"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/typeskill24"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="9sp" />
+
+        <TextView
+            android:id="@+id/description24"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="8sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout25"
+        android:layout_width="80dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="#fff"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/skills25"
+        app:layout_constraintStart_toStartOf="@+id/skills23"
+        tools:visibility="gone">
+
+        <TextView
+            android:id="@+id/nameskill25"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/typeskill25"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="9sp" />
+
+        <TextView
+            android:id="@+id/description25"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="8sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout26"
+        android:layout_width="80dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="#fff"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/skills25"
+        app:layout_constraintStart_toStartOf="@+id/skills26"
+        tools:visibility="gone">
+
+        <TextView
+            android:id="@+id/nameskill26"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/typeskill26"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="9sp" />
+
+        <TextView
+            android:id="@+id/description26"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="8sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout31"
+        android:layout_width="80dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="15dp"
+        android:background="#fff"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/skills31"
+        app:layout_constraintStart_toStartOf="@+id/skills31"
+        tools:visibility="gone">
+
+        <TextView
+            android:id="@+id/nameskill31"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/typeskill31"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="9sp" />
+
+        <TextView
+            android:id="@+id/description31"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="8sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout32"
+        android:layout_width="80dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="15dp"
+        android:background="#fff"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/skills31"
+        app:layout_constraintStart_toStartOf="@+id/skills32"
+        tools:visibility="gone">
+
+        <TextView
+            android:id="@+id/nameskill32"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/typeskill32"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="9sp" />
+
+        <TextView
+            android:id="@+id/description32"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="8sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout33"
+        android:layout_width="80dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="#fff"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/skills33"
+        app:layout_constraintStart_toStartOf="@+id/skills33"
+        tools:visibility="gone">
+
+        <TextView
+            android:id="@+id/nameskill33"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/typeskill33"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="9sp" />
+
+        <TextView
+            android:id="@+id/description33"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="8sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout34"
+        android:layout_width="80dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="#fff"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/skills33"
+        app:layout_constraintStart_toStartOf="@+id/skills34"
+        tools:visibility="gone">
+
+        <TextView
+            android:id="@+id/nameskill34"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/typeskill34"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="9sp" />
+
+        <TextView
+            android:id="@+id/description34"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="8sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout35"
+        android:layout_width="80dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="#fff"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/skills35"
+        app:layout_constraintStart_toStartOf="@+id/skills35"
+        tools:visibility="gone">
+
+        <TextView
+            android:id="@+id/nameskill35"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/typeskill35"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="9sp" />
+
+        <TextView
+            android:id="@+id/description35"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="8sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout36"
+        android:layout_width="80dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="#fff"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/skills35"
+        app:layout_constraintStart_toStartOf="@+id/skills36"
+        tools:visibility="gone">
+
+        <TextView
+            android:id="@+id/nameskill36"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/typeskill36"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="9sp" />
+
+        <TextView
+            android:id="@+id/description36"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="8sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout41"
+        android:layout_width="80dp"
+        android:layout_height="90dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="#fff"
+        android:orientation="vertical"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/skills41"
+        app:layout_constraintEnd_toEndOf="@+id/skills41">
+
+        <TextView
+            android:id="@+id/nameskill41"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/typeskill41"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="9sp" />
+
+        <TextView
+            android:id="@+id/description41"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="8sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout42"
+        android:layout_width="80dp"
+        android:layout_height="90dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="#fff"
+        android:orientation="vertical"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/skills42"
+        app:layout_constraintEnd_toEndOf="@+id/skills42">
+
+        <TextView
+            android:id="@+id/nameskill42"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/typeskill42"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="9sp" />
+
+        <TextView
+            android:id="@+id/description42"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="8sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout43"
+        android:layout_width="80dp"
+        android:layout_height="90dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="#fff"
+        android:orientation="vertical"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/skills43"
+        app:layout_constraintEnd_toEndOf="@+id/skills43">
+
+        <TextView
+            android:id="@+id/nameskill43"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/typeskill43"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="9sp" />
+
+        <TextView
+            android:id="@+id/description43"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="8sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout44"
+        android:layout_width="80dp"
+        android:layout_height="90dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="#fff"
+        android:orientation="vertical"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/skills43"
+        app:layout_constraintEnd_toEndOf="@+id/skills44">
+
+        <TextView
+            android:id="@+id/nameskill44"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/typeskill44"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="9sp" />
+
+        <TextView
+            android:id="@+id/description44"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="8sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout45"
+        android:layout_width="80dp"
+        android:layout_height="90dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="#fff"
+        android:orientation="vertical"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/skills45"
+        app:layout_constraintEnd_toEndOf="@+id/skills43">
+
+        <TextView
+            android:id="@+id/nameskill45"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/typeskill45"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="9sp" />
+
+        <TextView
+            android:id="@+id/description45"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="8sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout46"
+        android:layout_width="80dp"
+        android:layout_height="90dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="#fff"
+        android:orientation="vertical"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/skills45"
+        app:layout_constraintEnd_toEndOf="@+id/skills46">
+
+        <TextView
+            android:id="@+id/nameskill46"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/typeskill46"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="9sp" />
+
+        <TextView
+            android:id="@+id/description46"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="8sp" />
+
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
