@@ -41,8 +41,11 @@ public class Personnage implements Parcelable, Serializable {
     boolean ennemy;
     int position;
     Triptyque weapon;
+    int weapon_level;
     Triptyque power;
+    int power_level;
     Triptyque classes;
+    int classes_level;
     List<Skill> skills = new ArrayList<Skill>();
     Skill[] actifskill = new Skill[4];
 
@@ -63,8 +66,11 @@ public class Personnage implements Parcelable, Serializable {
         ennemy = ennemi;
         position = ou;
         weapon = arme;
+        weapon_level = 1;
         power = pouvoir;
+        power_level = 1;
         classes = classe;
+        classes_level = 1;
         healthbar = barredevie;
         barredevie.setMax(maxhealth);
         barredevie.setProgress(health);
@@ -162,8 +168,11 @@ public class Personnage implements Parcelable, Serializable {
         ennemy = in.readByte() != 0;
         position = in.readInt();
         weapon = in.readParcelable(Triptyque.class.getClassLoader());
+        weapon_level = in.readInt();
         power = in.readParcelable(Triptyque.class.getClassLoader());
+        power_level = in.readInt();
         classes = in.readParcelable(Triptyque.class.getClassLoader());
+        classes_level = in.readInt();
         skills = in.createTypedArrayList(Skill.CREATOR);
         actifskill = in.createTypedArray(Skill.CREATOR);
     }
@@ -376,8 +385,11 @@ public class Personnage implements Parcelable, Serializable {
         parcel.writeByte((byte) (ennemy ? 1 : 0));
         parcel.writeInt(position);
         parcel.writeParcelable(weapon, i);
+        parcel.writeInt(weapon_level);
         parcel.writeParcelable(power, i);
+        parcel.writeInt(power_level);
         parcel.writeParcelable(classes, i);
+        parcel.writeInt(classes_level);
         parcel.writeTypedList(skills);
         parcel.writeTypedArray(actifskill, i);
     }

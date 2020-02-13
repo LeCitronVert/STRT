@@ -1,18 +1,14 @@
 package fr.youceflcv.strt;
 
 import android.content.Intent;
-import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Layout;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -260,6 +256,14 @@ public class create_team extends AppCompatActivity {
     }
     public void launchfight(View view){
         Intent gameActivity = new Intent(create_team.this, MainActivity.class);
+        gameActivity.putExtra("team1", (Serializable) team1);
+        gameActivity.putExtra("team2", (Serializable) team2);
+        gameActivity.putExtra("skills", (Serializable) listskills);
+        gameActivity.putExtra("triptycs", (Serializable) listtriptycs);
+        startActivity(gameActivity);
+    }
+    public void launchteam(View view){
+        Intent gameActivity = new Intent(create_team.this, level_up.class);
         gameActivity.putExtra("team1", (Serializable) team1);
         gameActivity.putExtra("team2", (Serializable) team2);
         gameActivity.putExtra("skills", (Serializable) listskills);

@@ -19,7 +19,7 @@
     </skill> //00 épée longue
     <skill>
         <name>Feinte</name>
-        <description>Attaque de base, fait autant de dêgâts que d'attaque</description>
+        <description>Attaque de base</description>
         <triptyque>épée longue</triptyque>
         <icon>@drawable/feinte</icon>
         <iconname>feinte</iconname>
@@ -202,7 +202,7 @@
         <description>Ajoute 8 points à la défense pendant deux tours.</description>
         <triptyque>guerrier</triptyque>
         <icon>@drawable/leve_de_bouclier</icon>
-        <iconname>level_de_bouclier</iconname>
+        <iconname>leve_de_bouclier</iconname>
         <actif>true</actif>
         <type>buff</type>
         <temporary>false</temporary>
@@ -274,7 +274,7 @@
         <description>Ajoute 12 points à la défense pendant trois tours.</description>
         <triptyque>guerrier</triptyque>
         <icon>@drawable/leve_de_bouclier</icon>
-        <iconname></iconname>
+        <iconname>leve_de_bouclier</iconname>
         <actif>true</actif>
         <type>buff</type>
         <temporary>false</temporary>

@@ -45,9 +45,9 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fight);
-        Intent intent = getIntent();
         lefttorightattack = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.slide_lefttoright_attack);
         blinking = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.blinking);
+        Intent intent = getIntent();
         if (intent != null){
             listskills = (List<Skill>) getIntent().getSerializableExtra("skills");
             listtriptycs = (List<Triptyque>) getIntent().getSerializableExtra("triptycs");
@@ -413,12 +413,10 @@ public class MainActivity extends AppCompatActivity {
             cible_visuel.startAnimation(blinking);
         }
         if (cible.health <= 0){
-            if (cible.ennemy == true){
                 String curr_character = "skindef"+cible.position;
                 int resID = getResources().getIdentifier(curr_character, "id", getPackageName());
                 ImageView character = findViewById(resID);
                 character.setVisibility(View.GONE);
-            }
         }
         if(defenseur1.health <= 0 && defenseur2.health <= 0 &&defenseur3.health <= 0 &&defenseur4.health <= 0){
             victory();
