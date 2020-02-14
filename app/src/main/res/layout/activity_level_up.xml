@@ -795,6 +795,135 @@
             app:srcCompat="@drawable/feinte" />
     </LinearLayout>
 
+    <ImageButton
+        android:id="@+id/LevelUpClasse1"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="50dp"
+        android:background="@null"
+        android:onClick="SetlevelUp"
+        android:scaleType="fitCenter"
+        android:tag="classes"
+        app:layout_constraintEnd_toStartOf="@+id/Classe_palier2"
+        app:layout_constraintStart_toEndOf="@+id/Classe_palier1"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:srcCompat="@drawable/level_up_button" />
+
+    <ImageButton
+        android:id="@+id/LevelUpClasse2"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="50dp"
+        android:background="@null"
+        android:onClick="SetlevelUp"
+        android:scaleType="fitCenter"
+        android:tag="classes"
+        app:layout_constraintEnd_toStartOf="@+id/Classe_palier3"
+        app:layout_constraintStart_toEndOf="@+id/Classe_palier2"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:srcCompat="@drawable/level_up_button" />
+
+    <ImageButton
+        android:id="@+id/LevelUpClasse3"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="50dp"
+        android:background="@null"
+        android:onClick="SetlevelUp"
+        android:scaleType="fitCenter"
+        android:tag="classes"
+        app:layout_constraintEnd_toStartOf="@+id/Classe_palier4"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/Classe_palier3"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:srcCompat="@drawable/level_up_button" />
+
+    <ImageButton
+        android:id="@+id/levelUpPower1"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="50dp"
+        android:background="@null"
+        android:onClick="SetlevelUp"
+        android:scaleType="fitCenter"
+        android:tag="power"
+        app:layout_constraintEnd_toStartOf="@+id/Classe_palier2"
+        app:layout_constraintStart_toEndOf="@+id/Classe_palier1"
+        app:layout_constraintTop_toBottomOf="@+id/classe_back"
+        app:srcCompat="@drawable/level_up_button" />
+
+    <ImageButton
+        android:id="@+id/levelUpPower2"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="50dp"
+        android:background="@null"
+        android:onClick="SetlevelUp"
+        android:scaleType="fitCenter"
+        android:tag="power"
+        app:layout_constraintEnd_toStartOf="@+id/Classe_palier3"
+        app:layout_constraintStart_toEndOf="@+id/Classe_palier2"
+        app:layout_constraintTop_toBottomOf="@+id/classe_back"
+        app:srcCompat="@drawable/level_up_button" />
+
+    <ImageButton
+        android:id="@+id/levelUpPower3"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="50dp"
+        android:background="@null"
+        android:onClick="SetlevelUp"
+        android:scaleType="fitCenter"
+        android:tag="power"
+        app:layout_constraintEnd_toStartOf="@+id/Classe_palier4"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/Classe_palier3"
+        app:layout_constraintTop_toBottomOf="@+id/classe_back"
+        app:srcCompat="@drawable/level_up_button" />
+
+    <ImageButton
+        android:id="@+id/levelUpWeapon1"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="50dp"
+        android:background="@null"
+        android:onClick="SetlevelUp"
+        android:scaleType="fitCenter"
+        android:tag="weapon"
+        app:layout_constraintEnd_toStartOf="@+id/Classe_palier2"
+        app:layout_constraintStart_toEndOf="@+id/Classe_palier1"
+        app:layout_constraintTop_toBottomOf="@+id/power_back"
+        app:srcCompat="@drawable/level_up_button" />
+
+    <ImageButton
+        android:id="@+id/levelUpWeapon2"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="50dp"
+        android:background="@null"
+        android:onClick="SetlevelUp"
+        android:scaleType="fitCenter"
+        android:tag="weapon"
+        app:layout_constraintEnd_toStartOf="@+id/Classe_palier3"
+        app:layout_constraintStart_toEndOf="@+id/Classe_palier2"
+        app:layout_constraintTop_toBottomOf="@+id/power_back"
+        app:srcCompat="@drawable/level_up_button" />
+
+    <ImageButton
+        android:id="@+id/levelUpWeapon3"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="50dp"
+        android:background="@null"
+        android:onClick="SetlevelUp"
+        android:scaleType="fitCenter"
+        android:tag="weapon"
+        app:layout_constraintEnd_toStartOf="@+id/Classe_palier4"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/Classe_palier3"
+        app:layout_constraintTop_toBottomOf="@+id/power_back"
+        app:srcCompat="@drawable/level_up_button" />
+
     <LinearLayout
         android:id="@+id/skillbox"
         android:layout_width="225dp"
@@ -849,41 +978,313 @@
             android:text="Fermer" />
     </LinearLayout>
 
-    <ImageButton
-        android:id="@+id/LevelUpClasse1"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="50dp"
-        android:background="@null"
-        android:scaleType="fitCenter"
-        app:layout_constraintEnd_toStartOf="@+id/Classe_palier2"
-        app:layout_constraintStart_toEndOf="@+id/Classe_palier1"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:srcCompat="@drawable/level_up_button" />
-
-    <ImageButton
-        android:id="@+id/LevelUpClasse2"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="50dp"
-        android:background="@null"
-        android:scaleType="fitCenter"
-        app:layout_constraintEnd_toStartOf="@+id/Classe_palier3"
-        app:layout_constraintStart_toEndOf="@+id/Classe_palier2"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:srcCompat="@drawable/level_up_button" />
-
-    <ImageButton
-        android:id="@+id/LevelUpClasse3"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="50dp"
-        android:background="@null"
-        android:scaleType="fitCenter"
-        app:layout_constraintEnd_toStartOf="@+id/Classe_palier4"
+    <LinearLayout
+        android:id="@+id/confirmupbox"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/Classe_palier3"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:srcCompat="@drawable/level_up_button" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/TitreUpBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="CONFIRMATION"
+            android:textSize="28sp" />
+
+        <TextView
+            android:id="@+id/DescUpBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text='Voulez vous vraiment mettre " " de " " au niveau " " ?'
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/confirmUpBoxButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="LevelUp"
+            android:text="Confirmer" />
+
+        <Button
+            android:id="@+id/CancelUpbox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="ResetLevelUp"
+            android:text="Annuler" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:gravity="right"
+        android:text="Stats"
+        android:textColor="#fff"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/weapon_back" />
+
+    <TextView
+        android:id="@+id/accuracyUnique"
+        android:layout_width="19sp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:text="0"
+        android:textColor="#fff"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <TextView
+        android:id="@+id/lifeUnique"
+        android:layout_width="19sp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        android:gravity="right"
+        android:text="0"
+        android:textColor="#fff"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toStartOf="@+id/lifeimage6"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <TextView
+        android:id="@+id/criticalUnique"
+        android:layout_width="19sp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:text="0"
+        android:textColor="#fff"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/agilityUnique" />
+
+    <TextView
+        android:id="@+id/attackUnique"
+        android:layout_width="19sp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        android:gravity="right"
+        android:text="0"
+        android:textColor="#FFF"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="@+id/attackimage6"
+        app:layout_constraintEnd_toStartOf="@+id/attackimage6"
+        app:layout_constraintTop_toBottomOf="@+id/lifeUnique" />
+
+    <TextView
+        android:id="@+id/defenseUnique"
+        android:layout_width="19sp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        android:gravity="right"
+        android:text="0"
+        android:textColor="#FFF"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toStartOf="@+id/defenseimage6"
+        app:layout_constraintTop_toBottomOf="@+id/attackUnique" />
+
+    <TextView
+        android:id="@+id/speedUnique"
+        android:layout_width="19sp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:gravity="right|left"
+        android:text="0"
+        android:textColor="#FFF"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/criticalUnique" />
+
+    <TextView
+        android:id="@+id/agilityUnique"
+        android:layout_width="19sp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:text="0"
+        android:textColor="#FFF"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/accuracyUnique" />
+
+    <ImageView
+        android:id="@+id/lifeimage6"
+        android:layout_width="16sp"
+        android:layout_height="15sp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        app:layout_constraintEnd_toStartOf="@+id/accuracyimage6"
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:srcCompat="@drawable/life" />
+
+    <ImageView
+        android:id="@+id/criticalimage6"
+        android:layout_width="16sp"
+        android:layout_height="15sp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        app:layout_constraintEnd_toStartOf="@+id/criticalUnique"
+        app:layout_constraintTop_toBottomOf="@+id/agilityimage6"
+        app:srcCompat="@drawable/critical" />
+
+    <ImageView
+        android:id="@+id/attackimage6"
+        android:layout_width="16sp"
+        android:layout_height="15sp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        app:layout_constraintEnd_toEndOf="@+id/agilityimage6"
+        app:layout_constraintEnd_toStartOf="@+id/agilityimage6"
+        app:layout_constraintTop_toBottomOf="@+id/lifeimage6"
+        app:srcCompat="@drawable/attack" />
+
+    <ImageView
+        android:id="@+id/defenseimage6"
+        android:layout_width="16sp"
+        android:layout_height="15sp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        app:layout_constraintEnd_toStartOf="@+id/criticalimage6"
+        app:layout_constraintTop_toBottomOf="@+id/attackimage6"
+        app:srcCompat="@drawable/defense" />
+
+    <ImageView
+        android:id="@+id/speedimage6"
+        android:layout_width="16sp"
+        android:layout_height="15sp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        app:layout_constraintEnd_toStartOf="@+id/speedUnique"
+        app:layout_constraintTop_toBottomOf="@+id/criticalimage6"
+        app:srcCompat="@drawable/speed" />
+
+    <ImageView
+        android:id="@+id/agilityimage6"
+        android:layout_width="16sp"
+        android:layout_height="15sp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        app:layout_constraintEnd_toEndOf="@+id/lifeimage6"
+        app:layout_constraintEnd_toStartOf="@+id/agilityUnique"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/attackimage"
+        app:layout_constraintTop_toBottomOf="@+id/accuracyimage6"
+        app:srcCompat="@drawable/agility" />
+
+    <ImageView
+        android:id="@+id/accuracyimage6"
+        android:layout_width="16sp"
+        android:layout_height="15sp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        app:layout_constraintEnd_toStartOf="@+id/accuracyUnique"
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:srcCompat="@drawable/accuracy" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:gravity="right"
+        android:text="Active Skills"
+        android:textColor="#fff"
+        android:textSize="36sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/weapon_back" />
+
+    <ImageButton
+        android:id="@+id/ActiveButton1"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@null"
+        android:onClick="SetSkillBox"
+        android:scaleType="fitCenter"
+        android:tag="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7"
+        app:srcCompat="@drawable/plus" />
+
+    <ImageButton
+        android:id="@+id/ActiveButton2"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@null"
+        android:onClick="SetSkillBox"
+        android:scaleType="fitCenter"
+        android:tag="2"
+        app:layout_constraintStart_toEndOf="@+id/ActiveButton1"
+        app:layout_constraintTop_toBottomOf="@+id/textView7"
+        app:srcCompat="@drawable/plus" />
+
+    <ImageButton
+        android:id="@+id/ActiveButton3"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@null"
+        android:onClick="SetSkillBox"
+        android:scaleType="fitCenter"
+        android:tag="3"
+        app:layout_constraintStart_toEndOf="@+id/ActiveButton2"
+        app:layout_constraintTop_toBottomOf="@+id/textView7"
+        app:srcCompat="@drawable/plus" />
+
+    <ImageButton
+        android:id="@+id/ActiveButton4"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@null"
+        android:onClick="SetSkillBox"
+        android:scaleType="fitCenter"
+        android:tag="4"
+        app:layout_constraintStart_toEndOf="@+id/ActiveButton3"
+        app:layout_constraintTop_toBottomOf="@+id/textView7"
+        app:srcCompat="@drawable/plus" />
 
 </android.support.constraint.ConstraintLayout>

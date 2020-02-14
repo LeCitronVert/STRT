@@ -224,7 +224,6 @@ public class Personnage implements Parcelable, Serializable {
         if(this.attack < 0){
             this.attack = 0;
         }
-        this.updateHealthbar();
     }
 
     public void heal(int value){
@@ -255,7 +254,6 @@ public class Personnage implements Parcelable, Serializable {
                 this.critical =(int) this.critical + tempo_skill.value;
             } else if(tempo_skill.stat.equals("maxhealth")){
                 this.maxhealth =(int) this.maxhealth + tempo_skill.value;
-                this.overheal();
             }
         }
         else{
@@ -276,7 +274,6 @@ public class Personnage implements Parcelable, Serializable {
                 this.critical =(int) this.critical + parent_skill.value;
             } else if(parent_skill.stat.equals("maxhealth")){
                 this.maxhealth =(int) this.maxhealth + parent_skill.value;
-                this.overheal();
             }
         }
     }
