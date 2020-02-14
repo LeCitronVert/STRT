@@ -405,8 +405,36 @@ public class level_up extends AppCompatActivity {
         TextView Uptext = findViewById(R.id.UpactifText);
         LinearLayout UpBar = findViewById(R.id.UpActifBar);
         if(Skill[Curr_skill].actif == true){
-            Uptext.setVisibility(view.VISIBLE);
-            UpBar.setVisibility(view.VISIBLE);
+            if(Curr_skill>100 && Curr_skill<200){
+                if(Skill[Curr_skill].tier <= team1.get(cible).classes_level){
+                    Uptext.setVisibility(view.VISIBLE);
+                    UpBar.setVisibility(view.VISIBLE);
+                }
+                else{
+                    Uptext.setVisibility(view.GONE);
+                    UpBar.setVisibility(view.GONE);
+                }
+            }
+            if(Curr_skill>200 && Curr_skill<300){
+                if(Skill[Curr_skill].tier <= team1.get(cible).power_level){
+                    Uptext.setVisibility(view.VISIBLE);
+                    UpBar.setVisibility(view.VISIBLE);
+                }
+                else{
+                    Uptext.setVisibility(view.GONE);
+                    UpBar.setVisibility(view.GONE);
+                }
+            }
+            if(Curr_skill>300){
+                if(Skill[Curr_skill].tier <= team1.get(cible).weapon_level){
+                    Uptext.setVisibility(view.VISIBLE);
+                    UpBar.setVisibility(view.VISIBLE);
+                }
+                else{
+                    Uptext.setVisibility(view.GONE);
+                    UpBar.setVisibility(view.GONE);
+                }
+            }
         }
         else{
             Uptext.setVisibility(view.GONE);
