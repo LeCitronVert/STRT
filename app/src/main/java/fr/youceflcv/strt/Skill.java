@@ -1,14 +1,10 @@
 package fr.youceflcv.strt;
 
-import android.media.Image;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.Log;
-import android.view.View;
-import android.widget.ImageView;
 
 import java.io.Serializable;
-import java.lang.reflect.Method;
 
 /**
  * Created by youcef.kadarabah on 08/01/20.
@@ -83,7 +79,7 @@ public class Skill implements Parcelable, Serializable {
         }
     };
 
-    public void useSkill(Personnage attaquant, Personnage cible){
+    public int useSkill(Personnage attaquant, Personnage cible){
         attaquant.actions = attaquant.actions - this.cost;
         if(this.type.equals("attack")){
             Log.d("test attaque","oui");
@@ -94,11 +90,14 @@ public class Skill implements Parcelable, Serializable {
                 dps = dps*2;
             }
             cible.takeDamage(dps);
+            return dps;
         } else if(this.type.equals("heal")){
             cible.heal(this.value);
+            return this.value;
         } else if(this.type.equals("buff")){
             cible.buff(this);
         }
+        return 0;
     }
 
     @Override

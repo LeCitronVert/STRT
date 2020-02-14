@@ -1,5 +1,6 @@
 package fr.youceflcv.strt;
 
+import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.ColorMatrix;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class level_up extends AppCompatActivity {
@@ -22,11 +24,20 @@ public class level_up extends AppCompatActivity {
     private List<Triptyque> listtriptycs;
     private List<Personnage> team1;
     private List<Personnage> team2;
+    private List<Personnage> team3;
+    private List<Personnage> team4;
+    private List<Personnage> team5;
+    private List<Personnage> team6;
+    private List<Personnage> team7;
+    private List<Personnage> team8;
     private View view;
+    private Skill[] Skill;
+    private int Curr_skill;
     private String[] SkillNames;
     private String[] SkillTypes;
     private String[] SkillDescs;
     private String[] SkillCosts;
+    private int[] LevelupPoints;
     private int cible;
     private String tryptiqueup;
 
@@ -40,11 +51,22 @@ public class level_up extends AppCompatActivity {
             listtriptycs = (List<Triptyque>) getIntent().getSerializableExtra("triptycs");
             team1 = (List<Personnage>) getIntent().getSerializableExtra("team1");
             team2 = (List<Personnage>) getIntent().getSerializableExtra("team2");
+            team3 = (List<Personnage>) getIntent().getSerializableExtra("team3");
+            team4 = (List<Personnage>) getIntent().getSerializableExtra("team4");
+            team5 = (List<Personnage>) getIntent().getSerializableExtra("team5");
+            team6 = (List<Personnage>) getIntent().getSerializableExtra("team6");
+            team7 = (List<Personnage>) getIntent().getSerializableExtra("team7");
+            team8 = (List<Personnage>) getIntent().getSerializableExtra("team8");
         }
         SkillNames = new String[343];
         SkillTypes = new String[343];
         SkillDescs = new String[343];
         SkillCosts = new String[343];
+        Skill = new Skill[343];
+        LevelupPoints = new int[4];
+        for(int i=0;i<=3;i++){
+            LevelupPoints[i] = 2;
+        }
         SetName();
         ResetBackground(view);
         ResetSkill(view);
@@ -92,12 +114,16 @@ public class level_up extends AppCompatActivity {
         power_name.setText("Power: "+curr_character.power.name);
         TextView weapon_name = findViewById(R.id.weapon_name);
         weapon_name.setText("Weapon: "+curr_character.weapon.name);
+        TextView NbrPoint = findViewById(R.id.ViewNbrPoints);
+        NbrPoint.setText("Points de compétences restants: "+LevelupPoints[cible]);
         //CLASSES PART
-        if(curr_character.classes_level <4){
-            String curr_button = "LevelUpClasse"+curr_character.classes_level;
-            int resID2 = getResources().getIdentifier(curr_button, "id", getPackageName());
-            ImageView current_levelupbutton = findViewById(resID2);
-            current_levelupbutton.setVisibility(view.VISIBLE);
+        if (LevelupPoints[cible] > 0) {
+            if(curr_character.classes_level <4){
+                String curr_button = "LevelUpClasse"+curr_character.classes_level;
+                int resID2 = getResources().getIdentifier(curr_button, "id", getPackageName());
+                ImageView current_levelupbutton = findViewById(resID2);
+                current_levelupbutton.setVisibility(view.VISIBLE);
+            }
         }
         int cmpt = 1;
         int tier_test = 1;
@@ -113,6 +139,7 @@ public class level_up extends AppCompatActivity {
             SkillTypes[100+curr_skill.tier*10+cmpt] = curr_skill.type;
             SkillDescs[100+curr_skill.tier*10+cmpt] = curr_skill.desc;
             SkillCosts[100+curr_skill.tier*10+cmpt] = String.valueOf(curr_skill.cost);
+            Skill[100+curr_skill.tier*10+cmpt] = curr_skill;
             String curr_visuel = "classes"+curr_skill.tier+cmpt;
             int resID = getResources().getIdentifier(curr_visuel, "id", getPackageName());
             ImageView current_button = findViewById(resID);
@@ -131,21 +158,24 @@ public class level_up extends AppCompatActivity {
                 current_button.setColorFilter(filter);
             }
         }
-        for(int i = 1;i<=4;i++){
-            if(i<=curr_character.classes_level){
-                String curr_visuel= "classe_palier_back"+i;
-                int resID = getResources().getIdentifier(curr_visuel, "id", getPackageName());
-                ImageView current_button = findViewById(resID);
-                current_button.setBackgroundColor(Color.parseColor("#FFFFFF"));
+            for(int i = 1;i<=4;i++){
+                if(i<=curr_character.classes_level){
+                    String curr_visuel= "classe_palier_back"+i;
+                    int resID = getResources().getIdentifier(curr_visuel, "id", getPackageName());
+                    ImageView current_button = findViewById(resID);
+                    current_button.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                }
+            }
+        //POWER PART
+        if (LevelupPoints[cible] > 0) {
+            if(curr_character.power_level <4){
+                String curr_button1 = "levelUpPower"+curr_character.power_level;
+                int resID21 = getResources().getIdentifier(curr_button1, "id", getPackageName());
+                ImageView current_levelupbutton1 = findViewById(resID21);
+                current_levelupbutton1.setVisibility(view.VISIBLE);
             }
         }
-        //POWER PART
-        if(curr_character.power_level <4){
-            String curr_button1 = "levelUpPower"+curr_character.power_level;
-            int resID21 = getResources().getIdentifier(curr_button1, "id", getPackageName());
-            ImageView current_levelupbutton1 = findViewById(resID21);
-            current_levelupbutton1.setVisibility(view.VISIBLE);
-        }
+
         cmpt = 1;
         tier_test = 1;
         for(Skill curr_skill : curr_character.power.skills){
@@ -161,6 +191,7 @@ public class level_up extends AppCompatActivity {
             SkillTypes[200+curr_skill.tier*10+cmpt] = curr_skill.type;
             SkillDescs[200+curr_skill.tier*10+cmpt] = curr_skill.desc;
             SkillCosts[200+curr_skill.tier*10+cmpt] = String.valueOf(curr_skill.cost);
+            Skill[200+curr_skill.tier*10+cmpt] = curr_skill;
             String curr_visuel = "power"+curr_skill.tier+cmpt;
             int resID = getResources().getIdentifier(curr_visuel, "id", getPackageName());
             ImageView current_button = findViewById(resID);
@@ -179,20 +210,23 @@ public class level_up extends AppCompatActivity {
                 current_button.setColorFilter(filter);
             }
         }
-        for(int i = 1;i<=4;i++){
-            if(i<=curr_character.power_level){
-                String curr_visuel= "power_palier_back"+i;
-                int resID = getResources().getIdentifier(curr_visuel, "id", getPackageName());
-                ImageView current_button = findViewById(resID);
-                current_button.setBackgroundColor(Color.parseColor("#FFFFFF"));
+            for(int i = 1;i<=4;i++){
+                if(i<=curr_character.power_level){
+                    String curr_visuel= "power_palier_back"+i;
+                    int resID = getResources().getIdentifier(curr_visuel, "id", getPackageName());
+                    ImageView current_button = findViewById(resID);
+                    current_button.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                }
             }
-        }
+
         //WEAPON PART
-        if(curr_character.weapon_level <4){
-            String curr_button2 = "levelUpWeapon"+curr_character.weapon_level;
-            int resID22 = getResources().getIdentifier(curr_button2, "id", getPackageName());
-            ImageView current_levelupbutton2 = findViewById(resID22);
-            current_levelupbutton2.setVisibility(view.VISIBLE);
+        if (LevelupPoints[cible] > 0) {
+            if(curr_character.weapon_level <4){
+                String curr_button2 = "levelUpWeapon"+curr_character.weapon_level;
+                int resID22 = getResources().getIdentifier(curr_button2, "id", getPackageName());
+                ImageView current_levelupbutton2 = findViewById(resID22);
+                current_levelupbutton2.setVisibility(view.VISIBLE);
+            }
         }
         cmpt = 1;
         tier_test = 1;
@@ -209,6 +243,7 @@ public class level_up extends AppCompatActivity {
             SkillTypes[300+curr_skill.tier*10+cmpt] = curr_skill.type;
             SkillDescs[300+curr_skill.tier*10+cmpt] = curr_skill.desc;
             SkillCosts[300+curr_skill.tier*10+cmpt] = String.valueOf(curr_skill.cost);
+            Skill[300+curr_skill.tier*10+cmpt] = curr_skill;
             String curr_visuel = "weapon"+curr_skill.tier+cmpt;
             int resID = getResources().getIdentifier(curr_visuel, "id", getPackageName());
             ImageView current_button = findViewById(resID);
@@ -227,14 +262,14 @@ public class level_up extends AppCompatActivity {
                 current_button.setColorFilter(filter);
             }
         }
-        for(int i = 1;i<=4;i++){
-            if(i<=curr_character.weapon_level){
-                String curr_visuel= "weapon_palier_back"+i;
-                int resID = getResources().getIdentifier(curr_visuel, "id", getPackageName());
-                ImageView current_button = findViewById(resID);
-                current_button.setBackgroundColor(Color.parseColor("#FFFFFF"));
+            for(int i = 1;i<=4;i++){
+                if(i<=curr_character.weapon_level){
+                    String curr_visuel= "weapon_palier_back"+i;
+                    int resID = getResources().getIdentifier(curr_visuel, "id", getPackageName());
+                    ImageView current_button = findViewById(resID);
+                    current_button.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                }
             }
-        }
     }
     public void ResetSkill(View view){
         ImageView backgroundskill1 = findViewById(R.id.classe_palier_back1);
@@ -291,6 +326,10 @@ public class level_up extends AppCompatActivity {
         ImageView icon2 = findViewById(R.id.ActiveButton2);
         ImageView icon3 = findViewById(R.id.ActiveButton3);
         ImageView icon4 = findViewById(R.id.ActiveButton4);
+        icon1.setVisibility(view.VISIBLE);
+        icon2.setVisibility(view.VISIBLE);
+        icon3.setVisibility(view.VISIBLE);
+        icon4.setVisibility(view.VISIBLE);
         if (team1.get(cible).actifskill[0] != null) {
             Skill skill1 = (Skill) team1.get(cible).actifskill[0];
             icon1.setImageResource(skill1.img);
@@ -298,6 +337,7 @@ public class level_up extends AppCompatActivity {
             SkillTypes[1] = skill1.type;
             SkillDescs[1] = skill1.desc;
             SkillCosts[1] = String.valueOf(skill1.cost);
+            Skill[1] = skill1;
         }
         else{
             icon1.setImageResource(R.drawable.plus);
@@ -310,6 +350,7 @@ public class level_up extends AppCompatActivity {
             SkillTypes[2] = skill2.type;
             SkillDescs[2] = skill2.desc;
             SkillCosts[2] = String.valueOf(skill2.cost);
+            Skill[2] = skill2;
         }
         else{
             icon2.setImageResource(R.drawable.plus);
@@ -322,6 +363,7 @@ public class level_up extends AppCompatActivity {
             SkillTypes[3] = skill3.type;
             SkillDescs[3] = skill3.desc;
             SkillCosts[3] = String.valueOf(skill3.cost);
+            Skill[3] = skill3;
         }
         else{
             icon3.setImageResource(R.drawable.plus);
@@ -334,13 +376,22 @@ public class level_up extends AppCompatActivity {
             SkillTypes[4] = skill4.type;
             SkillDescs[4] = skill4.desc;
             SkillCosts[4] = String.valueOf(skill4.cost);
+            Skill[4] = skill4;
         }
         else{
             icon4.setImageResource(R.drawable.plus);
         }
     }
+    public void PutActiveSkill(View view){
+        int nombre = Integer.parseInt((String) view.getTag());
+        if(Skill[Curr_skill].actif == true){
+            team1.get(cible).actifskill[nombre] = Skill[Curr_skill];
+        }
+        SetActiveSkill(view);
+    }
     public void SetSkillBox(View view){
         int nombre = Integer.parseInt((String) view.getTag());
+        Curr_skill = nombre;
         LinearLayout SkillBox = findViewById(R.id.skillbox);
         TextView skillname = findViewById(R.id.SkillName);
         TextView skilltype = findViewById(R.id.SkillType);
@@ -351,8 +402,19 @@ public class level_up extends AppCompatActivity {
         skilltype.setText(SkillTypes[nombre]);
         skilldesc.setText(SkillDescs[nombre]);
         skillcost.setText(SkillCosts[nombre]);
+        TextView Uptext = findViewById(R.id.UpactifText);
+        LinearLayout UpBar = findViewById(R.id.UpActifBar);
+        if(Skill[Curr_skill].actif == true){
+            Uptext.setVisibility(view.VISIBLE);
+            UpBar.setVisibility(view.VISIBLE);
+        }
+        else{
+            Uptext.setVisibility(view.GONE);
+            UpBar.setVisibility(view.GONE);
+        }
     }
     public void CloseSkillBox(View view){
+        Curr_skill = 0;
         LinearLayout SkillBox = findViewById(R.id.skillbox);
         SkillBox.setVisibility(view.GONE);
     }
@@ -401,6 +463,14 @@ public class level_up extends AppCompatActivity {
         ConfirmUpBox.setVisibility(view.GONE);
     }
     public void LevelUp(View view){
+        LevelupPoints[cible] = LevelupPoints[cible]-1;
+        int Oldlife = team1.get(cible).maxhealth;
+        int Oldaccuracy = team1.get(cible).precision;
+        int Oldattack = team1.get(cible).attack;
+        int Olddefense = team1.get(cible).defense;
+        int Oldcritical = team1.get(cible).critical;
+        int Oldagility = team1.get(cible).esquive;
+        int Oldspeed = team1.get(cible).speed;
         if(tryptiqueup.equals("classes")){
             team1.get(cible).classes_level++;
             for(Skill curr_skill : team1.get(cible).classes.skills){
@@ -443,7 +513,34 @@ public class level_up extends AppCompatActivity {
             }
             SetSkills(view,cible);
         }
-        SetStats(view);
+        TextView life = findViewById(R.id.lifeUnique);
+        TextView accuracy = findViewById(R.id.accuracyUnique);
+        TextView attack = findViewById(R.id.attackUnique);
+        TextView defense = findViewById(R.id.defenseUnique);
+        TextView critical = findViewById(R.id.criticalUnique);
+        TextView agility = findViewById(R.id.agilityUnique);
+        TextView speed = findViewById(R.id.speedUnique);
+        if(Oldlife != team1.get(cible).maxhealth){
+            SetAnimationStats(view, life, Oldlife, team1.get(cible).maxhealth);
+        }
+        if(Oldaccuracy != team1.get(cible).precision){
+            SetAnimationStats(view, accuracy, Oldaccuracy, team1.get(cible).precision);
+        }
+        if(Oldattack != team1.get(cible).attack){
+            SetAnimationStats(view, attack, Oldattack, team1.get(cible).attack);
+        }
+        if(Olddefense != team1.get(cible).defense){
+            SetAnimationStats(view, defense, Olddefense, team1.get(cible).defense);
+        }
+        if(Oldcritical != team1.get(cible).critical){
+            SetAnimationStats(view, critical, Oldcritical, team1.get(cible).critical);
+        }
+        if(Oldagility != team1.get(cible).esquive){
+            SetAnimationStats(view, agility, Oldagility, team1.get(cible).esquive);
+        }
+        if(Oldspeed != team1.get(cible).speed){
+            SetAnimationStats(view, speed, Oldspeed, team1.get(cible).speed);
+        }
         ResetLevelUp(view);
     }
     public void SetStats(View view){
@@ -461,5 +558,34 @@ public class level_up extends AppCompatActivity {
         critical.setText(team1.get(cible).critical+"");
         agility.setText(team1.get(cible).esquive+"");
         speed.setText(team1.get(cible).speed+"");
+    }
+    public void SetAnimationStats (View view, final TextView cible, int ValeurBase, int ValeurFinal){
+        ValueAnimator animator = ValueAnimator.ofInt(ValeurBase, ValeurFinal);
+        animator.setDuration(500);
+        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            public void onAnimationUpdate(ValueAnimator animation) {
+               cible.setText(animation.getAnimatedValue().toString());
+            }
+        });
+        animator.start();
+    }
+    public void launchfight(View view){
+        Intent gameActivity = new Intent(level_up.this, MainActivity.class);
+        gameActivity.putExtra("team1", (Serializable) team1);
+        gameActivity.putExtra("team2", (Serializable) team2);
+        gameActivity.putExtra("team3", (Serializable) team3);
+        gameActivity.putExtra("team4", (Serializable) team4);
+        gameActivity.putExtra("team5", (Serializable) team5);
+        gameActivity.putExtra("team6", (Serializable) team6);
+        gameActivity.putExtra("team7", (Serializable) team7);
+        gameActivity.putExtra("team8", (Serializable) team8);
+        gameActivity.putExtra("teamAlly", (Serializable) team1);
+        gameActivity.putExtra("teamEnnemy", (Serializable) team2);
+        gameActivity.putExtra("skills", (Serializable) listskills);
+        gameActivity.putExtra("triptycs", (Serializable) listtriptycs);
+        startActivity(gameActivity);
+    }
+    public void IaLevelUp(){
+
     }
 }

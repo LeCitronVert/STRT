@@ -1,9 +1,12 @@
 package fr.youceflcv.strt;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
@@ -14,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -22,6 +26,14 @@ public class MainActivity extends AppCompatActivity {
     private List<Triptyque> listtriptycs;
     private List<Personnage> team1;
     private List<Personnage> team2;
+    private List<Personnage> team3;
+    private List<Personnage> team4;
+    private List<Personnage> team5;
+    private List<Personnage> team6;
+    private List<Personnage> team7;
+    private List<Personnage> team8;
+    private List<Personnage> teamally;
+    private List<Personnage> teamennemy;
 
     public Personnage attaquant1;
     public Personnage attaquant2;
@@ -40,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
     Personnage cible;
     Animation lefttorightattack;
     Animation blinking;
+    Animation fadeout;
+    public int NumberAction;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -47,12 +61,21 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_fight);
         lefttorightattack = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.slide_lefttoright_attack);
         blinking = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.blinking);
+        fadeout = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fadeout);
         Intent intent = getIntent();
         if (intent != null){
             listskills = (List<Skill>) getIntent().getSerializableExtra("skills");
             listtriptycs = (List<Triptyque>) getIntent().getSerializableExtra("triptycs");
             team1 = (List<Personnage>) getIntent().getSerializableExtra("team1");
             team2 = (List<Personnage>) getIntent().getSerializableExtra("team2");
+            team3 = (List<Personnage>) getIntent().getSerializableExtra("team3");
+            team4 = (List<Personnage>) getIntent().getSerializableExtra("team4");
+            team5 = (List<Personnage>) getIntent().getSerializableExtra("team5");
+            team6 = (List<Personnage>) getIntent().getSerializableExtra("team6");
+            team7 = (List<Personnage>) getIntent().getSerializableExtra("team7");
+            team8 = (List<Personnage>) getIntent().getSerializableExtra("team8");
+            teamally = (List<Personnage>) getIntent().getSerializableExtra("teamAlly");
+            teamennemy = (List<Personnage>) getIntent().getSerializableExtra("teamEnnemy");
         }
         action_state = 0;
         turnnumber = 1;
@@ -65,21 +88,29 @@ public class MainActivity extends AppCompatActivity {
         ProgressBar def_heahlthbar2 = findViewById(R.id.healthbar_6);
         ProgressBar def_heahlthbar3 = findViewById(R.id.healthbar_7);
         ProgressBar def_heahlthbar4 = findViewById(R.id.healthbar_8);
-        attaquant1 = team1.get(0);
+        attaquant1 = teamally.get(0);
         attaquant1.setHealthbar(atk_healthbar1);
-        attaquant2 = team1.get(1);
+        attaquant2 = teamally.get(1);
         attaquant2.setHealthbar(atk_healthbar2);
-        attaquant3 = team1.get(2);
+        attaquant3 = teamally.get(2);
         attaquant3.setHealthbar(atk_healthbar3);
-        attaquant4 = team1.get(3);
+        attaquant4 = teamally.get(3);
         attaquant4.setHealthbar(atk_healthbar4);
-        defenseur1 = team2.get(0);
+        defenseur1 = teamennemy.get(0);
+        defenseur1.maxhealth = 1;
+        defenseur1.health = 1;
         defenseur1.setHealthbar(def_heahlthbar1);
-        defenseur2 = team2.get(1);
+        defenseur2 = teamennemy.get(1);
+        defenseur2.maxhealth = 1;
+        defenseur2.health = 1;
         defenseur2.setHealthbar(def_heahlthbar2);
-        defenseur3 = team2.get(2);
+        defenseur3 = teamennemy.get(2);
+        defenseur3.maxhealth = 1;
+        defenseur3.health = 1;
         defenseur3.setHealthbar(def_heahlthbar3);
-        defenseur4 = team2.get(3);
+        defenseur4 = teamennemy.get(3);
+        defenseur4.maxhealth = 1;
+        defenseur4.health = 1;
         defenseur4.setHealthbar(def_heahlthbar4);
         Log.d("skill du personnage", attaquant1.actifskill[0].name+attaquant1.actifskill[0].imgname);
         Personnage listattaquant[] = new Personnage[4];
@@ -399,7 +430,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void Action(View view) throws InterruptedException {
         if(competence.cost <= attaquant.actions) {
-            competence.useSkill(attaquant, cible);
+            NumberAction = competence.useSkill(attaquant, cible);
             updateActionBar();
             resetAction(view);
             resetActionSkill();
@@ -409,13 +440,23 @@ public class MainActivity extends AppCompatActivity {
             String curr_cible = "skindef"+cible.position;
             int resID2 = getResources().getIdentifier(curr_cible, "id", getPackageName());
             ImageView cible_visuel = findViewById(resID2);
-            attaquant_visuel.startAnimation(lefttorightattack);
-            cible_visuel.startAnimation(blinking);
+            if(competence.type.equals("attack")){
+                attaquant_visuel.startAnimation(lefttorightattack);
+                cible_visuel.startAnimation(blinking);
+                AnimationNumber();
+            }
+            if(competence.type.equals("buff")){
+
+            }
+            if(competence.type.equals("heal")){
+
+            }
         }
         if (cible.health <= 0){
                 String curr_character = "skindef"+cible.position;
                 int resID = getResources().getIdentifier(curr_character, "id", getPackageName());
                 ImageView character = findViewById(resID);
+                character.startAnimation(fadeout);
                 character.setVisibility(View.GONE);
         }
         if(defenseur1.health <= 0 && defenseur2.health <= 0 &&defenseur3.health <= 0 &&defenseur4.health <= 0){
@@ -570,7 +611,45 @@ public class MainActivity extends AppCompatActivity {
         updateAllActionBar();
     }
     public void victory(){
-        Intent gameActivity = new Intent(MainActivity.this, Victory.class);
+        for(Skill skill : attaquant1.skills){
+            if(skill.temporary == true){
+                    skill.value = -(skill.value);
+                    attaquant1.buff(skill);
+                    attaquant1.skills.remove(skill);
+            }
+        }
+        for(Skill skill : attaquant2.skills){
+            if(skill.temporary == true){
+                    skill.value = -(skill.value);
+                    attaquant2.buff(skill);
+                    attaquant2.skills.remove(skill);
+            }
+        }
+        for(Skill skill : attaquant3.skills){
+            if(skill.temporary == true){
+                    skill.value = -(skill.value);
+                    attaquant3.buff(skill);
+                    attaquant3.skills.remove(skill);
+            }
+        }
+        for(Skill skill : attaquant4.skills){
+            if(skill.temporary == true){
+                    skill.value = -(skill.value);
+                    attaquant4.buff(skill);
+                    attaquant4.skills.remove(skill);
+            }
+        }
+        Intent gameActivity = new Intent(MainActivity.this, level_up.class);
+        gameActivity.putExtra("team1", (Serializable) team1);
+        gameActivity.putExtra("team2", (Serializable) team2);
+        gameActivity.putExtra("team3", (Serializable) team3);
+        gameActivity.putExtra("team4", (Serializable) team4);
+        gameActivity.putExtra("team5", (Serializable) team5);
+        gameActivity.putExtra("team6", (Serializable) team6);
+        gameActivity.putExtra("team7", (Serializable) team7);
+        gameActivity.putExtra("team8", (Serializable) team8);
+        gameActivity.putExtra("skills", (Serializable) listskills);
+        gameActivity.putExtra("triptycs", (Serializable) listtriptycs);
         startActivity(gameActivity);
     }
     public void defeat(){
@@ -630,6 +709,29 @@ public class MainActivity extends AppCompatActivity {
         ImageView actif3 = findViewById(R.id.actif3);
         ImageView actif4 = findViewById(R.id.actif4);
         attaquant.displayskill(actif1, actif2, actif3, actif4);
+    }
+    public void AnimationNumber(){
+        Log.d("numberaction",NumberAction+"");
+        String curr_character = "";
+        if(cible.ennemy == true){
+            curr_character = "ZoneNumberAlly"+cible.position;
+        }
+        else{
+            curr_character = "ZoneNumberEnnemy"+cible.position;
+        }
+        int resID = getResources().getIdentifier(curr_character, "id", getPackageName());
+        final ConstraintLayout zone_degats = (ConstraintLayout) findViewById(resID);
+        TextView textView = new TextView(MainActivity.this);
+        textView.setGravity(Gravity.CENTER);
+        textView.setTextColor(Color.RED);
+        textView.setText(NumberAction+"");
+        textView.setTextSize(18);
+        zone_degats.addView(textView);
+        textView.setTranslationY(80);
+        textView.animate().setDuration(1500);
+        textView.animate().translationX(0);
+        textView.animate().translationY(0);
+        textView.animate().alpha(0);
     }
 }
 
