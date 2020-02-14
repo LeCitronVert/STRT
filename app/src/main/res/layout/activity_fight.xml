@@ -47,26 +47,13 @@
         app:layout_constraintVertical_bias="0.026">
 
         <ImageButton
-            android:id="@+id/actif4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:adjustViewBounds="true"
-            android:background="@null"
-            android:onClick="setskill"
-            android:scaleType="centerInside"
-            android:tag="3"
-            android:visibility="gone"
-            app:srcCompat="@mipmap/ic_launcher" />
-
-        <ImageButton
             android:id="@+id/actif1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:adjustViewBounds="true"
             android:background="@null"
             android:onClick="setskill"
+            android:adjustViewBounds="true"
             android:scaleType="centerInside"
             android:tag="0"
             android:visibility="gone"
@@ -98,6 +85,230 @@
             android:visibility="gone"
             app:srcCompat="@mipmap/ic_launcher" />
 
+        <ImageButton
+            android:id="@+id/actif4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:background="@null"
+            android:onClick="setskill"
+            android:scaleType="centerInside"
+            android:tag="3"
+            android:visibility="gone"
+            app:srcCompat="@mipmap/ic_launcher" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/coutskillbar1"
+        android:layout_width="20dp"
+        android:layout_height="10dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginLeft="64dp"
+        android:layout_marginBottom="40dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/skillsbar"
+        app:layout_constraintStart_toStartOf="@+id/skillsbar">
+
+        <ImageView
+            android:id="@+id/coutskill11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:srcCompat="@drawable/coutskill" />
+
+        <ImageView
+            android:id="@+id/coutskill12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:srcCompat="@drawable/coutskill" />
+
+        <ImageView
+            android:id="@+id/coutskill13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:srcCompat="@drawable/coutskill" />
+
+        <ImageView
+            android:id="@+id/coutskill14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:srcCompat="@drawable/coutskill" />
+
+        <ImageView
+            android:id="@+id/coutskill15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:srcCompat="@drawable/coutskill" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/coutskillbar2"
+        android:layout_width="20dp"
+        android:layout_height="10dp"
+        android:layout_marginStart="157dp"
+        android:layout_marginLeft="157dp"
+        android:layout_marginBottom="40dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/skillsbar"
+        app:layout_constraintStart_toStartOf="@+id/skillsbar">
+
+        <ImageView
+            android:id="@+id/coutskill21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:srcCompat="@drawable/coutskill" />
+
+        <ImageView
+            android:id="@+id/coutskill22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:srcCompat="@drawable/coutskill" />
+
+        <ImageView
+            android:id="@+id/coutskill23"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:srcCompat="@drawable/coutskill" />
+
+        <ImageView
+            android:id="@+id/coutskill24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:srcCompat="@drawable/coutskill" />
+
+        <ImageView
+            android:id="@+id/coutskill25"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:srcCompat="@drawable/coutskill" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/coutskilbar3"
+        android:layout_width="20dp"
+        android:layout_height="10dp"
+        android:layout_marginStart="250dp"
+        android:layout_marginLeft="250dp"
+        android:layout_marginBottom="40dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/skillsbar"
+        app:layout_constraintStart_toStartOf="@+id/skillsbar">
+
+        <ImageView
+            android:id="@+id/coutskill31"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:srcCompat="@drawable/coutskill" />
+
+        <ImageView
+            android:id="@+id/coutskill32"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:srcCompat="@drawable/coutskill" />
+
+        <ImageView
+            android:id="@+id/coutskill33"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:srcCompat="@drawable/coutskill" />
+
+        <ImageView
+            android:id="@+id/coutskill34"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:srcCompat="@drawable/coutskill" />
+
+        <ImageView
+            android:id="@+id/coutskill35"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:srcCompat="@drawable/coutskill" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/coutskilbar4"
+        android:layout_width="20dp"
+        android:layout_height="10dp"
+        android:layout_marginStart="350dp"
+        android:layout_marginLeft="350dp"
+        android:layout_marginBottom="40dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/skillsbar"
+        app:layout_constraintStart_toStartOf="@+id/skillsbar">
+
+        <ImageView
+            android:id="@+id/coutskill41"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:srcCompat="@drawable/coutskill" />
+
+        <ImageView
+            android:id="@+id/coutskill42"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:srcCompat="@drawable/coutskill" />
+
+        <ImageView
+            android:id="@+id/coutskill43"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:srcCompat="@drawable/coutskill" />
+
+        <ImageView
+            android:id="@+id/coutskill44"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:srcCompat="@drawable/coutskill" />
+
+        <ImageView
+            android:id="@+id/coutskill45"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:srcCompat="@drawable/coutskill" />
     </LinearLayout>
 
     <ImageButton
@@ -753,5 +964,95 @@
         android:text="Fin du tour"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/ZoneNumberAlly1"
+        android:layout_width="29dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="44dp"
+        app:layout_constraintBottom_toBottomOf="@+id/attaquant1"
+        app:layout_constraintEnd_toEndOf="@+id/attaquant1">
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/ZoneNumberAlly2"
+        android:layout_width="29dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="64dp"
+        app:layout_constraintBottom_toBottomOf="@+id/attaquant2"
+        app:layout_constraintEnd_toEndOf="@+id/attaquant2">
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/ZoneNumberAlly3"
+        android:layout_width="29dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="64dp"
+        app:layout_constraintBottom_toBottomOf="@+id/attaquant3"
+        app:layout_constraintEnd_toEndOf="@+id/attaquant3">
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/ZoneNumberAlly4"
+        android:layout_width="29dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="64dp"
+        app:layout_constraintBottom_toBottomOf="@+id/attaquant4"
+        app:layout_constraintEnd_toEndOf="@+id/attaquant4">
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/ZoneNumberEnnemy1"
+        android:layout_width="29dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="64dp"
+        app:layout_constraintBottom_toBottomOf="@+id/skindef1"
+        app:layout_constraintStart_toStartOf="@+id/skindef1">
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/ZoneNumberEnnemy2"
+        android:layout_width="29dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="64dp"
+        app:layout_constraintBottom_toBottomOf="@+id/skindef2"
+        app:layout_constraintStart_toStartOf="@+id/skindef2">
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/ZoneNumberEnnemy3"
+        android:layout_width="29dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="64dp"
+        app:layout_constraintBottom_toBottomOf="@+id/skindef3"
+        app:layout_constraintStart_toStartOf="@+id/skindef3">
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/ZoneNumberEnnemy4"
+        android:layout_width="29dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="64dp"
+        app:layout_constraintBottom_toBottomOf="@+id/skindef4"
+        app:layout_constraintStart_toStartOf="@+id/skindef4">
+
+    </android.support.constraint.ConstraintLayout>
 
 </android.support.constraint.ConstraintLayout>

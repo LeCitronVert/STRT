@@ -1,0 +1,1369 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000"
+    tools:context=".level_up">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/button_nom0"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/shape"
+            android:onClick="SetBackground"
+            android:tag="0"
+            android:text="button" />
+
+        <Button
+            android:id="@+id/button_nom1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/shape"
+            android:onClick="SetBackground"
+            android:tag="1"
+            android:text="Button" />
+
+        <Button
+            android:id="@+id/button_nom2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/shape"
+            android:onClick="SetBackground"
+            android:tag="2"
+            android:text="Button" />
+
+        <Button
+            android:id="@+id/button_nom3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/shape"
+            android:onClick="SetBackground"
+            android:tag="3"
+            android:text="Button" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/classe_back"
+        android:layout_width="0dp"
+        android:layout_height="140dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <ImageView
+            android:id="@+id/classe_palier_back1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#FFF"
+            app:srcCompat="@drawable/palier1" />
+
+        <ImageView
+            android:id="@+id/classe_palier_back2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#FFF"
+            app:srcCompat="@drawable/palier2" />
+
+        <ImageView
+            android:id="@+id/classe_palier_back3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#FFF"
+            app:srcCompat="@drawable/palier3" />
+
+        <ImageView
+            android:id="@+id/classe_palier_back4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#FFF"
+            app:srcCompat="@drawable/palier4" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Classe_palier1"
+        android:layout_width="43dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="24dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <ImageButton
+            android:id="@+id/classes11"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:onClick="SetSkillBox"
+            android:scaleType="fitCenter"
+            android:tag="111"
+            app:srcCompat="@drawable/feinte" />
+
+        <ImageButton
+            android:id="@+id/classes12"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:onClick="SetSkillBox"
+            android:scaleType="fitCenter"
+            android:tag="112"
+            app:srcCompat="@drawable/feinte" />
+
+        <ImageButton
+            android:id="@+id/classes13"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:onClick="SetSkillBox"
+            android:scaleType="fitCenter"
+            android:tag="113"
+            app:srcCompat="@drawable/feinte" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Classe_palier2"
+        android:layout_width="43dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="24dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toStartOf="@+id/Classe_palier3"
+        app:layout_constraintStart_toEndOf="@+id/Classe_palier1"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <ImageButton
+            android:id="@+id/classes21"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:onClick="SetSkillBox"
+            android:scaleType="fitCenter"
+            android:tag="121"
+            app:srcCompat="@drawable/feinte" />
+
+        <ImageButton
+            android:id="@+id/classes22"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:onClick="SetSkillBox"
+            android:scaleType="fitCenter"
+            android:tag="122"
+            app:srcCompat="@drawable/feinte" />
+
+        <ImageButton
+            android:id="@+id/classes23"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:onClick="SetSkillBox"
+            android:scaleType="fitCenter"
+            android:tag="123"
+            app:srcCompat="@drawable/feinte" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Classe_palier3"
+        android:layout_width="43dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="24dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toStartOf="@+id/Classe_palier4"
+        app:layout_constraintStart_toEndOf="@+id/Classe_palier2"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <ImageButton
+            android:id="@+id/classes31"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:onClick="SetSkillBox"
+            android:scaleType="fitCenter"
+            android:tag="131"
+            app:srcCompat="@drawable/feinte" />
+
+        <ImageButton
+            android:id="@+id/classes32"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:onClick="SetSkillBox"
+            android:scaleType="fitCenter"
+            android:tag="132"
+            app:srcCompat="@drawable/feinte" />
+
+        <ImageButton
+            android:id="@+id/classes33"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:onClick="SetSkillBox"
+            android:scaleType="fitCenter"
+            android:tag="133"
+            app:srcCompat="@drawable/feinte" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Classe_palier4"
+        android:layout_width="43dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <ImageButton
+            android:id="@+id/classes41"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:onClick="SetSkillBox"
+            android:scaleType="fitCenter"
+            android:tag="141"
+            app:srcCompat="@drawable/feinte" />
+
+        <ImageButton
+            android:id="@+id/classes42"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:onClick="SetSkillBox"
+            android:scaleType="fitCenter"
+            android:tag="142"
+            app:srcCompat="@drawable/feinte" />
+
+        <ImageButton
+            android:id="@+id/classes43"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:onClick="SetSkillBox"
+            android:scaleType="fitCenter"
+            android:tag="143"
+            app:srcCompat="@drawable/feinte" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/classe_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="4dp"
+        android:text="Classe: "
+        android:textColor="#000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <LinearLayout
+        android:id="@+id/power_back"
+        android:layout_width="0dp"
+        android:layout_height="140dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/classe_back">
+
+        <ImageView
+            android:id="@+id/power_palier_back1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#FFF"
+            app:srcCompat="@drawable/palier1" />
+
+        <ImageView
+            android:id="@+id/power_palier_back2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#FFF"
+            app:srcCompat="@drawable/palier2" />
+
+        <ImageView
+            android:id="@+id/power_palier_back3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#FFF"
+            app:srcCompat="@drawable/palier3" />
+
+        <ImageView
+            android:id="@+id/power_palier_back4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#FFF"
+            app:srcCompat="@drawable/palier4" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Power_palier1"
+        android:layout_width="43dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="24dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/classe_back">
+
+        <ImageButton
+            android:id="@+id/power11"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:onClick="SetSkillBox"
+            android:scaleType="fitCenter"
+            android:tag="211"
+            app:srcCompat="@drawable/feinte" />
+
+        <ImageButton
+            android:id="@+id/power12"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:onClick="SetSkillBox"
+            android:scaleType="fitCenter"
+            android:tag="212"
+            app:srcCompat="@drawable/feinte" />
+
+        <ImageButton
+            android:id="@+id/power13"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:onClick="SetSkillBox"
+            android:scaleType="fitCenter"
+            android:tag="213"
+            app:srcCompat="@drawable/feinte" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Power_palier2"
+        android:layout_width="43dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="24dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toStartOf="@+id/Classe_palier3"
+        app:layout_constraintStart_toEndOf="@+id/Classe_palier1"
+        app:layout_constraintTop_toBottomOf="@+id/classe_back">
+
+        <ImageButton
+            android:id="@+id/power21"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:onClick="SetSkillBox"
+            android:scaleType="fitCenter"
+            android:tag="221"
+            app:srcCompat="@drawable/feinte" />
+
+        <ImageButton
+            android:id="@+id/power22"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:onClick="SetSkillBox"
+            android:scaleType="fitCenter"
+            android:tag="222"
+            app:srcCompat="@drawable/feinte" />
+
+        <ImageButton
+            android:id="@+id/power23"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:onClick="SetSkillBox"
+            android:scaleType="fitCenter"
+            android:tag="223"
+            app:srcCompat="@drawable/feinte" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Power_palier3"
+        android:layout_width="43dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="24dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toStartOf="@+id/Classe_palier4"
+        app:layout_constraintStart_toEndOf="@+id/Classe_palier2"
+        app:layout_constraintTop_toBottomOf="@+id/classe_back">
+
+        <ImageButton
+            android:id="@+id/power31"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:onClick="SetSkillBox"
+            android:scaleType="fitCenter"
+            android:tag="231"
+            app:srcCompat="@drawable/feinte" />
+
+        <ImageButton
+            android:id="@+id/power32"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:onClick="SetSkillBox"
+            android:scaleType="fitCenter"
+            android:tag="232"
+            app:srcCompat="@drawable/feinte" />
+
+        <ImageButton
+            android:id="@+id/power33"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:onClick="SetSkillBox"
+            android:scaleType="fitCenter"
+            android:tag="233"
+            app:srcCompat="@drawable/feinte" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Power_palier4"
+        android:layout_width="43dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/classe_back">
+
+        <ImageButton
+            android:id="@+id/power41"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:onClick="SetSkillBox"
+            android:scaleType="fitCenter"
+            android:tag="241"
+            app:srcCompat="@drawable/feinte" />
+
+        <ImageButton
+            android:id="@+id/power42"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:onClick="SetSkillBox"
+            android:scaleType="fitCenter"
+            android:tag="242"
+            app:srcCompat="@drawable/feinte" />
+
+        <ImageButton
+            android:id="@+id/power43"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:onClick="SetSkillBox"
+            android:scaleType="fitCenter"
+            android:tag="243"
+            app:srcCompat="@drawable/feinte" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/power_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="4dp"
+        android:text="Power: "
+        android:textColor="#000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/classe_back" />
+
+    <LinearLayout
+        android:id="@+id/weapon_back"
+        android:layout_width="0dp"
+        android:layout_height="140dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/power_back">
+
+        <ImageView
+            android:id="@+id/weapon_palier_back1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#FFF"
+            app:srcCompat="@drawable/palier1" />
+
+        <ImageView
+            android:id="@+id/weapon_palier_back2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#FFF"
+            app:srcCompat="@drawable/palier2" />
+
+        <ImageView
+            android:id="@+id/weapon_palier_back3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#FFF"
+            app:srcCompat="@drawable/palier3" />
+
+        <ImageView
+            android:id="@+id/weapon_palier_back4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#FFF"
+            app:srcCompat="@drawable/palier4" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/weapon_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="4dp"
+        android:text="Weapon:"
+        android:textColor="#000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/power_back" />
+
+    <LinearLayout
+        android:id="@+id/Weapon_palier1"
+        android:layout_width="43dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="24dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/power_back">
+
+        <ImageButton
+            android:id="@+id/weapon11"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:onClick="SetSkillBox"
+            android:scaleType="fitCenter"
+            android:tag="311"
+            app:srcCompat="@drawable/feinte" />
+
+        <ImageButton
+            android:id="@+id/weapon12"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:onClick="SetSkillBox"
+            android:scaleType="fitCenter"
+            android:tag="312"
+            app:srcCompat="@drawable/feinte" />
+
+        <ImageButton
+            android:id="@+id/weapon13"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:onClick="SetSkillBox"
+            android:scaleType="fitCenter"
+            android:tag="313"
+            app:srcCompat="@drawable/feinte" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Weapon_palier2"
+        android:layout_width="43dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="24dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toStartOf="@+id/Classe_palier3"
+        app:layout_constraintStart_toEndOf="@+id/Classe_palier1"
+        app:layout_constraintTop_toTopOf="@+id/weapon_back">
+
+        <ImageButton
+            android:id="@+id/weapon21"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:onClick="SetSkillBox"
+            android:scaleType="fitCenter"
+            android:tag="321"
+            app:srcCompat="@drawable/feinte" />
+
+        <ImageButton
+            android:id="@+id/weapon22"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:onClick="SetSkillBox"
+            android:scaleType="fitCenter"
+            android:tag="322"
+            app:srcCompat="@drawable/feinte" />
+
+        <ImageButton
+            android:id="@+id/weapon23"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:onClick="SetSkillBox"
+            android:scaleType="fitCenter"
+            android:tag="323"
+            app:srcCompat="@drawable/feinte" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Weapon_palier3"
+        android:layout_width="43dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="24dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toStartOf="@+id/Classe_palier4"
+        app:layout_constraintStart_toEndOf="@+id/Classe_palier2"
+        app:layout_constraintTop_toTopOf="@+id/weapon_back">
+
+        <ImageButton
+            android:id="@+id/weapon31"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:onClick="SetSkillBox"
+            android:scaleType="fitCenter"
+            android:tag="331"
+            app:srcCompat="@drawable/feinte" />
+
+        <ImageButton
+            android:id="@+id/weapon32"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:onClick="SetSkillBox"
+            android:scaleType="fitCenter"
+            android:tag="332"
+            app:srcCompat="@drawable/feinte" />
+
+        <ImageButton
+            android:id="@+id/weapon33"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:onClick="SetSkillBox"
+            android:scaleType="fitCenter"
+            android:tag="333"
+            app:srcCompat="@drawable/feinte" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Weapon_palier4"
+        android:layout_width="43dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/weapon_back">
+
+        <ImageButton
+            android:id="@+id/weapon41"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:onClick="SetSkillBox"
+            android:scaleType="fitCenter"
+            android:tag="341"
+            app:srcCompat="@drawable/feinte" />
+
+        <ImageButton
+            android:id="@+id/weapon42"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:onClick="SetSkillBox"
+            android:scaleType="fitCenter"
+            android:tag="342"
+            app:srcCompat="@drawable/feinte" />
+
+        <ImageButton
+            android:id="@+id/weapon43"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:onClick="SetSkillBox"
+            android:scaleType="fitCenter"
+            android:tag="343"
+            app:srcCompat="@drawable/feinte" />
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/LevelUpClasse1"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="50dp"
+        android:background="@null"
+        android:onClick="SetlevelUp"
+        android:scaleType="fitCenter"
+        android:tag="classes"
+        app:layout_constraintEnd_toStartOf="@+id/Classe_palier2"
+        app:layout_constraintStart_toEndOf="@+id/Classe_palier1"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:srcCompat="@drawable/level_up_button" />
+
+    <ImageButton
+        android:id="@+id/LevelUpClasse2"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="50dp"
+        android:background="@null"
+        android:onClick="SetlevelUp"
+        android:scaleType="fitCenter"
+        android:tag="classes"
+        app:layout_constraintEnd_toStartOf="@+id/Classe_palier3"
+        app:layout_constraintStart_toEndOf="@+id/Classe_palier2"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:srcCompat="@drawable/level_up_button" />
+
+    <ImageButton
+        android:id="@+id/LevelUpClasse3"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="50dp"
+        android:background="@null"
+        android:onClick="SetlevelUp"
+        android:scaleType="fitCenter"
+        android:tag="classes"
+        app:layout_constraintEnd_toStartOf="@+id/Classe_palier4"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/Classe_palier3"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:srcCompat="@drawable/level_up_button" />
+
+    <ImageButton
+        android:id="@+id/levelUpPower1"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="50dp"
+        android:background="@null"
+        android:onClick="SetlevelUp"
+        android:scaleType="fitCenter"
+        android:tag="power"
+        app:layout_constraintEnd_toStartOf="@+id/Classe_palier2"
+        app:layout_constraintStart_toEndOf="@+id/Classe_palier1"
+        app:layout_constraintTop_toBottomOf="@+id/classe_back"
+        app:srcCompat="@drawable/level_up_button" />
+
+    <ImageButton
+        android:id="@+id/levelUpPower2"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="50dp"
+        android:background="@null"
+        android:onClick="SetlevelUp"
+        android:scaleType="fitCenter"
+        android:tag="power"
+        app:layout_constraintEnd_toStartOf="@+id/Classe_palier3"
+        app:layout_constraintStart_toEndOf="@+id/Classe_palier2"
+        app:layout_constraintTop_toBottomOf="@+id/classe_back"
+        app:srcCompat="@drawable/level_up_button" />
+
+    <ImageButton
+        android:id="@+id/levelUpPower3"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="50dp"
+        android:background="@null"
+        android:onClick="SetlevelUp"
+        android:scaleType="fitCenter"
+        android:tag="power"
+        app:layout_constraintEnd_toStartOf="@+id/Classe_palier4"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/Classe_palier3"
+        app:layout_constraintTop_toBottomOf="@+id/classe_back"
+        app:srcCompat="@drawable/level_up_button" />
+
+    <ImageButton
+        android:id="@+id/levelUpWeapon1"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="50dp"
+        android:background="@null"
+        android:onClick="SetlevelUp"
+        android:scaleType="fitCenter"
+        android:tag="weapon"
+        app:layout_constraintEnd_toStartOf="@+id/Classe_palier2"
+        app:layout_constraintStart_toEndOf="@+id/Classe_palier1"
+        app:layout_constraintTop_toBottomOf="@+id/power_back"
+        app:srcCompat="@drawable/level_up_button" />
+
+    <ImageButton
+        android:id="@+id/levelUpWeapon2"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="50dp"
+        android:background="@null"
+        android:onClick="SetlevelUp"
+        android:scaleType="fitCenter"
+        android:tag="weapon"
+        app:layout_constraintEnd_toStartOf="@+id/Classe_palier3"
+        app:layout_constraintStart_toEndOf="@+id/Classe_palier2"
+        app:layout_constraintTop_toBottomOf="@+id/power_back"
+        app:srcCompat="@drawable/level_up_button" />
+
+    <ImageButton
+        android:id="@+id/levelUpWeapon3"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="50dp"
+        android:background="@null"
+        android:onClick="SetlevelUp"
+        android:scaleType="fitCenter"
+        android:tag="weapon"
+        app:layout_constraintEnd_toStartOf="@+id/Classe_palier4"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/Classe_palier3"
+        app:layout_constraintTop_toBottomOf="@+id/power_back"
+        app:srcCompat="@drawable/level_up_button" />
+
+    <LinearLayout
+        android:id="@+id/skillbox"
+        android:layout_width="225dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="102dp"
+        android:background="#fff"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/SkillName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/SkillType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/SkillDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/SkillCout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:text="TextView" />
+
+        <Button
+            android:id="@+id/CloseSkillBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="CloseSkillBox"
+            android:text="Fermer" />
+
+        <TextView
+            android:id="@+id/UpactifText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Ajouter aux actifs skills"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:id="@+id/UpActifBar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/AddActif1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="PutActiveSkill"
+                android:tag="0"
+                android:text="1" />
+
+            <Button
+                android:id="@+id/AddActif2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="PutActiveSkill"
+                android:tag="1"
+                android:text="2" />
+
+            <Button
+                android:id="@+id/AddActif3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="PutActiveSkill"
+                android:tag="2"
+                android:text="3" />
+
+            <Button
+                android:id="@+id/AddActif4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="PutActiveSkill"
+                android:tag="3"
+                android:text="4" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/confirmupbox"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/TitreUpBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="CONFIRMATION"
+            android:textSize="28sp" />
+
+        <TextView
+            android:id="@+id/DescUpBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text='Voulez vous vraiment mettre " " de " " au niveau " " ?'
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/confirmUpBoxButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="LevelUp"
+            android:text="Confirmer" />
+
+        <Button
+            android:id="@+id/CancelUpbox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="ResetLevelUp"
+            android:text="Annuler" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:gravity="right"
+        android:text="Stats"
+        android:textColor="#fff"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/weapon_back" />
+
+    <TextView
+        android:id="@+id/accuracyUnique"
+        android:layout_width="19sp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:text="0"
+        android:textColor="#fff"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <TextView
+        android:id="@+id/lifeUnique"
+        android:layout_width="19sp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        android:gravity="right"
+        android:text="0"
+        android:textColor="#fff"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toStartOf="@+id/lifeimage6"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <TextView
+        android:id="@+id/criticalUnique"
+        android:layout_width="19sp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:text="0"
+        android:textColor="#fff"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/agilityUnique" />
+
+    <TextView
+        android:id="@+id/attackUnique"
+        android:layout_width="19sp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        android:gravity="right"
+        android:text="0"
+        android:textColor="#FFF"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="@+id/attackimage6"
+        app:layout_constraintEnd_toStartOf="@+id/attackimage6"
+        app:layout_constraintTop_toBottomOf="@+id/lifeUnique" />
+
+    <TextView
+        android:id="@+id/defenseUnique"
+        android:layout_width="19sp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        android:gravity="right"
+        android:text="0"
+        android:textColor="#FFF"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toStartOf="@+id/defenseimage6"
+        app:layout_constraintTop_toBottomOf="@+id/attackUnique" />
+
+    <TextView
+        android:id="@+id/speedUnique"
+        android:layout_width="19sp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:gravity="right|left"
+        android:text="0"
+        android:textColor="#FFF"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/criticalUnique" />
+
+    <TextView
+        android:id="@+id/agilityUnique"
+        android:layout_width="19sp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:text="0"
+        android:textColor="#FFF"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/accuracyUnique" />
+
+    <ImageView
+        android:id="@+id/lifeimage6"
+        android:layout_width="16sp"
+        android:layout_height="15sp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        app:layout_constraintEnd_toStartOf="@+id/accuracyimage6"
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:srcCompat="@drawable/life" />
+
+    <ImageView
+        android:id="@+id/criticalimage6"
+        android:layout_width="16sp"
+        android:layout_height="15sp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        app:layout_constraintEnd_toStartOf="@+id/criticalUnique"
+        app:layout_constraintTop_toBottomOf="@+id/agilityimage6"
+        app:srcCompat="@drawable/critical" />
+
+    <ImageView
+        android:id="@+id/attackimage6"
+        android:layout_width="16sp"
+        android:layout_height="15sp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        app:layout_constraintEnd_toEndOf="@+id/agilityimage6"
+        app:layout_constraintEnd_toStartOf="@+id/agilityimage6"
+        app:layout_constraintTop_toBottomOf="@+id/lifeimage6"
+        app:srcCompat="@drawable/attack" />
+
+    <ImageView
+        android:id="@+id/defenseimage6"
+        android:layout_width="16sp"
+        android:layout_height="15sp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        app:layout_constraintEnd_toStartOf="@+id/criticalimage6"
+        app:layout_constraintTop_toBottomOf="@+id/attackimage6"
+        app:srcCompat="@drawable/defense" />
+
+    <ImageView
+        android:id="@+id/speedimage6"
+        android:layout_width="16sp"
+        android:layout_height="15sp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        app:layout_constraintEnd_toStartOf="@+id/speedUnique"
+        app:layout_constraintTop_toBottomOf="@+id/criticalimage6"
+        app:srcCompat="@drawable/speed" />
+
+    <ImageView
+        android:id="@+id/agilityimage6"
+        android:layout_width="16sp"
+        android:layout_height="15sp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        app:layout_constraintEnd_toEndOf="@+id/lifeimage6"
+        app:layout_constraintEnd_toStartOf="@+id/agilityUnique"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/attackimage"
+        app:layout_constraintTop_toBottomOf="@+id/accuracyimage6"
+        app:srcCompat="@drawable/agility" />
+
+    <ImageView
+        android:id="@+id/accuracyimage6"
+        android:layout_width="16sp"
+        android:layout_height="15sp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        app:layout_constraintEnd_toStartOf="@+id/accuracyUnique"
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:srcCompat="@drawable/accuracy" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:gravity="right"
+        android:text="Active Skills"
+        android:textColor="#fff"
+        android:textSize="36sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/weapon_back" />
+
+    <ImageButton
+        android:id="@+id/ActiveButton1"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@null"
+        android:onClick="SetSkillBox"
+        android:scaleType="fitCenter"
+        android:tag="1"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7"
+        app:srcCompat="@drawable/plus" />
+
+    <ImageButton
+        android:id="@+id/ActiveButton2"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@null"
+        android:onClick="SetSkillBox"
+        android:scaleType="fitCenter"
+        android:tag="2"
+        android:visibility="gone"
+        app:layout_constraintStart_toEndOf="@+id/ActiveButton1"
+        app:layout_constraintTop_toBottomOf="@+id/textView7"
+        app:srcCompat="@drawable/plus" />
+
+    <ImageButton
+        android:id="@+id/ActiveButton3"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@null"
+        android:onClick="SetSkillBox"
+        android:scaleType="fitCenter"
+        android:tag="3"
+        android:visibility="gone"
+        app:layout_constraintStart_toEndOf="@+id/ActiveButton2"
+        app:layout_constraintTop_toBottomOf="@+id/textView7"
+        app:srcCompat="@drawable/plus" />
+
+    <ImageButton
+        android:id="@+id/ActiveButton4"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@null"
+        android:onClick="SetSkillBox"
+        android:scaleType="fitCenter"
+        android:tag="4"
+        android:visibility="gone"
+        app:layout_constraintStart_toEndOf="@+id/ActiveButton3"
+        app:layout_constraintTop_toBottomOf="@+id/textView7"
+        app:srcCompat="@drawable/plus" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:onClick="launchfight"
+        android:text="Prochain Combat"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/ViewNbrPoints"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Points de compétences restants: "
+        android:textColor="#fff"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ActiveButton2" />
+
+</android.support.constraint.ConstraintLayout>

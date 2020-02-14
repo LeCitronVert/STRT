@@ -49,6 +49,8 @@ public class Triptyque implements Parcelable, Serializable {
         precision = in.readInt();
         speed = in.readInt();
         critical = in.readInt();
+        skills = in.createTypedArrayList(Skill.CREATOR);
+
     }
 
     public static final Creator<Triptyque> CREATOR = new Creator<Triptyque>() {
@@ -82,5 +84,6 @@ public class Triptyque implements Parcelable, Serializable {
         parcel.writeInt(precision);
         parcel.writeInt(speed);
         parcel.writeInt(critical);
+        parcel.writeTypedList(skills);
     }
 }

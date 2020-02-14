@@ -2,6 +2,8 @@ package fr.youceflcv.strt;
 
 import android.graphics.drawable.Drawable;
 import android.media.Image;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.sax.Element;
 import android.util.Log;
 import android.view.View;
@@ -13,6 +15,7 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +25,7 @@ import java.util.Random;
  * Created by youcef.kadarabah on 08/01/20.
  */
 
-public class Personnage{
+public class Personnage implements Parcelable, Serializable {
     String name;
     int health;
     int maxaction;
@@ -34,16 +37,19 @@ public class Personnage{
     int speed;
     int critical;
     int maxhealth;
+    ProgressBar healthbar;
     boolean ennemy;
     int position;
     Triptyque weapon;
+    int weapon_level;
     Triptyque power;
+    int power_level;
     Triptyque classes;
+    int classes_level;
     List<Skill> skills = new ArrayList<Skill>();
     Skill[] actifskill = new Skill[4];
 
 
-    ProgressBar healthbar;
 
     public Personnage(String nom,Triptyque arme,Triptyque pouvoir, Triptyque classe, ProgressBar barredevie,boolean ennemi,int ou){
         name = nom;
@@ -60,8 +66,11 @@ public class Personnage{
         ennemy = ennemi;
         position = ou;
         weapon = arme;
+        weapon_level = 1;
         power = pouvoir;
+        power_level = 1;
         classes = classe;
+        classes_level = 1;
         healthbar = barredevie;
         barredevie.setMax(maxhealth);
         barredevie.setProgress(health);
@@ -143,9 +152,52 @@ public class Personnage{
         classes = cible.classes;
         skills = cible.skills;
     }
-  
+
+    protected Personnage(Parcel in) {
+        name = in.readString();
+        health = in.readInt();
+        maxaction = in.readInt();
+        actions = in.readInt();
+        attack = in.readInt();
+        defense = in.readInt();
+        esquive = in.readInt();
+        precision = in.readInt();
+        speed = in.readInt();
+        critical = in.readInt();
+        maxhealth = in.readInt();
+        ennemy = in.readByte() != 0;
+        position = in.readInt();
+        weapon = in.readParcelable(Triptyque.class.getClassLoader());
+        weapon_level = in.readInt();
+        power = in.readParcelable(Triptyque.class.getClassLoader());
+        power_level = in.readInt();
+        classes = in.readParcelable(Triptyque.class.getClassLoader());
+        classes_level = in.readInt();
+        skills = in.createTypedArrayList(Skill.CREATOR);
+        actifskill = in.createTypedArray(Skill.CREATOR);
+    }
+
+    public static final Creator<Personnage> CREATOR = new Creator<Personnage>() {
+        @Override
+        public Personnage createFromParcel(Parcel in) {
+            return new Personnage(in);
+        }
+
+        @Override
+        public Personnage[] newArray(int size) {
+            return new Personnage[size];
+        }
+    };
+
+
     public void updateHealthbar(){
         healthbar.setProgress(health);
+    }
+    public void setHealthbar(ProgressBar healthbar){
+        this.healthbar = healthbar;
+        this.health = this.maxhealth;
+        healthbar.setMax(this.maxhealth);
+        healthbar.setProgress(this.health);
     }
 
 
@@ -154,8 +206,11 @@ public class Personnage{
     }
 
     public void takeDamage(int value){
+        Log.d("degat",value+"");
+        Log.d("vie avant degats", String.valueOf(this.health));
         this.health = this.health - value;
         this.updateHealthbar();
+        Log.d("vie après degats", String.valueOf(this.health));
     }
 
     public void overheal(){
@@ -169,7 +224,6 @@ public class Personnage{
         if(this.attack < 0){
             this.attack = 0;
         }
-        this.updateHealthbar();
     }
 
     public void heal(int value){
@@ -182,46 +236,44 @@ public class Personnage{
             Skill tempo_skill = new Skill (parent_skill.name+"buff","","",1,"",false,true,parent_skill.type,parent_skill.value,parent_skill.stat,parent_skill.effect,parent_skill.cibletype,0,0,0,parent_skill.dure);
             this.skills.add(tempo_skill);
             if(tempo_skill.stat.equals("actions")){
-                this.actions = this.actions + tempo_skill.value;
+                this.actions =(int) this.actions + tempo_skill.value;
             } else if(tempo_skill.stat.equals("attack")){
-                this.attack = this.attack + tempo_skill.value;
+                this.attack =(int) this.attack + tempo_skill.value;
                 this.capatk();
             } else if(tempo_skill.stat.equals("defense")){
                 Log.d("test defense", String.valueOf(this.defense));
-                this.defense = this.defense + tempo_skill.value;
+                this.defense =(int) this.defense + tempo_skill.value;
                 Log.d("test defense after", String.valueOf(this.defense));
             } else if(tempo_skill.stat.equals("esquive")){
-                this.esquive = this.esquive + tempo_skill.value;
+                this.esquive =(int) this.esquive + tempo_skill.value;
             } else if(tempo_skill.stat.equals("precision")){
-                this.precision = this.precision + tempo_skill.value;
+                this.precision =(int) this.precision + tempo_skill.value;
             } else if(tempo_skill.stat.equals("speed")){
-                this.speed = this.speed + tempo_skill.value;
+                this.speed =(int) this.speed + tempo_skill.value;
             } else if(tempo_skill.stat.equals("critical")){
-                this.critical = this.critical + tempo_skill.value;
+                this.critical =(int) this.critical + tempo_skill.value;
             } else if(tempo_skill.stat.equals("maxhealth")){
-                this.maxhealth = this.maxhealth + tempo_skill.value;
-                this.overheal();
+                this.maxhealth =(int) this.maxhealth + tempo_skill.value;
             }
         }
         else{
             if(parent_skill.stat.equals("actions")){
-                this.actions = this.actions + parent_skill.value;
+                this.actions =(int) this.actions + parent_skill.value;
             } else if(parent_skill.stat.equals("attack")){
-                this.attack = this.attack + parent_skill.value;
+                this.attack =(int) this.attack + parent_skill.value;
                 this.capatk();
             } else if(parent_skill.stat.equals("defense")){
-                this.defense = this.defense + parent_skill.value;
+                this.defense =(int) this.defense + parent_skill.value;
             } else if(parent_skill.stat.equals("esquive")){
-                this.esquive = this.esquive + parent_skill.value;
+                this.esquive =(int) this.esquive + parent_skill.value;
             } else if(parent_skill.stat.equals("precision")){
-                this.precision = this.precision + parent_skill.value;
+                this.precision =(int) this.precision + parent_skill.value;
             } else if(parent_skill.stat.equals("speed")){
-                this.speed = this.speed + parent_skill.value;
+                this.speed =(int) this.speed + parent_skill.value;
             } else if(parent_skill.stat.equals("critical")){
-                this.critical = this.critical + parent_skill.value;
+                this.critical =(int) this.critical + parent_skill.value;
             } else if(parent_skill.stat.equals("maxhealth")){
-                this.maxhealth = this.maxhealth + parent_skill.value;
-                this.overheal();
+                this.maxhealth =(int) this.maxhealth + parent_skill.value;
             }
         }
     }
@@ -256,6 +308,9 @@ public class Personnage{
         }
     }
 
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
 
     public void understandSkills(){ // Cette fonction permet à l'IA de comprendre quel archétype de perso elle joue
 
@@ -274,7 +329,7 @@ public class Personnage{
 
     public void AIRandom(Personnage[] attaquants, Personnage[] defenseurs){
         int alea;
-        alea = new Random().nextInt(this.actifskill.length);
+        alea = new Random().nextInt(this.actifskill.length-1);
         Skill skill = this.actifskill[alea];
         if(skill.type.equals("attack")){
             //Log.d("Attaques IA","L'IA a lancé un skill offensif.");
@@ -306,4 +361,33 @@ public class Personnage{
         }
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(name);
+        parcel.writeInt(health);
+        parcel.writeInt(maxaction);
+        parcel.writeInt(actions);
+        parcel.writeInt(attack);
+        parcel.writeInt(defense);
+        parcel.writeInt(esquive);
+        parcel.writeInt(precision);
+        parcel.writeInt(speed);
+        parcel.writeInt(critical);
+        parcel.writeInt(maxhealth);
+        parcel.writeByte((byte) (ennemy ? 1 : 0));
+        parcel.writeInt(position);
+        parcel.writeParcelable(weapon, i);
+        parcel.writeInt(weapon_level);
+        parcel.writeParcelable(power, i);
+        parcel.writeInt(power_level);
+        parcel.writeParcelable(classes, i);
+        parcel.writeInt(classes_level);
+        parcel.writeTypedList(skills);
+        parcel.writeTypedArray(actifskill, i);
+    }
 }
