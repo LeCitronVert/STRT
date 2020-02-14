@@ -7,24 +7,11 @@
     tools:context=".MainMenuActivity">
 
     <Button
-        android:id="@+id/combat_1v1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="launchfight"
-        android:text="combat un contre un"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="launchteam"
         android:text="creer une équipe"
-        app:layout_constraintBottom_toTopOf="@+id/combat_1v1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
