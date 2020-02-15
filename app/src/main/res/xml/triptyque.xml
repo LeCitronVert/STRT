@@ -11,7 +11,7 @@
         <precision>65</precision>
         <esquive>55</esquive>
         <critic>3</critic>
-    </triptyque>
+    </triptyque> //0 épée longue
     <triptyque>
         <name>guerrier</name>
         <description> Une classe de tank qui réduit beaucoup les dégâts.</description>
@@ -25,5 +25,18 @@
         <precision>60</precision>
         <esquive>60</esquive>
         <critic>1</critic>
-    </triptyque>
+    </triptyque> //1 guerrier
+    <triptyque>
+        <name>Vitesse Supersonique</name>
+        <description> Ce personnage à le pouvoir de dépasser la vitesse du son.</description>
+        <icon>@drawable/super_speed</icon>
+        <type>power</type>
+        <health>104</health>
+        <attack>13</attack>
+        <defense>12</defense>
+        <speed>15</speed>
+        <precision>40</precision>
+        <esquive>80</esquive>
+        <critic>2</critic>
+    </triptyque> //2 Vitesse Supersonique
 </set>

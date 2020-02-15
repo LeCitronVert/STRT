@@ -3,8 +3,11 @@ package fr.youceflcv.strt;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -110,10 +113,10 @@ public class create_team extends AppCompatActivity {
             int randomclassesnumber = (int) (Math.random() * (listtriptycs.size() - 0));
             Personnage curr_personnage = new Personnage(listname[randomnamenumber],listtriptycs.get(randomweaponnumber),listtriptycs.get(randompowernumber),listtriptycs.get(1),atk_healthbar1,false,i+1);
             team8.add(curr_personnage);         }
-        TextView name1 =findViewById(R.id.NomPerso1);
-        TextView name2 =findViewById(R.id.NomPerso2);
-        TextView name3 =findViewById(R.id.NomPerso3);
-        TextView name4 =findViewById(R.id.NomPerso4);
+        TextView name1 =findViewById(R.id.NomPerso0);
+        TextView name2 =findViewById(R.id.NomPerso1);
+        TextView name3 =findViewById(R.id.NomPerso2);
+        TextView name4 =findViewById(R.id.NomPerso3);
         name1.setText(team1.get(0).name);
         name2.setText(team1.get(1).name);
         name3.setText(team1.get(2).name);
@@ -229,6 +232,54 @@ public class create_team extends AppCompatActivity {
                 secondnumber = secondnumber+1;
             }
         }
+        final EditText EditName0 = findViewById(R.id.NomPerso0);
+        EditName0.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+            public void afterTextChanged(Editable editable) {
+                team1.get(0).name = String.valueOf(EditName0.getText());
+            }
+        });
+        final EditText EditName1 = findViewById(R.id.NomPerso1);
+        EditName1.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+            public void afterTextChanged(Editable editable) {
+                team1.get(1).name = String.valueOf(EditName1.getText());
+            }
+        });
+        final EditText EditName2 = findViewById(R.id.NomPerso2);
+        EditName2.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+            public void afterTextChanged(Editable editable) {
+                team1.get(2).name = String.valueOf(EditName2.getText());
+            }
+        });
+        final EditText EditName3 = findViewById(R.id.NomPerso3);
+        EditName3.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+            public void afterTextChanged(Editable editable) {
+                team1.get(3).name = String.valueOf(EditName3.getText());
+            }
+        });
     }
 
     public void afficheskill(View view){

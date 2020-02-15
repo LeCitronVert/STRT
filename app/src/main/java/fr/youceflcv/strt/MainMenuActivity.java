@@ -47,7 +47,7 @@ public class MainMenuActivity extends AppCompatActivity {
                 if(eventType == XmlPullParser.START_TAG) {
                     path = path + "." + xpp.getName();
                     if ("skill".equals(xpp.getName())) {// Init. nouveau perso
-                        current_skill = new Skill("","","",1,"",true,false,"",1,"","","",1,1,1,1);
+                        current_skill = new Skill("","","",1,"",true,false,"",1,"","",1,1,1,1);
                     }
                 } else  if(eventType == XmlPullParser.END_TAG) {
 
@@ -66,7 +66,12 @@ public class MainMenuActivity extends AppCompatActivity {
                     } else if (".set.skill.type".equals(path)){
                         current_skill.type = text;
                     } else if (".set.skill.effet".equals(path)){
-                        current_skill.effect = text;
+                        for(Skill skill : list){
+                            if(skill.name.equals(text)){
+                                Log.d("verification",skill.name+"   "+text);
+                                current_skill.effect = skill;
+                            }
+                        }
                     } else if (".set.skill.stat".equals(path)){
                         current_skill.stat = text;
                     } else if (".set.skill.valeur".equals(path)){

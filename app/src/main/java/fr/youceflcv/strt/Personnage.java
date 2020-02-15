@@ -206,11 +206,8 @@ public class Personnage implements Parcelable, Serializable {
     }
 
     public void takeDamage(int value){
-        Log.d("degat",value+"");
-        Log.d("vie avant degats", String.valueOf(this.health));
         this.health = this.health - value;
         this.updateHealthbar();
-        Log.d("vie après degats", String.valueOf(this.health));
     }
 
     public void overheal(){
@@ -225,6 +222,11 @@ public class Personnage implements Parcelable, Serializable {
             this.attack = 0;
         }
     }
+    public void capspeed(){
+        if(this.attack > 50){
+            this.attack = 50;
+        }
+    }
 
     public void heal(int value){
         this.health = this.health + value;
@@ -233,7 +235,7 @@ public class Personnage implements Parcelable, Serializable {
 
     public void buff(Skill parent_skill){
         if(parent_skill.dure != 999 && parent_skill.temporary == false){
-            Skill tempo_skill = new Skill (parent_skill.name+"buff","","",1,"",false,true,parent_skill.type,parent_skill.value,parent_skill.stat,parent_skill.effect,parent_skill.cibletype,0,0,0,parent_skill.dure);
+            Skill tempo_skill = new Skill (parent_skill.name+"buff","","",1,"",false,true,parent_skill.type,parent_skill.value,parent_skill.stat,parent_skill.cibletype,0,0,0,parent_skill.dure);
             this.skills.add(tempo_skill);
             if(tempo_skill.stat.equals("actions")){
                 this.actions =(int) this.actions + tempo_skill.value;
@@ -250,6 +252,9 @@ public class Personnage implements Parcelable, Serializable {
                 this.precision =(int) this.precision + tempo_skill.value;
             } else if(tempo_skill.stat.equals("speed")){
                 this.speed =(int) this.speed + tempo_skill.value;
+                maxaction = (Integer)this.speed/10;
+                actions = maxaction;
+                capspeed();
             } else if(tempo_skill.stat.equals("critical")){
                 this.critical =(int) this.critical + tempo_skill.value;
             } else if(tempo_skill.stat.equals("maxhealth")){
@@ -270,6 +275,9 @@ public class Personnage implements Parcelable, Serializable {
                 this.precision =(int) this.precision + parent_skill.value;
             } else if(parent_skill.stat.equals("speed")){
                 this.speed =(int) this.speed + parent_skill.value;
+                maxaction = (Integer)this.speed/10;
+                actions = maxaction;
+                capspeed();
             } else if(parent_skill.stat.equals("critical")){
                 this.critical =(int) this.critical + parent_skill.value;
             } else if(parent_skill.stat.equals("maxhealth")){

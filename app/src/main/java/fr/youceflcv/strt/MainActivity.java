@@ -90,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
         ProgressBar def_heahlthbar4 = findViewById(R.id.healthbar_8);
         attaquant1 = teamally.get(0);
         attaquant1.setHealthbar(atk_healthbar1);
+        attaquant1.actifskill[0] = listskills.get(26);
         attaquant2 = teamally.get(1);
         attaquant2.setHealthbar(atk_healthbar2);
         attaquant3 = teamally.get(2);
@@ -112,6 +113,22 @@ public class MainActivity extends AppCompatActivity {
         defenseur4.maxhealth = 1;
         defenseur4.health = 1;
         defenseur4.setHealthbar(def_heahlthbar4);
+        ImageView visuperso1 = findViewById(R.id.attaquant1);
+        ImageView visuperso2 = findViewById(R.id.attaquant2);
+        ImageView visuperso3 = findViewById(R.id.attaquant3);
+        ImageView visuperso4 = findViewById(R.id.attaquant4);
+        visuperso1.setImageResource(team1.get(0).classes.imgvisu);
+        visuperso2.setImageResource(team1.get(1).classes.imgvisu);
+        visuperso3.setImageResource(team1.get(2).classes.imgvisu);
+        visuperso4.setImageResource(team1.get(3).classes.imgvisu);
+        ImageView visuperso5 = findViewById(R.id.skindef1);
+        ImageView visuperso6 = findViewById(R.id.skindef2);
+        ImageView visuperso7 = findViewById(R.id.skindef3);
+        ImageView visuperso8 = findViewById(R.id.skindef4);
+        visuperso5.setImageResource(teamennemy.get(0).classes.imgvisu);
+        visuperso6.setImageResource(teamennemy.get(1).classes.imgvisu);
+        visuperso7.setImageResource(teamennemy.get(2).classes.imgvisu);
+        visuperso8.setImageResource(teamennemy.get(3).classes.imgvisu);
         Log.d("skill du personnage", attaquant1.actifskill[0].name+attaquant1.actifskill[0].imgname);
         Personnage listattaquant[] = new Personnage[4];
         listattaquant[0] = attaquant1;
@@ -253,6 +270,18 @@ public class MainActivity extends AppCompatActivity {
             setEnnemi(view);
         }
         action_state = 2;
+        if(attaquant.actifskill[nombre].cibletype.equals("teamennemi")){
+            action_state = 3;
+            cible = defenseur1;
+            ImageView selector = findViewById(R.id.SelectCible5);
+            selector.setVisibility(view.VISIBLE);
+            ImageView selector1 = findViewById(R.id.SelectCible6);
+            selector1.setVisibility(view.VISIBLE);
+            ImageView selector2 = findViewById(R.id.SelectCible7);
+            selector2.setVisibility(view.VISIBLE);
+            ImageView selector3 = findViewById(R.id.SelectCible8);
+            selector3.setVisibility(view.VISIBLE);
+        }
         if(attaquant.actifskill[nombre].cibletype.equals("luimeme")){
             cible = attaquant;
             action_state = 3;
@@ -430,27 +459,55 @@ public class MainActivity extends AppCompatActivity {
     }
     public void Action(View view) throws InterruptedException {
         if(competence.cost <= attaquant.actions) {
-            NumberAction = competence.useSkill(attaquant, cible);
+            attaquant.actions = attaquant.actions - competence.cost;
+            if(competence.cibletype.equals("teamennemi")){
+                NumberAction = competence.useSkill(attaquant, defenseur1);
+                NumberAction = competence.useSkill(attaquant, defenseur2);
+                NumberAction = competence.useSkill(attaquant, defenseur3);
+                NumberAction = competence.useSkill(attaquant, defenseur4);
+                String curr_attaquant = "attaquant"+attaquant.position;
+                int resID = getResources().getIdentifier(curr_attaquant, "id", getPackageName());
+                ImageView attaquant_visuel= findViewById(resID);
+                for(int i = 1;i<=4;i++) {
+                    String curr_cible = "skindef" + i;
+                    int resID2 = getResources().getIdentifier(curr_cible, "id", getPackageName());
+                    ImageView cible_visuel = findViewById(resID2);
+                    AnimationNumber();
+                    if (competence.type.equals("attack")) {
+                        attaquant_visuel.startAnimation(lefttorightattack);
+                        cible_visuel.startAnimation(blinking);
+                    }
+                    if (competence.type.equals("buff")) {
+
+                    }
+                    if (competence.type.equals("heal")) {
+
+                    }
+                }
+            }
+            else{
+                NumberAction = competence.useSkill(attaquant, cible);
+                String curr_attaquant = "attaquant"+attaquant.position;
+                int resID = getResources().getIdentifier(curr_attaquant, "id", getPackageName());
+                ImageView attaquant_visuel= findViewById(resID);
+                String curr_cible = "skindef"+cible.position;
+                int resID2 = getResources().getIdentifier(curr_cible, "id", getPackageName());
+                ImageView cible_visuel = findViewById(resID2);
+                AnimationNumber();
+                if(competence.type.equals("attack")){
+                    attaquant_visuel.startAnimation(lefttorightattack);
+                    cible_visuel.startAnimation(blinking);
+                }
+                if(competence.type.equals("buff")){
+
+                }
+                if(competence.type.equals("heal")){
+
+                }
+            }
             updateActionBar();
             resetAction(view);
             resetActionSkill();
-            String curr_attaquant = "attaquant"+attaquant.position;
-            int resID = getResources().getIdentifier(curr_attaquant, "id", getPackageName());
-            ImageView attaquant_visuel= findViewById(resID);
-            String curr_cible = "skindef"+cible.position;
-            int resID2 = getResources().getIdentifier(curr_cible, "id", getPackageName());
-            ImageView cible_visuel = findViewById(resID2);
-            if(competence.type.equals("attack")){
-                attaquant_visuel.startAnimation(lefttorightattack);
-                cible_visuel.startAnimation(blinking);
-                AnimationNumber();
-            }
-            if(competence.type.equals("buff")){
-
-            }
-            if(competence.type.equals("heal")){
-
-            }
         }
         if (cible.health <= 0){
                 String curr_character = "skindef"+cible.position;
@@ -723,7 +780,12 @@ public class MainActivity extends AppCompatActivity {
         final ConstraintLayout zone_degats = (ConstraintLayout) findViewById(resID);
         TextView textView = new TextView(MainActivity.this);
         textView.setGravity(Gravity.CENTER);
-        textView.setTextColor(Color.RED);
+        if(competence.type.equals("attack")){
+            textView.setTextColor(Color.RED);
+        }
+        else{
+            textView.setTextColor(Color.GREEN);
+        }
         textView.setText(NumberAction+"");
         textView.setTextSize(18);
         zone_degats.addView(textView);

@@ -149,8 +149,8 @@
         <triptyque>épée longue</triptyque>
         <icon>@drawable/excalibur</icon>
         <iconname>excalibur</iconname>
-        <actif>true</actif>
-        <type>attack</type>
+        <actif>false</actif>
+        <type>buff</type>
         <temporary>false</temporary>
         <effet></effet>
         <stat>critical</stat>
@@ -323,4 +323,166 @@
         <duree>999</duree>
         <cost>0</cost>
     </skill> //17 guerrier
+    <skill>
+        <name>Charge éclaire_second</name>
+        <description></description>
+        <triptyque></triptyque>
+        <icon>@drawable/charge_eclaire</icon>
+        <iconname>charge_eclaire</iconname>
+        <actif>false</actif>
+        <type>attack</type>
+        <temporary>false</temporary>
+        <effet></effet>
+        <stat>attaque</stat>
+        <valeur>1</valeur>
+        <cibletype>luimeme</cibletype>
+        <tier>1</tier>
+        <level>1</level>
+        <duree>0</duree>
+        <cost>0</cost>
+    </skill> //18 Vitesse Supersonique charge éclaireBis
+    <skill>
+        <name>Charge éclaire</name>
+        <description>Vous percutez votre adversaire à pleine vitesse, fait beaucoup de dégâts mais vous en prenez la moitié.</description>
+        <triptyque>Vitesse Supersonique</triptyque>
+        <icon>@drawable/charge_eclaire</icon>
+        <iconname>charge_eclaire</iconname>
+        <actif>true</actif>
+        <type>attack</type>
+        <temporary>false</temporary>
+        <effet>Charge éclaire_second</effet>
+        <stat>attaque</stat>
+        <valeur>2</valeur>
+        <cibletype>ennemi</cibletype>
+        <tier>1</tier>
+        <level>1</level>
+        <duree>0</duree>
+        <cost>3</cost>
+    </skill> //19 Vitesse Supersonique charge éclaire
+    <skill>
+        <name>Flou de mouvement</name>
+        <description>Augmente grandement esquive de votre personnage.</description>
+        <triptyque>Vitesse Supersonique</triptyque>
+        <icon>@drawable/flou_de_mouvement</icon>
+        <iconname>flou_de_mouvement</iconname>
+        <actif>false</actif>
+        <type>buff</type>
+        <temporary>false</temporary>
+        <effet></effet>
+        <stat>esquive</stat>
+        <valeur>15</valeur>
+        <cibletype>luimeme</cibletype>
+        <tier>1</tier>
+        <level>1</level>
+        <duree>999</duree>
+        <cost>0</cost>
+    </skill> //20 Vitesse Supersonique flou de mouvement
+    <skill>
+        <name>Plus rapide que la lumière !</name>
+        <description>Augmente grandement la vitesse de votre personnage.</description>
+        <triptyque>Vitesse Supersonique</triptyque>
+        <icon>@drawable/plus_rapide_que_la_lumiere</icon>
+        <iconname>plus_rapide_que_la_lumiere</iconname>
+        <actif>false</actif>
+        <type>buff</type>
+        <temporary>false</temporary>
+        <effet></effet>
+        <stat>speed</stat>
+        <valeur>5</valeur>
+        <cibletype>luimeme</cibletype>
+        <tier>2</tier>
+        <level>1</level>
+        <duree>999</duree>
+        <cost>0</cost>
+    </skill> //21 Vitesse Supersonique plus rapide que la lumière
+    <skill>
+        <name>Mitraille de Coups</name>
+        <description>Coup peu puissant mais peu gourmant en point d’action.</description>
+        <triptyque>Vitesse Supersonique</triptyque>
+        <icon>@drawable/mitraille_de_coups</icon>
+        <iconname>mitraille_de_coups</iconname>
+        <actif>true</actif>
+        <type>attack</type>
+        <temporary>false</temporary>
+        <effet></effet>
+        <stat>attaque</stat>
+        <valeur>1</valeur>
+        <cibletype>teamennemi</cibletype>
+        <tier>2</tier>
+        <level>1</level>
+        <duree>0</duree>
+        <cost>2</cost>
+    </skill> //22 Vitesse Supersonique Mitraille de coups
+    <skill>
+        <name>Charge éclaire LVL2_second</name>
+        <description></description>
+        <triptyque></triptyque>
+        <icon>@drawable/charge_eclaire</icon>
+        <iconname>charge_eclaire</iconname>
+        <actif>false</actif>
+        <type>attack</type>
+        <temporary>false</temporary>
+        <effet></effet>
+        <stat>attaque</stat>
+        <valeur>1</valeur>
+        <cibletype>luimeme</cibletype>
+        <tier>1</tier>
+        <level>1</level>
+        <duree>0</duree>
+        <cost>0</cost>
+    </skill> //23 Vitesse Supersonique charge éclaireLVL2Bis
+    <skill>
+        <name>Charge éclaire LVL2</name>
+        <description>Vous percutez votre adversaire à pleine vitesse, fait beaucoup de dégâts mais vous en prenez le tier.</description>
+        <triptyque>Vitesse Supersonique</triptyque>
+        <icon>@drawable/charge_eclaire</icon>
+        <iconname>charge_eclaire</iconname>
+        <actif>true</actif>
+        <type>attack</type>
+        <temporary>false</temporary>
+        <effet>Charge éclaire LVL2_second</effet>
+        <stat>attaque</stat>
+        <valeur>3</valeur>
+        <cibletype>ennemi</cibletype>
+        <tier>3</tier>
+        <level>2</level>
+        <duree>0</duree>
+        <cost>2</cost>
+    </skill> //24 Vitesse Supersonique charge éclaireLVL2
+    <skill>
+        <name>Plus rapide que la lumière ! LVL2</name>
+        <description>Augmente grandement la vitesse de votre personnage.</description>
+        <triptyque>Vitesse Supersonique</triptyque>
+        <icon>@drawable/plus_rapide_que_la_lumiere</icon>
+        <iconname>plus_rapide_que_la_lumiere</iconname>
+        <actif>false</actif>
+        <type>buff</type>
+        <temporary>false</temporary>
+        <effet></effet>
+        <stat>speed</stat>
+        <valeur>5</valeur>
+        <cibletype>luimeme</cibletype>
+        <tier>3</tier>
+        <level>2</level>
+        <duree>999</duree>
+        <cost>0</cost>
+    </skill> //25 Vitesse Supersonique plus rapide que la lumière LVL2
+    <skill>
+        <name>Mitraille de Coups LVL2</name>
+        <description>Coup peu puissant mais peu gourmant en point d’action.</description>
+        <triptyque>Vitesse Supersonique</triptyque>
+        <icon>@drawable/mitraille_de_coups</icon>
+        <iconname>mitraille_de_coups</iconname>
+        <actif>true</actif>
+        <type>attack</type>
+        <temporary>false</temporary>
+        <effet></effet>
+        <stat>attaque</stat>
+        <valeur>1</valeur>
+        <cibletype>teamennemi</cibletype>
+        <tier>4</tier>
+        <level>2</level>
+        <duree>0</duree>
+        <cost>1</cost>
+    </skill> //26 Vitesse Supersonique Mitraille de coups LVL2
 </set>

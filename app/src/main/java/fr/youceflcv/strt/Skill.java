@@ -20,7 +20,7 @@ public class Skill implements Parcelable, Serializable {
     boolean temporary;
     String type;
     int value;
-    String effect;
+    Skill effect;
     String stat;
     String cibletype;
     int tier;
@@ -29,7 +29,7 @@ public class Skill implements Parcelable, Serializable {
     int cost;
 
 
-    public Skill(String nom, String description, String triptyc, int image, String imagename, boolean activable,boolean temporaire, String typeskill, int valeur, String stats, String effetadditionnel, String cible, int cout, int palier, int niveau, int duree){
+    public Skill(String nom, String description, String triptyc, int image, String imagename, boolean activable,boolean temporaire, String typeskill, int valeur, String stats, String cible, int cout, int palier, int niveau, int duree){
         name = nom;
         desc = description;
         triptyque = triptyc;
@@ -37,7 +37,6 @@ public class Skill implements Parcelable, Serializable {
         imgname = imagename;
         type = typeskill;
         value = valeur;
-        effect = effetadditionnel;
         stat = stats;
         cibletype = cible;
         cost = cout;
@@ -58,7 +57,7 @@ public class Skill implements Parcelable, Serializable {
         temporary = in.readByte() != 0;
         type = in.readString();
         value = in.readInt();
-        effect = in.readString();
+        effect = in.readParcelable(getClass().getClassLoader());
         stat = in.readString();
         cibletype = in.readString();
         tier = in.readInt();
@@ -80,7 +79,16 @@ public class Skill implements Parcelable, Serializable {
     };
 
     public int useSkill(Personnage attaquant, Personnage cible){
-        attaquant.actions = attaquant.actions - this.cost;
+        Personnage attaquantbis = attaquant;
+        Personnage ciblebis = cible;
+        if(this.effect != null){
+            Log.d("secondskill",this.effect.cibletype);
+            Log.d("secondskill","pouet");
+            if(this.effect.cibletype.equals("luimeme")){
+                ciblebis = attaquant;
+            }
+            this.effect.useSkill(attaquantbis,ciblebis);
+        }
         if(this.type.equals("attack")){
             Log.d("test attaque","oui");
             int dps = (int) attaquant.attack*this.value;
@@ -116,7 +124,7 @@ public class Skill implements Parcelable, Serializable {
         parcel.writeByte((byte) (temporary ? 1 : 0));
         parcel.writeString(type);
         parcel.writeInt(value);
-        parcel.writeString(effect);
+        parcel.writeParcelable(effect,i);
         parcel.writeString(stat);
         parcel.writeString(cibletype);
         parcel.writeInt(tier);
