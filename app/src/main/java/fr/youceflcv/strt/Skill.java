@@ -78,34 +78,63 @@ public class Skill implements Parcelable, Serializable {
         }
     };
 
-    public int useSkill(Personnage attaquant, Personnage cible){
+    public String useSkill(Personnage attaquant, Personnage cible){
         Personnage attaquantbis = attaquant;
         Personnage ciblebis = cible;
-        if(this.effect != null){
-            Log.d("secondskill",this.effect.cibletype);
-            Log.d("secondskill","pouet");
+        int touch = 100;
+        int testtouch = (int)( Math.random()*100);
+        String valeurretour = "";
+        if(this.effect != null){ //vérifie si le skill à un effet supplémentaire
             if(this.effect.cibletype.equals("luimeme")){
                 ciblebis = attaquant;
             }
-            this.effect.useSkill(attaquantbis,ciblebis);
+            if(this.effect.cibletype.equals("ripost")){
+                attaquant.skills.add(this.effect);
+            }
+            else{
+                this.effect.useSkill(attaquantbis,ciblebis);
+            }
         }
         if(this.type.equals("attack")){
-            Log.d("test attaque","oui");
-            int dps = (int) attaquant.attack*this.value;
-            int critic=1;
-            critic=(int)( Math.random()*100);
-            if(critic <= attaquant.critical){
-                dps = dps*2;
+            for(Skill curr_skill : cible.skills){ //verifier tous les skills de la cible, si l'un permet de riposter, il riposte)
+                if(curr_skill.cibletype.equals("ripost")){
+                    Log.d("testripost",curr_skill.name);
+                    curr_skill.useSkill(cible,attaquant);
+                }
             }
-            cible.takeDamage(dps);
-            return dps;
+            touch = touch + attaquant.precision - cible.esquive;
+            Log.d("testmiss", String.valueOf(touch));
+            Log.d("testmissprecision", String.valueOf(attaquant.precision));
+            Log.d("testmissesquive", String.valueOf(cible.esquive));
+            if(testtouch <= touch){
+                int dps = (int) attaquant.attack*this.value; //test pour critique
+                dps = dps - cible.defense;
+                if(dps <0){
+                    dps = 0;
+                }
+                int critic=1;
+                critic=(int)( Math.random()*100);
+                if(critic <= attaquant.critical){
+                    dps = dps*2; //double les dégâts en cas de réussite critique
+                }
+                cible.takeDamage(dps);
+                valeurretour = String.valueOf(dps);
+                Log.d("testmissdegats", valeurretour);
+                return valeurretour; //permet d'afficher les dégâts
+            }
+            else{
+                Log.d("testmissdegatsbis", valeurretour);
+                valeurretour = "miss";
+                return valeurretour;
+            }
         } else if(this.type.equals("heal")){
             cible.heal(this.value);
-            return this.value;
+            valeurretour = String.valueOf(this.value);
+            return valeurretour;
         } else if(this.type.equals("buff")){
             cible.buff(this);
         }
-        return 0;
+        return "";
     }
 
     @Override

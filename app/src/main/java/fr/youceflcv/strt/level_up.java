@@ -27,9 +27,6 @@ public class level_up extends AppCompatActivity {
     private List<Personnage> team3;
     private List<Personnage> team4;
     private List<Personnage> team5;
-    private List<Personnage> team6;
-    private List<Personnage> team7;
-    private List<Personnage> team8;
     private View view;
     private Skill[] Skill;
     private int Curr_skill;
@@ -39,6 +36,7 @@ public class level_up extends AppCompatActivity {
     private String[] SkillCosts;
     private int[] LevelupPoints;
     private int cible;
+    private int roundnumber;
     private String tryptiqueup;
 
     @Override
@@ -47,6 +45,7 @@ public class level_up extends AppCompatActivity {
         setContentView(R.layout.activity_level_up);
         Intent intent = getIntent();
         if (intent != null){
+            roundnumber = intent.getIntExtra("roundnumber",0);
             listskills = (List<Skill>) getIntent().getSerializableExtra("skills");
             listtriptycs = (List<Triptyque>) getIntent().getSerializableExtra("triptycs");
             team1 = (List<Personnage>) getIntent().getSerializableExtra("team1");
@@ -54,10 +53,8 @@ public class level_up extends AppCompatActivity {
             team3 = (List<Personnage>) getIntent().getSerializableExtra("team3");
             team4 = (List<Personnage>) getIntent().getSerializableExtra("team4");
             team5 = (List<Personnage>) getIntent().getSerializableExtra("team5");
-            team6 = (List<Personnage>) getIntent().getSerializableExtra("team6");
-            team7 = (List<Personnage>) getIntent().getSerializableExtra("team7");
-            team8 = (List<Personnage>) getIntent().getSerializableExtra("team8");
         }
+        roundnumber++;
         SkillNames = new String[343];
         SkillTypes = new String[343];
         SkillDescs = new String[343];
@@ -604,11 +601,17 @@ public class level_up extends AppCompatActivity {
         gameActivity.putExtra("team3", (Serializable) team3);
         gameActivity.putExtra("team4", (Serializable) team4);
         gameActivity.putExtra("team5", (Serializable) team5);
-        gameActivity.putExtra("team6", (Serializable) team6);
-        gameActivity.putExtra("team7", (Serializable) team7);
-        gameActivity.putExtra("team8", (Serializable) team8);
+        gameActivity.putExtra("roundnumber",roundnumber);
         gameActivity.putExtra("teamAlly", (Serializable) team1);
-        gameActivity.putExtra("teamEnnemy", (Serializable) team2);
+        if(roundnumber == 2){
+            gameActivity.putExtra("teamEnnemy", (Serializable) team3);
+        }
+        if(roundnumber == 3){
+            gameActivity.putExtra("teamEnnemy", (Serializable) team4);
+        }
+        if(roundnumber == 4){
+            gameActivity.putExtra("teamEnnemy", (Serializable) team5);
+        }
         gameActivity.putExtra("skills", (Serializable) listskills);
         gameActivity.putExtra("triptycs", (Serializable) listtriptycs);
         startActivity(gameActivity);

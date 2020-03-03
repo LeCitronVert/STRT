@@ -1,5 +1,23 @@
 <set>
     <skill>
+        <name>Garde de la dame_second</name>
+        <description></description>
+        <triptyque></triptyque>
+        <icon>@drawable/garde_de_la_dame</icon>
+        <iconname>garde_de_la_dame</iconname>
+        <actif>true</actif>
+        <type>attack</type>
+        <temporary>true</temporary>
+        <effet></effet>
+        <stat>attack</stat>
+        <valeur>1</valeur>
+        <cibletype>ripost</cibletype>
+        <tier>1</tier>
+        <level>1</level>
+        <duree>1</duree>
+        <cost>0</cost>
+    </skill> //01 épée longue               garde de la dame_second
+    <skill>
         <name>Garde de la dame</name>
         <description>Ajoute 5 d’armure pendant un tour et permet de contre attaquer pendant un tour.</description>
         <triptyque>épée longue</triptyque>
@@ -8,7 +26,7 @@
         <actif>true</actif>
         <type>buff</type>
         <temporary>false</temporary>
-        <effet></effet>
+        <effet>Garde de la dame_second</effet>
         <stat>defense</stat>
         <valeur>5</valeur>
         <cibletype>luimeme</cibletype>
@@ -16,7 +34,7 @@
         <level>1</level>
         <duree>1</duree>
         <cost>2</cost>
-    </skill> //00 épée longue
+    </skill> //02 épée longue               garde de la dame
     <skill>
         <name>Feinte</name>
         <description>Attaque de base</description>
@@ -34,7 +52,7 @@
         <level>1</level>
         <duree>0</duree>
         <cost>1</cost>
-    </skill> //01 épée longue
+    </skill> //03 épée longue               feinte
     <skill>
         <name>Renforcement</name>
         <description>augmente la défense du personnage.</description>
@@ -52,7 +70,7 @@
         <level>1</level>
         <duree>999</duree>
         <cost>0</cost>
-    </skill> //02 épée longue
+    </skill> //04 épée longue               renforcement
     <skill>
         <name>Maitrise de la lame</name>
         <description>Augmente l'attaque du personnage.</description>
@@ -70,7 +88,7 @@
         <level>1</level>
         <duree>999</duree>
         <cost>0</cost>
-    </skill> //03 épée longue
+    </skill> //05 épée longue               maitrise de la lame
     <skill>
         <name>Renforcement LVL2</name>
         <description>augmente la défense du personnage</description>
@@ -88,7 +106,25 @@
         <level>2</level>
         <duree>999</duree>
         <cost>0</cost>
-    </skill> //04 épée longue
+    </skill> //06 épée longue               renforcement LVL2
+    <skill>
+        <name>Garde de la dame LVL2_second</name>
+        <description></description>
+        <triptyque></triptyque>
+        <icon>@drawable/garde_de_la_dame</icon>
+        <iconname>garde_de_la_dame</iconname>
+        <actif>true</actif>
+        <type>attack</type>
+        <temporary>true</temporary>
+        <effet></effet>
+        <stat>attack</stat>
+        <valeur>1</valeur>
+        <cibletype>ripost</cibletype>
+        <tier>3</tier>
+        <level>2</level>
+        <duree>2</duree>
+        <cost>0</cost>
+    </skill> //07 épée longue               garde de la dame LVL2_second
     <skill>
         <name>Garde de la dame LVL2</name>
         <description>Ajoute 5 d’armure pendant deux tour et permet de contre attaquer pendant deux tours.</description>
@@ -98,7 +134,7 @@
         <actif>true</actif>
         <type>buff</type>
         <temporary>false</temporary>
-        <effet> </effet>
+        <effet>Garde de la dame LVL2_second</effet>
         <stat>defense</stat>
         <valeur>5</valeur>
         <cibletype>luimeme</cibletype>
@@ -106,7 +142,7 @@
         <level>2</level>
         <duree>2</duree>
         <cost>2</cost>
-    </skill> //05 épée longue
+    </skill> //08 épée longue               garde de la dame
     <skill>
         <name>Coup ascendant</name>
         <description>Attaque infligeant 1/4 de l'attaque en saignement pendant 2 tours</description>
@@ -124,7 +160,7 @@
         <level>1</level>
         <duree>2</duree>
         <cost>2</cost>
-    </skill> //06 épée longue
+    </skill> //09 épée longue               coup ascendant
     <skill>
         <name>Coup ascendant LVL2</name>
         <description>Attaque infligeant 1/2 de l'attaque en saignement pendant 2 tours</description>
@@ -142,7 +178,7 @@
         <level>2</level>
         <duree>2</duree>
         <cost>2</cost>
-    </skill> //07 épée longue
+    </skill> //10 épée longue               coup ascendant lvl2
     <skill>
         <name>Excalibur</name>
         <description>augmente grandement les critiques du personnage.</description>
@@ -160,10 +196,10 @@
         <level>1</level>
         <duree>999</duree>
         <cost>0</cost>
-    </skill> //08 épée longue
+    </skill> //11 épée longue               excalibur
     <skill>
         <name>Coup de bouclier</name>
-        <description>Stun un adversaire pendant un tour(enlève deux points de action)</description>
+        <description>Stun un adversaire pendant un tour(enlève un point de action)</description>
         <triptyque>guerrier</triptyque>
         <icon>@drawable/coup_de_bouclier</icon>
         <iconname>coup_de_bouclier</iconname>
@@ -171,14 +207,14 @@
         <type>buff</type>
         <temporary>false</temporary>
         <effet></effet>
-        <stat>maxaction</stat>
-        <valeur>-2</valeur>
+        <stat>actions</stat>
+        <valeur>-1</valeur>
         <cibletype>ennemi</cibletype>
         <tier>1</tier>
         <level>1</level>
         <duree>1</duree>
         <cost>3</cost>
-    </skill> //09 guerrier
+    </skill> //12 guerrier                  coup de bouclier
     <skill>
         <name>Mastodonte</name>
         <description>Augmente grandement les points de vie</description>
@@ -196,7 +232,7 @@
         <level>1</level>
         <duree>999</duree>
         <cost>0</cost>
-    </skill> //10 guerrier
+    </skill> //13 guerrier                  mastodonte
     <skill>
         <name>Levé de bouclier</name>
         <description>Ajoute 8 points à la défense pendant deux tours.</description>
@@ -214,7 +250,7 @@
         <level>1</level>
         <duree>2</duree>
         <cost>2</cost>
-    </skill> //11 guerrier
+    </skill> //14 guerrier                  levé de bouclier
     <skill>
         <name>Rempart</name>
         <description>Ajoute 7 points à la défense</description>
@@ -232,10 +268,10 @@
         <level>1</level>
         <duree>999</duree>
         <cost>0</cost>
-    </skill> //12 guerrier
+    </skill> //15 guerrier                  rempart
     <skill>
         <name>Coup de bouclier LVL2</name>
-        <description>Stun un adversaire pendant deux tour(enlève deux points de action)</description>
+        <description>Stun un adversaire pendant deux tour(enlève un point de action)</description>
         <triptyque>guerrier</triptyque>
         <icon>@drawable/coup_de_bouclier</icon>
         <iconname>coup_de_bouclier</iconname>
@@ -243,14 +279,14 @@
         <type>buff</type>
         <temporary>false</temporary>
         <effet></effet>
-        <stat>maxaction</stat>
-        <valeur>-2</valeur>
+        <stat>actions</stat>
+        <valeur>-1</valeur>
         <cibletype>ennemi</cibletype>
         <tier>2</tier>
         <level>2</level>
         <duree>2</duree>
         <cost>3</cost>
-    </skill> //13 guerrier
+    </skill> //16 guerrier                  coup de bouclier LVL2
     <skill>
         <name>Maitrise du pavois</name>
         <description>Augmente de 3 points les chances de critiques</description>
@@ -268,7 +304,7 @@
         <level>1</level>
         <duree>999</duree>
         <cost>0</cost>
-    </skill> //14 guerrier
+    </skill> //17 guerrier                  maitrise du pavois
     <skill>
         <name>Levé de bouclier LVL2</name>
         <description>Ajoute 12 points à la défense pendant trois tours.</description>
@@ -286,10 +322,10 @@
         <level>2</level>
         <duree>3</duree>
         <cost>2</cost>
-    </skill> //15 guerrier
+    </skill> //18 guerrier                  levé de bouclier LVL2
     <skill>
         <name>Coup de bouclier LVL3</name>
-        <description>Stun un adversaire pendant deux tour(enlève deux points de action)</description>
+        <description>Stun un adversaire pendant deux tour(enlève un point de action)</description>
         <triptyque>guerrier</triptyque>
         <icon>@drawable/coup_de_bouclier</icon>
         <iconname>coup_de_bouclier</iconname>
@@ -297,14 +333,14 @@
         <type>buff</type>
         <temporary>false</temporary>
         <effet></effet>
-        <stat>maxaction</stat>
-        <valeur>-2</valeur>
+        <stat>actions</stat>
+        <valeur>-1</valeur>
         <cibletype>ennemi</cibletype>
         <tier>4</tier>
         <level>3</level>
         <duree>2</duree>
         <cost>2</cost>
-    </skill> //16 guerrier
+    </skill> //19 guerrier                  coup de bouclier LVL3
     <skill>
         <name>Mastodonte LVL2</name>
         <description>Augmente grandement les points de vie</description>
@@ -322,7 +358,7 @@
         <level>2</level>
         <duree>999</duree>
         <cost>0</cost>
-    </skill> //17 guerrier
+    </skill> //20 guerrier                  Mastondonte LVL2
     <skill>
         <name>Charge éclaire_second</name>
         <description></description>
@@ -340,7 +376,7 @@
         <level>1</level>
         <duree>0</duree>
         <cost>0</cost>
-    </skill> //18 Vitesse Supersonique charge éclaireBis
+    </skill> //21 Vitesse Supersonique      charge éclaireBis
     <skill>
         <name>Charge éclaire</name>
         <description>Vous percutez votre adversaire à pleine vitesse, fait beaucoup de dégâts mais vous en prenez la moitié.</description>
@@ -358,7 +394,7 @@
         <level>1</level>
         <duree>0</duree>
         <cost>3</cost>
-    </skill> //19 Vitesse Supersonique charge éclaire
+    </skill> //22 Vitesse Supersonique      charge éclaire
     <skill>
         <name>Flou de mouvement</name>
         <description>Augmente grandement esquive de votre personnage.</description>
@@ -376,7 +412,7 @@
         <level>1</level>
         <duree>999</duree>
         <cost>0</cost>
-    </skill> //20 Vitesse Supersonique flou de mouvement
+    </skill> //23 Vitesse Supersonique      flou de mouvement
     <skill>
         <name>Plus rapide que la lumière !</name>
         <description>Augmente grandement la vitesse de votre personnage.</description>
@@ -394,10 +430,10 @@
         <level>1</level>
         <duree>999</duree>
         <cost>0</cost>
-    </skill> //21 Vitesse Supersonique plus rapide que la lumière
+    </skill> //24 Vitesse Supersonique      plus rapide que la lumière
     <skill>
         <name>Mitraille de Coups</name>
-        <description>Coup peu puissant mais peu gourmant en point d’action.</description>
+        <description>Le personnage frappe toute la team adverse en quelques secondes.</description>
         <triptyque>Vitesse Supersonique</triptyque>
         <icon>@drawable/mitraille_de_coups</icon>
         <iconname>mitraille_de_coups</iconname>
@@ -412,7 +448,7 @@
         <level>1</level>
         <duree>0</duree>
         <cost>2</cost>
-    </skill> //22 Vitesse Supersonique Mitraille de coups
+    </skill> //25 Vitesse Supersonique      Mitraille de coups
     <skill>
         <name>Charge éclaire LVL2_second</name>
         <description></description>
@@ -430,7 +466,7 @@
         <level>1</level>
         <duree>0</duree>
         <cost>0</cost>
-    </skill> //23 Vitesse Supersonique charge éclaireLVL2Bis
+    </skill> //26 Vitesse Supersonique      charge éclaireLVL2Bis
     <skill>
         <name>Charge éclaire LVL2</name>
         <description>Vous percutez votre adversaire à pleine vitesse, fait beaucoup de dégâts mais vous en prenez le tier.</description>
@@ -448,7 +484,7 @@
         <level>2</level>
         <duree>0</duree>
         <cost>2</cost>
-    </skill> //24 Vitesse Supersonique charge éclaireLVL2
+    </skill> //27 Vitesse Supersonique      charge éclaireLVL2
     <skill>
         <name>Plus rapide que la lumière ! LVL2</name>
         <description>Augmente grandement la vitesse de votre personnage.</description>
@@ -466,10 +502,10 @@
         <level>2</level>
         <duree>999</duree>
         <cost>0</cost>
-    </skill> //25 Vitesse Supersonique plus rapide que la lumière LVL2
+    </skill> //28 Vitesse Supersonique      plus rapide que la lumière LVL2
     <skill>
         <name>Mitraille de Coups LVL2</name>
-        <description>Coup peu puissant mais peu gourmant en point d’action.</description>
+        <description>Le personnage frappe toute la team adverse en quelques secondes.</description>
         <triptyque>Vitesse Supersonique</triptyque>
         <icon>@drawable/mitraille_de_coups</icon>
         <iconname>mitraille_de_coups</iconname>
@@ -484,5 +520,5 @@
         <level>2</level>
         <duree>0</duree>
         <cost>1</cost>
-    </skill> //26 Vitesse Supersonique Mitraille de coups LVL2
+    </skill> //29 Vitesse Supersonique      Mitraille de coups LVL2
 </set>

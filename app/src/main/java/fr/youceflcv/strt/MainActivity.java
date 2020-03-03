@@ -2,6 +2,7 @@ package fr.youceflcv.strt;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.media.Image;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,11 +15,16 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.io.Serializable;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Random;
+
+import static java.lang.Thread.sleep;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,9 +35,6 @@ public class MainActivity extends AppCompatActivity {
     private List<Personnage> team3;
     private List<Personnage> team4;
     private List<Personnage> team5;
-    private List<Personnage> team6;
-    private List<Personnage> team7;
-    private List<Personnage> team8;
     private List<Personnage> teamally;
     private List<Personnage> teamennemy;
 
@@ -50,20 +53,96 @@ public class MainActivity extends AppCompatActivity {
     public int attaquantnbr;
     Skill competence;
     Personnage cible;
+    public int[] deathanimation;
     Animation lefttorightattack;
+    Animation righttoleftattack;
     Animation blinking;
     Animation fadeout;
-    public int NumberAction;
+    Animation annoncetext;
+    Animation shake;
+    public String NumberAction;
+    private int roundnumber;
+    private int IaFightPhase;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fight);
         lefttorightattack = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.slide_lefttoright_attack);
+        righttoleftattack = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.slide_righttoleft_attack);
+        righttoleftattack.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                IaFightPhase++;
+                if(IaFightPhase<=3){
+                    IaFight(IaFightPhase);
+                }
+                if(IaFightPhase>3){
+                    final TextView textannonce = findViewById(R.id.annonce_text);
+                    textannonce.setText("Tour allie !");
+                    textannonce.startAnimation(annoncetext);
+                }
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
         blinking = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.blinking);
         fadeout = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fadeout);
+        shake = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.shake);
+        shake.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                IaFightPhase++;
+                if(IaFightPhase<=3){
+                    IaFight(IaFightPhase);
+                }
+                if(IaFightPhase>3){
+                    final TextView textannonce = findViewById(R.id.annonce_text);
+                    textannonce.setText("Tour allie !");
+                    textannonce.startAnimation(annoncetext);
+                }
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+        annoncetext = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.annoncetext);
+        final TextView textannonce = findViewById(R.id.annonce_text);
+        annoncetext.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                textannonce.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
         Intent intent = getIntent();
         if (intent != null){
+            roundnumber = intent.getIntExtra("roundnumber",0);
             listskills = (List<Skill>) getIntent().getSerializableExtra("skills");
             listtriptycs = (List<Triptyque>) getIntent().getSerializableExtra("triptycs");
             team1 = (List<Personnage>) getIntent().getSerializableExtra("team1");
@@ -71,15 +150,19 @@ public class MainActivity extends AppCompatActivity {
             team3 = (List<Personnage>) getIntent().getSerializableExtra("team3");
             team4 = (List<Personnage>) getIntent().getSerializableExtra("team4");
             team5 = (List<Personnage>) getIntent().getSerializableExtra("team5");
-            team6 = (List<Personnage>) getIntent().getSerializableExtra("team6");
-            team7 = (List<Personnage>) getIntent().getSerializableExtra("team7");
-            team8 = (List<Personnage>) getIntent().getSerializableExtra("team8");
             teamally = (List<Personnage>) getIntent().getSerializableExtra("teamAlly");
             teamennemy = (List<Personnage>) getIntent().getSerializableExtra("teamEnnemy");
         }
+        textannonce.setText("Round "+roundnumber);
+        textannonce.startAnimation(annoncetext);
+
         action_state = 0;
         turnnumber = 1;
         turntype= "allie";
+        deathanimation = new int[5];
+        for(int i = 0;i<=4;i++) {
+            deathanimation[i] = 1;
+        }
         ProgressBar atk_healthbar1 = findViewById(R.id.healthbar_1);
         ProgressBar atk_healthbar2 = findViewById(R.id.healthbar_2);
         ProgressBar atk_healthbar3 = findViewById(R.id.healthbar_3);
@@ -90,29 +173,28 @@ public class MainActivity extends AppCompatActivity {
         ProgressBar def_heahlthbar4 = findViewById(R.id.healthbar_8);
         attaquant1 = teamally.get(0);
         attaquant1.setHealthbar(atk_healthbar1);
-        attaquant1.actifskill[0] = listskills.get(26);
+        attaquant1.name = "attaquant1";
         attaquant2 = teamally.get(1);
         attaquant2.setHealthbar(atk_healthbar2);
+        attaquant2.name = "attaquant2";
         attaquant3 = teamally.get(2);
         attaquant3.setHealthbar(atk_healthbar3);
+        attaquant3.name = "attaquant3";
         attaquant4 = teamally.get(3);
         attaquant4.setHealthbar(atk_healthbar4);
+        attaquant4.name = "attaquant4";
         defenseur1 = teamennemy.get(0);
-        defenseur1.maxhealth = 1;
-        defenseur1.health = 1;
         defenseur1.setHealthbar(def_heahlthbar1);
+        defenseur1.name = "defenseur1";
         defenseur2 = teamennemy.get(1);
-        defenseur2.maxhealth = 1;
-        defenseur2.health = 1;
         defenseur2.setHealthbar(def_heahlthbar2);
+        defenseur2.name = "defenseur2";
         defenseur3 = teamennemy.get(2);
-        defenseur3.maxhealth = 1;
-        defenseur3.health = 1;
         defenseur3.setHealthbar(def_heahlthbar3);
+        defenseur3.name = "defenseur3";
         defenseur4 = teamennemy.get(3);
-        defenseur4.maxhealth = 1;
-        defenseur4.health = 1;
         defenseur4.setHealthbar(def_heahlthbar4);
+        defenseur4.name = "defenseur4";
         ImageView visuperso1 = findViewById(R.id.attaquant1);
         ImageView visuperso2 = findViewById(R.id.attaquant2);
         ImageView visuperso3 = findViewById(R.id.attaquant3);
@@ -144,20 +226,6 @@ public class MainActivity extends AppCompatActivity {
                 action.setVisibility(View.VISIBLE);
             }
         }
-
-        ViewGroup skillbar = findViewById(R.id.skillsbar);
-
-
-        // citron.skill1.useSkill(citron, citron);
-        // mael.skill1.useSkill(mael, citron);
-
-        // attaquant = mael;
-        // cible = citron;
-        // competence = attaquant.skills.get(0);
-
-        // competence.useSkill(attaquant, cible);
-        // attaquant.displayskill(actif1, actif2, actif3, actif4);
-
     }
     public void setattaquant(View view){
         int nombre = Integer.parseInt((String) view.getTag());
@@ -188,10 +256,14 @@ public class MainActivity extends AppCompatActivity {
             attaquant1.displayskill(actif1, actif2, actif3, actif4);
             for(int i=1;i<=4;i++){
                 if(attaquant.actifskill[i-1] != null) {
+                    String curraction = "coutskillbar"+i;
+                    int resID = getResources().getIdentifier(curraction, "id", getPackageName());
+                    LinearLayout barcout = findViewById(resID);
+                    barcout.setVisibility(View.VISIBLE);
                     for (int r = 1; r <= attaquant.actifskill[i - 1].cost; r++) {
                         String curr_cout = "coutskill" + i + r;
                         Log.d("curr_cout", curr_cout);
-                        int resID = getResources().getIdentifier(curr_cout, "id", getPackageName());
+                        resID = getResources().getIdentifier(curr_cout, "id", getPackageName());
                         ImageView cout = findViewById(resID);
                         cout.setVisibility(View.VISIBLE);
                     }
@@ -204,10 +276,14 @@ public class MainActivity extends AppCompatActivity {
             attaquant2.displayskill(actif1, actif2, actif3, actif4);
             for(int i=1;i<=4;i++){
                 if(attaquant.actifskill[i-1] != null) {
+                    String curraction = "coutskillbar"+i;
+                    int resID = getResources().getIdentifier(curraction, "id", getPackageName());
+                    LinearLayout barcout = findViewById(resID);
+                    barcout.setVisibility(View.VISIBLE);
                     for (int r = 1; r <= attaquant.actifskill[i - 1].cost; r++) {
                         String curr_cout = "coutskill" + i + r;
                         Log.d("curr_cout", curr_cout);
-                        int resID = getResources().getIdentifier(curr_cout, "id", getPackageName());
+                        resID = getResources().getIdentifier(curr_cout, "id", getPackageName());
                         ImageView cout = findViewById(resID);
                         cout.setVisibility(View.VISIBLE);
                     }
@@ -220,10 +296,14 @@ public class MainActivity extends AppCompatActivity {
             attaquant3.displayskill(actif1, actif2, actif3, actif4);
             for(int i=1;i<=4;i++){
                 if(attaquant.actifskill[i-1] != null) {
+                    String curraction = "coutskillbar"+i;
+                    int resID = getResources().getIdentifier(curraction, "id", getPackageName());
+                    LinearLayout barcout = findViewById(resID);
+                    barcout.setVisibility(View.VISIBLE);
                     for (int r = 1; r <= attaquant.actifskill[i - 1].cost; r++) {
                         String curr_cout = "coutskill" + i + r;
                         Log.d("curr_cout", curr_cout);
-                        int resID = getResources().getIdentifier(curr_cout, "id", getPackageName());
+                        resID = getResources().getIdentifier(curr_cout, "id", getPackageName());
                         ImageView cout = findViewById(resID);
                         cout.setVisibility(View.VISIBLE);
                     }
@@ -236,10 +316,14 @@ public class MainActivity extends AppCompatActivity {
             attaquant4.displayskill(actif1, actif2, actif3, actif4);
             for(int i=1;i<=4;i++){
                 if(attaquant.actifskill[i-1] != null) {
+                    String curraction = "coutskillbar"+i;
+                    int resID = getResources().getIdentifier(curraction, "id", getPackageName());
+                    LinearLayout barcout = findViewById(resID);
+                    barcout.setVisibility(View.VISIBLE);
                     for (int r = 1; r <= attaquant.actifskill[i - 1].cost; r++) {
                         String curr_cout = "coutskill" + i + r;
                         Log.d("curr_cout", curr_cout);
-                        int resID = getResources().getIdentifier(curr_cout, "id", getPackageName());
+                        resID = getResources().getIdentifier(curr_cout, "id", getPackageName());
                         ImageView cout = findViewById(resID);
                         cout.setVisibility(View.VISIBLE);
                     }
@@ -304,9 +388,8 @@ public class MainActivity extends AppCompatActivity {
         }
         activefinal(view);
     }
-    public void setCible(View view){
+    public void setCible(View view) throws InterruptedException {
         int nombre = Integer.parseInt((String) view.getTag());
-        resetcible(view);
         ImageView selector1 = findViewById(R.id.SelectCible1);
         ImageView selector2 = findViewById(R.id.SelectCible2);
         ImageView selector3 = findViewById(R.id.SelectCible3);
@@ -315,46 +398,71 @@ public class MainActivity extends AppCompatActivity {
         ImageView selector6 = findViewById(R.id.SelectCible6);
         ImageView selector7 = findViewById(R.id.SelectCible7);
         ImageView selector8 = findViewById(R.id.SelectCible8);
-        if (action_state == 2 || action_state == 3){
-            if(competence.cibletype.equals("allie")){
-                if (nombre == 1){
-                    selector1.setVisibility(view.VISIBLE);
-                    cible = attaquant1;
+            resetcible(view);
+            if (action_state == 2 || action_state == 3){
+                if(competence.cibletype.equals("allie")){
+                    if (nombre == 1){
+                        selector1.setVisibility(view.VISIBLE);
+                        if(cible == attaquant1){
+                            Action(view);
+                        }
+                        cible = attaquant1;
+                    }
+                    if (nombre == 2){
+                        selector2.setVisibility(view.VISIBLE);
+                        if(cible == attaquant2){
+                            Action(view);
+                        }
+                        cible = attaquant2;
+                    }
+                    if (nombre == 3){
+                        selector3.setVisibility(view.VISIBLE);
+                        if(cible == attaquant3){
+                            Action(view);
+                        }
+                        cible = attaquant3;
+                    }
+                    if (nombre == 4){
+                        selector4.setVisibility(view.VISIBLE);
+                        if(cible == attaquant4){
+                            Action(view);
+                        }
+                        cible = attaquant4;
+                    }
                 }
-                if (nombre == 2){
-                    selector2.setVisibility(view.VISIBLE);
-                    cible = attaquant2;
-                }
-                if (nombre == 3){
-                    selector3.setVisibility(view.VISIBLE);
-                    cible = attaquant3;
-                }
-                if (nombre == 4){
-                    selector4.setVisibility(view.VISIBLE);
-                    cible = attaquant4;
+                if(competence.cibletype.equals("ennemi")){
+                    if (nombre == 5){
+                        selector5.setVisibility(view.VISIBLE);
+                        if(cible == defenseur1){
+                            Action(view);
+                        }
+                        cible = defenseur1;
+                    }
+                    if (nombre == 6){
+                        selector6.setVisibility(view.VISIBLE);
+                        if(cible == defenseur2){
+                            Action(view);
+                        }
+                        cible = defenseur2;
+                    }
+                    if (nombre == 7){
+                        selector7.setVisibility(view.VISIBLE);
+                        if(cible == defenseur3){
+                            Action(view);
+                        }
+                        cible = defenseur3;
+                    }
+                    if (nombre == 8){
+                        selector8.setVisibility(view.VISIBLE);
+                        if(cible == defenseur4){
+                            Action(view);
+                        }
+                        cible = defenseur4;
+                    }
                 }
             }
-            if(competence.cibletype.equals("ennemi")){
-                if (nombre == 5){
-                    selector5.setVisibility(view.VISIBLE);
-                    cible = defenseur1;
-                }
-                if (nombre == 6){
-                    selector6.setVisibility(view.VISIBLE);
-                    cible = defenseur2;
-                }
-                if (nombre == 7){
-                    selector7.setVisibility(view.VISIBLE);
-                    cible = defenseur3;
-                }
-                if (nombre == 8){
-                    selector8.setVisibility(view.VISIBLE);
-                    cible = defenseur4;
-                }
-            }
-        }
-        action_state = 3;
-        activefinal(view);
+            action_state = 3;
+            activefinal(view);
     }
     public void resetcible(View view){
         ImageView selector1 = findViewById(R.id.SelectCible1);
@@ -462,9 +570,13 @@ public class MainActivity extends AppCompatActivity {
             attaquant.actions = attaquant.actions - competence.cost;
             if(competence.cibletype.equals("teamennemi")){
                 NumberAction = competence.useSkill(attaquant, defenseur1);
+                AnimationNumber();
                 NumberAction = competence.useSkill(attaquant, defenseur2);
+                AnimationNumber();
                 NumberAction = competence.useSkill(attaquant, defenseur3);
+                AnimationNumber();
                 NumberAction = competence.useSkill(attaquant, defenseur4);
+                AnimationNumber();
                 String curr_attaquant = "attaquant"+attaquant.position;
                 int resID = getResources().getIdentifier(curr_attaquant, "id", getPackageName());
                 ImageView attaquant_visuel= findViewById(resID);
@@ -472,10 +584,11 @@ public class MainActivity extends AppCompatActivity {
                     String curr_cible = "skindef" + i;
                     int resID2 = getResources().getIdentifier(curr_cible, "id", getPackageName());
                     ImageView cible_visuel = findViewById(resID2);
-                    AnimationNumber();
                     if (competence.type.equals("attack")) {
                         attaquant_visuel.startAnimation(lefttorightattack);
-                        cible_visuel.startAnimation(blinking);
+                        if(!NumberAction.equals("miss")){
+                            cible_visuel.startAnimation(blinking);
+                        }
                     }
                     if (competence.type.equals("buff")) {
 
@@ -487,16 +600,18 @@ public class MainActivity extends AppCompatActivity {
             }
             else{
                 NumberAction = competence.useSkill(attaquant, cible);
-                String curr_attaquant = "attaquant"+attaquant.position;
-                int resID = getResources().getIdentifier(curr_attaquant, "id", getPackageName());
-                ImageView attaquant_visuel= findViewById(resID);
-                String curr_cible = "skindef"+cible.position;
-                int resID2 = getResources().getIdentifier(curr_cible, "id", getPackageName());
-                ImageView cible_visuel = findViewById(resID2);
                 AnimationNumber();
                 if(competence.type.equals("attack")){
+                    String curr_attaquant = "attaquant"+attaquant.position;
+                    int resID = getResources().getIdentifier(curr_attaquant, "id", getPackageName());
+                    ImageView attaquant_visuel= findViewById(resID);
+                    String curr_cible = "skindef"+cible.position;
+                    int resID2 = getResources().getIdentifier(curr_cible, "id", getPackageName());
+                    ImageView cible_visuel = findViewById(resID2);
                     attaquant_visuel.startAnimation(lefttorightattack);
-                    cible_visuel.startAnimation(blinking);
+                    if(!NumberAction.equals("miss")){
+                        cible_visuel.startAnimation(blinking);
+                    }
                 }
                 if(competence.type.equals("buff")){
 
@@ -506,8 +621,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
             updateActionBar();
-            resetAction(view);
-            resetActionSkill();
         }
         if (cible.health <= 0){
                 String curr_character = "skindef"+cible.position;
@@ -532,47 +645,86 @@ public class MainActivity extends AppCompatActivity {
             defeat();
         }
         if(turntype.equals("allie")) {
+            final TextView textannonce = findViewById(R.id.annonce_text);
+            textannonce.setText("Tour ennemi !");
+            textannonce.startAnimation(annoncetext);
             defenseur1.actions = defenseur1.maxaction;
             defenseur2.actions = defenseur2.maxaction;
             defenseur3.actions = defenseur3.maxaction;
             defenseur4.actions = defenseur4.maxaction;
-            for (Skill skill : defenseur1.skills) {
+            for(Iterator<Skill> Listskill = defenseur1.skills.iterator(); Listskill.hasNext();) {
+                Skill skill = Listskill.next();
                 if (skill.temporary == true) {
                     skill.dure = skill.dure - 1;
                     if (skill.dure <= 0) {
-                        skill.value = -(skill.value);
-                        defenseur1.buff(skill);
-                        defenseur1.skills.remove(skill);
+                        Log.d("testtemporaireennemi",skill.name);
+                        if (!skill.cibletype.equals("ripost")) {
+                            if(skill.value < 0){
+                                skill.value = Math.abs(skill.value);
+                            }
+                            else{
+                                skill.value = -(skill.value);
+                            }
+                            defenseur1.buff(skill);
+                        }
+                        Listskill.remove();
                     }
                 }
             }
-            for (Skill skill : defenseur2.skills) {
+            for(Iterator<Skill> Listskill = defenseur2.skills.iterator(); Listskill.hasNext();) {
+                Skill skill = Listskill.next();
                 if (skill.temporary == true) {
                     skill.dure = skill.dure - 1;
                     if (skill.dure <= 0) {
-                        skill.value = -(skill.value);
-                        defenseur2.buff(skill);
-                        defenseur2.skills.remove(skill);
+                        Log.d("testtemporaireennemi",skill.name);
+                        if (!skill.cibletype.equals("ripost")) {
+                            if(skill.value < 0){
+                                skill.value = Math.abs(skill.value);
+                            }
+                            else{
+                                skill.value = -(skill.value);
+                            }
+                            defenseur2.buff(skill);
+                        }
+                        Listskill.remove();
                     }
                 }
             }
-            for (Skill skill : defenseur3.skills) {
+            for(Iterator<Skill> Listskill = defenseur3.skills.iterator(); Listskill.hasNext();) {
+                Skill skill = Listskill.next();
                 if (skill.temporary == true) {
                     skill.dure = skill.dure - 1;
                     if (skill.dure <= 0) {
-                        skill.value = -(skill.value);
-                        defenseur3.buff(skill);
-                        defenseur3.skills.remove(skill);
+                        Log.d("testtemporaireennemi",skill.name);
+                        if (!skill.cibletype.equals("ripost")) {
+                            if(skill.value < 0){
+                                skill.value = Math.abs(skill.value);
+                            }
+                            else{
+                                skill.value = -(skill.value);
+                            }
+                            defenseur3.buff(skill);
+                        }
+                        Listskill.remove();
                     }
                 }
             }
-            for (Skill skill : defenseur4.skills) {
+            for(Iterator<Skill> Listskill = defenseur4.skills.iterator(); Listskill.hasNext();) {
+                Skill skill = Listskill.next();
                 if (skill.temporary == true) {
                     skill.dure = skill.dure - 1;
                     if (skill.dure <= 0) {
-                        skill.value = -(skill.value);
-                        defenseur3.buff(skill);
-                        defenseur4.skills.remove(skill);
+                        Log.d("testtemporaireennemi",skill.name);
+                        if (!skill.cibletype.equals("ripost")) {
+                            if(skill.value < 0){
+                                skill.value = Math.abs(skill.value);
+                            }
+                            else{
+                                skill.value = -(skill.value);
+                            }
+                            defenseur4.buff(skill);
+                        }
+                        Listskill.remove();
                     }
                 }
             }
@@ -592,17 +744,20 @@ public class MainActivity extends AppCompatActivity {
             listdefenseur[1] = defenseur2;
             listdefenseur[2] = defenseur3;
             listdefenseur[3] = defenseur4;
-
-            defenseur1.AIRandom(listattaquant, listdefenseur);
-            defenseur2.AIRandom(listattaquant, listdefenseur);
-            defenseur3.AIRandom(listattaquant, listdefenseur);
-            defenseur4.AIRandom(listattaquant, listdefenseur);
-            for (Personnage character : listattaquant) {
-                if (character.health <= 0) {
+            IaFightPhase = 0;
+            IaFight(IaFightPhase);
+            //defenseur1.AIRandom(listattaquant, listdefenseur);
+            //defenseur2.AIRandom(listattaquant, listdefenseur);
+            //defenseur3.AIRandom(listattaquant, listdefenseur);
+            //defenseur4.AIRandom(listattaquant, listdefenseur);
+            for (Personnage character : listattaquant) { //boucle pour faire disparaitre les alliés qui sont morts
+                if (character.health <= 0 && deathanimation[character.position] == 1) {
                     String curr_character = "attaquant" + character.position;
                     int resID = getResources().getIdentifier(curr_character, "id", getPackageName());
                     ImageView personnage = findViewById(resID);
+                    personnage.startAnimation(fadeout);
                     personnage.setVisibility(View.GONE);
+                    deathanimation[character.position] = 0;
                     for(int i=1;i<=5;i++){
                         String curr_action = "action" + character.position + i;
                         Log.d("curr action",curr_action);
@@ -612,99 +767,147 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
             }
-
+            updateAllActionBar();
             turntype = "ennemi";
             turnnumber++;
             endTurn(view);
         }
         if(turntype.equals("ennemi")){
-            attaquant1.actions = attaquant1.maxaction;
+            attaquant1.actions = attaquant1.maxaction; //remettre a fond les points d'action
             attaquant2.actions = attaquant2.maxaction;
             attaquant3.actions = attaquant3.maxaction;
             attaquant4.actions = attaquant4.maxaction;
-            for(Skill skill : attaquant1.skills){
-                if(skill.temporary == true){
-                    skill.dure = skill.dure - 1;
-                    if(skill.dure <= 0){
-                        skill.value = -(skill.value);
-                        attaquant1.buff(skill);
-                        attaquant1.skills.remove(skill);
+            for(Iterator<Skill> Listskill = attaquant1.skills.iterator(); Listskill.hasNext();) { //parcourt les skills du personnage
+                Skill skill = Listskill.next();
+                if (skill.temporary == true) { //parcourt tout les effets temporaires
+                    if(skill.stat.equals("actions")){
+                        attaquant1.actions = attaquant1.maxaction + skill.value; //spécifique au skill qui retire des points d'action commes les stuns
+                    }
+                    skill.dure = skill.dure - 1; //retire un de duré a toutes les skills temporares
+                    if (skill.dure <= 0) { //si la duré a atteint zéro
+                        if (!skill.cibletype.equals("ripost")) {
+                            if(skill.value < 0){ //on inverse la valeur du buff et on l'applique pour l'annuler
+                                skill.value = Math.abs(skill.value);
+                            }
+                            else{
+                                skill.value = -(skill.value);
+                            }
+                            if(!skill.stat.equals("actions")){
+                                attaquant1.buff(skill);
+                            }
+                        }
+                        Listskill.remove();
                     }
                 }
             }
-            for(Skill skill : attaquant2.skills){
-                if(skill.temporary == true){
+            for(Iterator<Skill> Listskill = attaquant2.skills.iterator(); Listskill.hasNext();) {
+                Skill skill = Listskill.next();
+                if (skill.temporary == true) {
+                    if(skill.stat.equals("actions")){
+                        attaquant2.actions = attaquant2.maxaction + skill.value;
+                    }
                     skill.dure = skill.dure - 1;
-                    if(skill.dure <= 0){
-                        skill.value = -(skill.value);
-                        attaquant2.buff(skill);
-                        attaquant2.skills.remove(skill);
+                    if (skill.dure <= 0) {
+                        if (!skill.cibletype.equals("ripost")) {
+                            if(skill.value < 0){
+                                skill.value = Math.abs(skill.value);
+                            }
+                            else{
+                                skill.value = -(skill.value);
+                            }
+                            if(!skill.stat.equals("actions")){
+                                attaquant2.buff(skill);
+                            }
+                        }
+                        Listskill.remove();
                     }
                 }
             }
-            for(Skill skill : attaquant3.skills){
-                if(skill.temporary == true){
+            for(Iterator<Skill> Listskill = attaquant3.skills.iterator(); Listskill.hasNext();) {
+                Skill skill = Listskill.next();
+                if (skill.temporary == true) {
+                    if(skill.stat.equals("actions")){
+                        attaquant3.actions = attaquant3.maxaction + skill.value;
+                    }
                     skill.dure = skill.dure - 1;
-                    if(skill.dure <= 0){
-                        skill.value = -(skill.value);
-                        attaquant3.buff(skill);
-                        attaquant3.skills.remove(skill);
+                    if (skill.dure <= 0) {
+                        if (!skill.cibletype.equals("ripost")) {
+                            if(skill.value < 0){
+                                skill.value = Math.abs(skill.value);
+                            }
+                            else{
+                                skill.value = -(skill.value);
+                            }
+                            if(!skill.stat.equals("actions")){
+                                attaquant3.buff(skill);
+                            }
+                        }
+                        Listskill.remove();
                     }
                 }
             }
-            for(Skill skill : attaquant4.skills){
-                if(skill.temporary == true){
+            for(Iterator<Skill> Listskill = attaquant4.skills.iterator(); Listskill.hasNext();) {
+                Skill skill = Listskill.next();
+                if (skill.temporary == true) {
+                    if(skill.stat.equals("actions")){
+                        attaquant4.actions = attaquant4.maxaction + skill.value;
+                    }
                     skill.dure = skill.dure - 1;
-                    if(skill.dure <= 0){
-                        skill.value = -(skill.value);
-                        attaquant4.buff(skill);
-                        attaquant4.skills.remove(skill);
+                    if (skill.dure <= 0) {
+                        if (!skill.cibletype.equals("ripost")) {
+                            if(skill.value < 0){
+                                skill.value = Math.abs(skill.value);
+                            }
+                            else{
+                                skill.value = -(skill.value);
+                            }
+                            if(!skill.stat.equals("actions")){
+                                attaquant4.buff(skill);
+                            }
+                        }
+                        Listskill.remove();
                     }
                 }
             }
+            updateAllActionBar();
             turntype = "allie";
         }
-        Log.d("tour nombre", String.valueOf(turnnumber));
         updateAllActionBar();
+        resetAction(view);
+        Log.d("tour nombre", String.valueOf(turnnumber));
     }
     public void victory(){
-        for(Skill skill : attaquant1.skills){
-            if(skill.temporary == true){
-                    skill.value = -(skill.value);
-                    attaquant1.buff(skill);
-                    attaquant1.skills.remove(skill);
+        for(Iterator<Skill> Listskill = attaquant1.skills.iterator(); Listskill.hasNext();) {
+            Skill skill = Listskill.next();
+            if (skill.temporary == true) {
+                    Listskill.remove();
             }
         }
-        for(Skill skill : attaquant2.skills){
-            if(skill.temporary == true){
-                    skill.value = -(skill.value);
-                    attaquant2.buff(skill);
-                    attaquant2.skills.remove(skill);
+        for(Iterator<Skill> Listskill = attaquant2.skills.iterator(); Listskill.hasNext();) {
+            Skill skill = Listskill.next();
+            if (skill.temporary == true) {
+                Listskill.remove();
             }
         }
-        for(Skill skill : attaquant3.skills){
-            if(skill.temporary == true){
-                    skill.value = -(skill.value);
-                    attaquant3.buff(skill);
-                    attaquant3.skills.remove(skill);
+        for(Iterator<Skill> Listskill = attaquant3.skills.iterator(); Listskill.hasNext();) {
+            Skill skill = Listskill.next();
+            if (skill.temporary == true) {
+                Listskill.remove();
             }
         }
-        for(Skill skill : attaquant4.skills){
-            if(skill.temporary == true){
-                    skill.value = -(skill.value);
-                    attaquant4.buff(skill);
-                    attaquant4.skills.remove(skill);
+        for(Iterator<Skill> Listskill = attaquant4.skills.iterator(); Listskill.hasNext();) {
+            Skill skill = Listskill.next();
+            if (skill.temporary == true) {
+                Listskill.remove();
             }
         }
         Intent gameActivity = new Intent(MainActivity.this, level_up.class);
+        gameActivity.putExtra("roundnumber",roundnumber);
         gameActivity.putExtra("team1", (Serializable) team1);
         gameActivity.putExtra("team2", (Serializable) team2);
         gameActivity.putExtra("team3", (Serializable) team3);
         gameActivity.putExtra("team4", (Serializable) team4);
         gameActivity.putExtra("team5", (Serializable) team5);
-        gameActivity.putExtra("team6", (Serializable) team6);
-        gameActivity.putExtra("team7", (Serializable) team7);
-        gameActivity.putExtra("team8", (Serializable) team8);
         gameActivity.putExtra("skills", (Serializable) listskills);
         gameActivity.putExtra("triptycs", (Serializable) listtriptycs);
         startActivity(gameActivity);
@@ -727,27 +930,65 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     public void updateAllActionBar(){
-        for(int r= 1;r<=4;r++){
-            for(int i = attaquant.maxaction; i> attaquant.actions;i--){
-                String curraction = "action"+r+i;
+            for(int i = attaquant1.maxaction; i> attaquant1.actions;i--){
+                String curraction = "action1"+i;
                 int resID = getResources().getIdentifier(curraction, "id", getPackageName());
                 ImageView action = findViewById(resID);
                 action.setImageResource(R.drawable.action_vide);
             }
-            for(int i = 1;i<=attaquant.actions;i++){
-                String curraction = "action"+r+i;
+            for(int i = 1;i<=attaquant1.actions;i++){
+                String curraction = "action1"+i;
                 int resID = getResources().getIdentifier(curraction, "id", getPackageName());
                 ImageView action = findViewById(resID);
                 action.setImageResource(R.drawable.action_pleine);
             }
+        for(int i = attaquant2.maxaction; i> attaquant2.actions;i--){
+            String curraction = "action2"+i;
+            int resID = getResources().getIdentifier(curraction, "id", getPackageName());
+            ImageView action = findViewById(resID);
+            action.setImageResource(R.drawable.action_vide);
+        }
+        for(int i = 1;i<=attaquant2.actions;i++){
+            String curraction = "action2"+i;
+            int resID = getResources().getIdentifier(curraction, "id", getPackageName());
+            ImageView action = findViewById(resID);
+            action.setImageResource(R.drawable.action_pleine);
+        }
+        for(int i = attaquant3.maxaction; i> attaquant3.actions;i--){
+            String curraction = "action3"+i;
+            int resID = getResources().getIdentifier(curraction, "id", getPackageName());
+            ImageView action = findViewById(resID);
+            action.setImageResource(R.drawable.action_vide);
+        }
+        for(int i = 1;i<=attaquant3.actions;i++){
+            String curraction = "action3"+i;
+            int resID = getResources().getIdentifier(curraction, "id", getPackageName());
+            ImageView action = findViewById(resID);
+            action.setImageResource(R.drawable.action_pleine);
+        }
+        for(int i = attaquant4.maxaction; i> attaquant4.actions;i--){
+            String curraction = "action4"+i;
+            int resID = getResources().getIdentifier(curraction, "id", getPackageName());
+            ImageView action = findViewById(resID);
+            action.setImageResource(R.drawable.action_vide);
+        }
+        for(int i = 1;i<=attaquant4.actions;i++){
+            String curraction = "action4"+i;
+            int resID = getResources().getIdentifier(curraction, "id", getPackageName());
+            ImageView action = findViewById(resID);
+            action.setImageResource(R.drawable.action_pleine);
         }
     }
     public void resetActionSkill(){
         for(int r= 1;r<=4;r++){
+            String curraction = "coutskillbar"+r;
+            int resID = getResources().getIdentifier(curraction, "id", getPackageName());
+            LinearLayout barcout = findViewById(resID);
+            barcout.setVisibility(View.GONE);
             for(int i= 1;i<=5;i++){
-                String curraction = "coutskill"+r+i;
-                int resID = getResources().getIdentifier(curraction, "id", getPackageName());
-                ImageView cout = findViewById(resID);
+                curraction = "coutskill"+r+i;
+                resID = getResources().getIdentifier(curraction, "id", getPackageName());
+               ImageView cout = findViewById(resID);
                 cout.setVisibility(View.GONE);
             }
         }
@@ -768,9 +1009,8 @@ public class MainActivity extends AppCompatActivity {
         attaquant.displayskill(actif1, actif2, actif3, actif4);
     }
     public void AnimationNumber(){
-        Log.d("numberaction",NumberAction+"");
         String curr_character = "";
-        if(cible.ennemy == true){
+        if(cible.ennemy == false){
             curr_character = "ZoneNumberAlly"+cible.position;
         }
         else{
@@ -781,12 +1021,21 @@ public class MainActivity extends AppCompatActivity {
         TextView textView = new TextView(MainActivity.this);
         textView.setGravity(Gravity.CENTER);
         if(competence.type.equals("attack")){
+            textView.setTextSize(18);
             textView.setTextColor(Color.RED);
+            textView.setText(NumberAction+"");
         }
-        else{
-            textView.setTextColor(Color.GREEN);
+        if(competence.type.equals("buff")){
+            textView.setTextSize(18);
+            if(attaquant.ennemy != cible.ennemy){
+                textView.setTextColor(Color.RED);
+                textView.setText("↓");
+            }
+            else{
+                textView.setTextColor(Color.GREEN);
+                textView.setText("↑");
+            }
         }
-        textView.setText(NumberAction+"");
         textView.setTextSize(18);
         zone_degats.addView(textView);
         textView.setTranslationY(80);
@@ -794,6 +1043,52 @@ public class MainActivity extends AppCompatActivity {
         textView.animate().translationX(0);
         textView.animate().translationY(0);
         textView.animate().alpha(0);
+    }
+    public void IaFight(int i) {
+        int alea;
+        Personnage listattaquant[] = new Personnage[4];
+        listattaquant[0] = attaquant1;
+        listattaquant[1] = attaquant2;
+        listattaquant[2] = attaquant3;
+        listattaquant[3] = attaquant4;
+
+        Personnage listdefenseur[] = new Personnage[4];
+        listdefenseur[0] = defenseur1;
+        listdefenseur[1] = defenseur2;
+        listdefenseur[2] = defenseur3;
+        listdefenseur[3] = defenseur4;
+        String curr_attaquant = "skindef"+attaquant.position;
+        int resID = getResources().getIdentifier(curr_attaquant, "id", getPackageName());
+        ImageView attaquant_visuel= findViewById(resID);
+        String curr_cible = "attaquant"+cible.position;
+        int resID2 = getResources().getIdentifier(curr_cible, "id", getPackageName());
+        ImageView cible_visuel = findViewById(resID2);
+        if(listdefenseur[i].health > 0){
+            attaquant = listdefenseur[i];
+            alea = new Random().nextInt(listdefenseur[i].actifskill.length-1);
+            competence = listdefenseur[i].actifskill[alea];
+            alea = new Random().nextInt(listattaquant.length);
+            if(competence.cibletype.equals("ennemi")){
+                cible = listattaquant[alea];
+            }
+            if(competence.cibletype.equals("luimeme")){
+                cible = listdefenseur[i];
+            }
+            if(competence.cibletype.equals("allie")){
+                cible = listdefenseur[alea];
+            }
+            NumberAction = competence.useSkill(listdefenseur[i], cible);
+            AnimationNumber();
+            if(competence.type.equals("attack") && deathanimation[cible.position] == 1){
+                attaquant_visuel.startAnimation(righttoleftattack);
+                if(!NumberAction.equals("miss")){
+                    cible_visuel.startAnimation(blinking);
+                }
+            }
+            else{
+                attaquant_visuel.startAnimation(shake);
+            }
+        }
     }
 }
 

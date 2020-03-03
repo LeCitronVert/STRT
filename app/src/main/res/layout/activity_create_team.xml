@@ -263,12 +263,15 @@
 
     <Button
         android:id="@+id/ButtonQuitt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="114dp"
+        android:layout_height="45dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
+        android:background="@drawable/button_background"
+        android:onClick="launchquit"
         android:text="Quitter"
+        android:textColor="#fff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -1432,10 +1435,12 @@
 
     <Button
         android:id="@+id/tournois_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="225dp"
+        android:layout_height="73dp"
+        android:background="@drawable/button_background"
         android:onClick="launchfight"
         android:text="Lancer le tournois !"
+        android:textColor="#fff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

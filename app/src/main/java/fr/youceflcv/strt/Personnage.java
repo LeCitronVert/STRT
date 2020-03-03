@@ -227,6 +227,14 @@ public class Personnage implements Parcelable, Serializable {
             this.attack = 50;
         }
     }
+    public void capmaxaction(){
+        if(this.maxaction > 5){
+            this.maxaction  = 5;
+        }
+        if(this.maxaction < 0){
+            this.maxaction = 0;
+        }
+    }
 
     public void heal(int value){
         this.health = this.health + value;
@@ -239,6 +247,9 @@ public class Personnage implements Parcelable, Serializable {
             this.skills.add(tempo_skill);
             if(tempo_skill.stat.equals("actions")){
                 this.actions =(int) this.actions + tempo_skill.value;
+            } else if(tempo_skill.stat.equals("maxaction")){
+                this.maxaction =(int) this.maxaction + tempo_skill.value;
+                this.capmaxaction();
             } else if(tempo_skill.stat.equals("attack")){
                 this.attack =(int) this.attack + tempo_skill.value;
                 this.capatk();

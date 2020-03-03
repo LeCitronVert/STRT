@@ -14,9 +14,12 @@
         android:layout_height="35dp"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
-        android:layout_marginBottom="152dp"
+        android:layout_marginBottom="160dp"
+        android:background="@drawable/button_background"
         android:onClick="Action"
         android:text="CONFIRMER"
+        android:textColor="#fff"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -26,90 +29,92 @@
         android:layout_height="35dp"
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
-        android:layout_marginBottom="152dp"
+        android:layout_marginBottom="160dp"
+        android:background="@drawable/button_background"
         android:onClick="resetAction"
         android:text="ANNULER"
+        android:textColor="#fff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <LinearLayout
-        android:id="@+id/skillsbar"
-        android:layout_width="380dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.444"
+    <ImageButton
+        android:id="@+id/actif1"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:onClick="setskill"
+        android:scaleType="centerInside"
+        android:tag="0"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/fond_text_skill"
+        app:layout_constraintEnd_toStartOf="@+id/actif2"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cancel"
-        app:layout_constraintVertical_bias="0.026">
+        app:srcCompat="@mipmap/ic_launcher" />
 
-        <ImageButton
-            android:id="@+id/actif1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@null"
-            android:onClick="setskill"
-            android:adjustViewBounds="true"
-            android:scaleType="centerInside"
-            android:tag="0"
-            android:visibility="gone"
-            app:srcCompat="@mipmap/ic_launcher" />
+    <ImageButton
+        android:id="@+id/actif2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:onClick="setskill"
+        android:scaleType="centerInside"
+        android:tag="1"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/fond_text_skill"
+        app:layout_constraintEnd_toStartOf="@+id/actif3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/actif1"
+        app:srcCompat="@mipmap/ic_launcher" />
 
-        <ImageButton
-            android:id="@+id/actif2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:adjustViewBounds="true"
-            android:background="@null"
-            android:onClick="setskill"
-            android:scaleType="centerInside"
-            android:tag="1"
-            android:visibility="gone"
-            app:srcCompat="@mipmap/ic_launcher" />
+    <ImageButton
+        android:id="@+id/actif3"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:onClick="setskill"
+        android:scaleType="centerInside"
+        android:tag="2"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/fond_text_skill"
+        app:layout_constraintEnd_toStartOf="@+id/actif4"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/actif2"
+        app:srcCompat="@mipmap/ic_launcher" />
 
-        <ImageButton
-            android:id="@+id/actif3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:adjustViewBounds="true"
-            android:background="@null"
-            android:onClick="setskill"
-            android:scaleType="centerInside"
-            android:tag="2"
-            android:visibility="gone"
-            app:srcCompat="@mipmap/ic_launcher" />
-
-        <ImageButton
-            android:id="@+id/actif4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:adjustViewBounds="true"
-            android:background="@null"
-            android:onClick="setskill"
-            android:scaleType="centerInside"
-            android:tag="3"
-            android:visibility="gone"
-            app:srcCompat="@mipmap/ic_launcher" />
-
-    </LinearLayout>
+    <ImageButton
+        android:id="@+id/actif4"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:onClick="setskill"
+        android:scaleType="centerInside"
+        android:tag="3"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/fond_text_skill"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/actif3"
+        app:srcCompat="@mipmap/ic_launcher" />
 
     <LinearLayout
         android:id="@+id/coutskillbar1"
         android:layout_width="20dp"
         android:layout_height="10dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginLeft="64dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
         android:layout_marginBottom="40dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="@+id/skillsbar"
-        app:layout_constraintStart_toStartOf="@+id/skillsbar">
+        app:layout_constraintBottom_toBottomOf="@+id/actif1"
+        app:layout_constraintStart_toStartOf="@+id/actif1">
 
         <ImageView
             android:id="@+id/coutskill11"
@@ -156,13 +161,13 @@
         android:id="@+id/coutskillbar2"
         android:layout_width="20dp"
         android:layout_height="10dp"
-        android:layout_marginStart="157dp"
-        android:layout_marginLeft="157dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
         android:layout_marginBottom="40dp"
         android:layout_weight="1"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="@+id/skillsbar"
-        app:layout_constraintStart_toStartOf="@+id/skillsbar">
+        app:layout_constraintBottom_toBottomOf="@+id/actif2"
+        app:layout_constraintStart_toStartOf="@+id/actif2">
 
         <ImageView
             android:id="@+id/coutskill21"
@@ -206,16 +211,17 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/coutskilbar3"
+        android:id="@+id/coutskillbar3"
         android:layout_width="20dp"
         android:layout_height="10dp"
-        android:layout_marginStart="250dp"
-        android:layout_marginLeft="250dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
         android:layout_marginBottom="40dp"
         android:layout_weight="1"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="@+id/skillsbar"
-        app:layout_constraintStart_toStartOf="@+id/skillsbar">
+        app:layout_constraintBottom_toBottomOf="@+id/actif3"
+        app:layout_constraintStart_toEndOf="@+id/coutskillbar2"
+        app:layout_constraintStart_toStartOf="@+id/actif3">
 
         <ImageView
             android:id="@+id/coutskill31"
@@ -259,16 +265,17 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/coutskilbar4"
+        android:id="@+id/coutskillbar4"
         android:layout_width="20dp"
         android:layout_height="10dp"
-        android:layout_marginStart="350dp"
-        android:layout_marginLeft="350dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
         android:layout_marginBottom="40dp"
         android:layout_weight="1"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="@+id/skillsbar"
-        app:layout_constraintStart_toStartOf="@+id/skillsbar">
+        app:layout_constraintBottom_toBottomOf="@+id/actif4"
+        app:layout_constraintStart_toEndOf="@+id/coutskillbar3"
+        app:layout_constraintStart_toStartOf="@+id/actif4">
 
         <ImageView
             android:id="@+id/coutskill41"
@@ -637,9 +644,8 @@
         android:layout_height="102dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.6"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/hub_bottom_middle" />
+        app:layout_constraintHorizontal_bias="0.695"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/title_skill"
@@ -647,6 +653,7 @@
         android:layout_height="30dp"
         android:layout_marginTop="16dp"
         android:gravity="center"
+        android:textColor="#fff"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -658,6 +665,7 @@
         android:layout_height="39dp"
         android:layout_marginBottom="16dp"
         android:gravity="center|center_vertical"
+        android:textColor="#fff"
         app:layout_constraintBottom_toBottomOf="@+id/fond_text_skill"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.523"
@@ -958,16 +966,21 @@
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="109dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:background="@drawable/button_background"
         android:onClick="endTurn"
         android:text="Fin du tour"
+        android:textColor="#fff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/ZoneNumberAlly1"
-        android:layout_width="29dp"
+        android:layout_width="40dp"
         android:layout_height="50dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
@@ -979,7 +992,7 @@
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/ZoneNumberAlly2"
-        android:layout_width="29dp"
+        android:layout_width="40dp"
         android:layout_height="50dp"
         android:layout_marginBottom="64dp"
         app:layout_constraintBottom_toBottomOf="@+id/attaquant2"
@@ -989,7 +1002,7 @@
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/ZoneNumberAlly3"
-        android:layout_width="29dp"
+        android:layout_width="40dp"
         android:layout_height="50dp"
         android:layout_marginBottom="64dp"
         app:layout_constraintBottom_toBottomOf="@+id/attaquant3"
@@ -999,7 +1012,7 @@
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/ZoneNumberAlly4"
-        android:layout_width="29dp"
+        android:layout_width="40dp"
         android:layout_height="50dp"
         android:layout_marginBottom="64dp"
         app:layout_constraintBottom_toBottomOf="@+id/attaquant4"
@@ -1009,7 +1022,7 @@
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/ZoneNumberEnnemy1"
-        android:layout_width="29dp"
+        android:layout_width="40dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
@@ -1021,7 +1034,7 @@
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/ZoneNumberEnnemy2"
-        android:layout_width="29dp"
+        android:layout_width="40dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
@@ -1033,7 +1046,7 @@
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/ZoneNumberEnnemy3"
-        android:layout_width="29dp"
+        android:layout_width="40dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
@@ -1045,7 +1058,7 @@
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/ZoneNumberEnnemy4"
-        android:layout_width="29dp"
+        android:layout_width="40dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
@@ -1054,5 +1067,26 @@
         app:layout_constraintStart_toStartOf="@+id/skindef4">
 
     </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.Group
+        android:id="@+id/group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/annonce_text"
+        android:layout_width="394dp"
+        android:layout_height="83dp"
+        android:layout_marginTop="200dp"
+        android:fontFamily="@font/blankaregular"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="TOUR ENNEMI"
+        android:textColor="#fff"
+        android:textSize="55sp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

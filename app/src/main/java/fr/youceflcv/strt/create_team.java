@@ -26,9 +26,7 @@ public class create_team extends AppCompatActivity {
     private List<Personnage> team3 = new ArrayList<Personnage>();
     private List<Personnage> team4 = new ArrayList<Personnage>();
     private List<Personnage> team5 = new ArrayList<Personnage>();
-    private List<Personnage> team6 = new ArrayList<Personnage>();
-    private List<Personnage> team7 = new ArrayList<Personnage>();
-    private List<Personnage> team8 = new ArrayList<Personnage>();
+    private int roundnumber;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +44,7 @@ public class create_team extends AppCompatActivity {
                 }
             }
         }
+        roundnumber = 1;
         for(int i = 1;i<=4;i++) {
             for (int r = 1;r<=6;r++){
                 String curr_layout = "layout" + i + r;
@@ -69,50 +68,29 @@ public class create_team extends AppCompatActivity {
             int randomweaponnumber = (int) (Math.random() * (listtriptycs.size() - 0));
             int randompowernumber = (int) (Math.random() * (listtriptycs.size() - 0));
             int randomclassesnumber = (int) (Math.random() * (listtriptycs.size() - 0));
-            Personnage curr_personnage = new Personnage(listname[randomnamenumber],listtriptycs.get(randomweaponnumber),listtriptycs.get(randompowernumber),listtriptycs.get(1),atk_healthbar1,false,i+1);
+            Personnage curr_personnage = new Personnage(listname[randomnamenumber],listtriptycs.get(randomweaponnumber),listtriptycs.get(randompowernumber),listtriptycs.get(1),atk_healthbar1,true,i+1);
             team2.add(curr_personnage);        }
         for(int i = 0;i<=3;i++){
             int randomnamenumber = (int) (Math.random() * ( listname.length - 0 ));
             int randomweaponnumber = (int) (Math.random() * (listtriptycs.size() - 0));
             int randompowernumber = (int) (Math.random() * (listtriptycs.size() - 0));
             int randomclassesnumber = (int) (Math.random() * (listtriptycs.size() - 0));
-            Personnage curr_personnage = new Personnage(listname[randomnamenumber],listtriptycs.get(randomweaponnumber),listtriptycs.get(randompowernumber),listtriptycs.get(1),atk_healthbar1,false,i+1);
+            Personnage curr_personnage = new Personnage(listname[randomnamenumber],listtriptycs.get(randomweaponnumber),listtriptycs.get(randompowernumber),listtriptycs.get(1),atk_healthbar1,true,i+1);
             team3.add(curr_personnage);        }
         for(int i = 0;i<=3;i++){
             int randomnamenumber = (int) (Math.random() * ( listname.length - 0 ));
             int randomweaponnumber = (int) (Math.random() * (listtriptycs.size() - 0));
             int randompowernumber = (int) (Math.random() * (listtriptycs.size() - 0));
             int randomclassesnumber = (int) (Math.random() * (listtriptycs.size() - 0));
-            Personnage curr_personnage = new Personnage(listname[randomnamenumber],listtriptycs.get(randomweaponnumber),listtriptycs.get(randompowernumber),listtriptycs.get(1),atk_healthbar1,false,i+1);
+            Personnage curr_personnage = new Personnage(listname[randomnamenumber],listtriptycs.get(randomweaponnumber),listtriptycs.get(randompowernumber),listtriptycs.get(1),atk_healthbar1,true,i+1);
             team4.add(curr_personnage);         }
         for(int i = 0;i<=3;i++){
             int randomnamenumber = (int) (Math.random() * ( listname.length - 0 ));
             int randomweaponnumber = (int) (Math.random() * (listtriptycs.size() - 0));
             int randompowernumber = (int) (Math.random() * (listtriptycs.size() - 0));
             int randomclassesnumber = (int) (Math.random() * (listtriptycs.size() - 0));
-            Personnage curr_personnage = new Personnage(listname[randomnamenumber],listtriptycs.get(randomweaponnumber),listtriptycs.get(randompowernumber),listtriptycs.get(1),atk_healthbar1,false,i+1);
+            Personnage curr_personnage = new Personnage(listname[randomnamenumber],listtriptycs.get(randomweaponnumber),listtriptycs.get(randompowernumber),listtriptycs.get(1),atk_healthbar1,true,i+1);
             team5.add(curr_personnage);         }
-        for(int i = 0;i<=3;i++){
-            int randomnamenumber = (int) (Math.random() * ( listname.length - 0 ));
-            int randomweaponnumber = (int) (Math.random() * (listtriptycs.size() - 0));
-            int randompowernumber = (int) (Math.random() * (listtriptycs.size() - 0));
-            int randomclassesnumber = (int) (Math.random() * (listtriptycs.size() - 0));
-            Personnage curr_personnage = new Personnage(listname[randomnamenumber],listtriptycs.get(randomweaponnumber),listtriptycs.get(randompowernumber),listtriptycs.get(1),atk_healthbar1,false,i+1);
-            team6.add(curr_personnage);         }
-        for(int i = 0;i<=3;i++){
-            int randomnamenumber = (int) (Math.random() * ( listname.length - 0 ));
-            int randomweaponnumber = (int) (Math.random() * (listtriptycs.size() - 0));
-            int randompowernumber = (int) (Math.random() * (listtriptycs.size() - 0));
-            int randomclassesnumber = (int) (Math.random() * (listtriptycs.size() - 0));
-            Personnage curr_personnage = new Personnage(listname[randomnamenumber],listtriptycs.get(randomweaponnumber),listtriptycs.get(randompowernumber),listtriptycs.get(1),atk_healthbar1,false,i+1);
-            team7.add(curr_personnage);         }
-        for(int i = 0;i<=3;i++){
-            int randomnamenumber = (int) (Math.random() * ( listname.length - 0 ));
-            int randomweaponnumber = (int) (Math.random() * (listtriptycs.size() - 0));
-            int randompowernumber = (int) (Math.random() * (listtriptycs.size() - 0));
-            int randomclassesnumber = (int) (Math.random() * (listtriptycs.size() - 0));
-            Personnage curr_personnage = new Personnage(listname[randomnamenumber],listtriptycs.get(randomweaponnumber),listtriptycs.get(randompowernumber),listtriptycs.get(1),atk_healthbar1,false,i+1);
-            team8.add(curr_personnage);         }
         TextView name1 =findViewById(R.id.NomPerso0);
         TextView name2 =findViewById(R.id.NomPerso1);
         TextView name3 =findViewById(R.id.NomPerso2);
@@ -307,34 +285,20 @@ public class create_team extends AppCompatActivity {
     }
     public void launchfight(View view){
         Intent gameActivity = new Intent(create_team.this, MainActivity.class);
+        gameActivity.putExtra("roundnumber",roundnumber);
         gameActivity.putExtra("team1", (Serializable) team1);
         gameActivity.putExtra("team2", (Serializable) team2);
         gameActivity.putExtra("team3", (Serializable) team3);
         gameActivity.putExtra("team4", (Serializable) team4);
         gameActivity.putExtra("team5", (Serializable) team5);
-        gameActivity.putExtra("team6", (Serializable) team6);
-        gameActivity.putExtra("team7", (Serializable) team7);
-        gameActivity.putExtra("team8", (Serializable) team8);
         gameActivity.putExtra("teamAlly", (Serializable) team1);
         gameActivity.putExtra("teamEnnemy", (Serializable) team2);
         gameActivity.putExtra("skills", (Serializable) listskills);
         gameActivity.putExtra("triptycs", (Serializable) listtriptycs);
         startActivity(gameActivity);
     }
-    public void launchteam(View view){
-        Intent gameActivity = new Intent(create_team.this, level_up.class);
-        gameActivity.putExtra("team1", (Serializable) team1);
-        gameActivity.putExtra("team2", (Serializable) team2);
-        gameActivity.putExtra("team3", (Serializable) team3);
-        gameActivity.putExtra("team4", (Serializable) team4);
-        gameActivity.putExtra("team5", (Serializable) team5);
-        gameActivity.putExtra("team6", (Serializable) team6);
-        gameActivity.putExtra("team7", (Serializable) team7);
-        gameActivity.putExtra("team8", (Serializable) team8);
-        gameActivity.putExtra("teamAlly", (Serializable) team1);
-        gameActivity.putExtra("teamEnnemy", (Serializable) team2);
-        gameActivity.putExtra("skills", (Serializable) listskills);
-        gameActivity.putExtra("triptycs", (Serializable) listtriptycs);
+    public void launchquit(View view){
+        Intent gameActivity = new Intent(create_team.this, MainMenuActivity.class);
         startActivity(gameActivity);
     }
 }
